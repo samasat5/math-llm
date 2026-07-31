@@ -14,21 +14,27 @@ from math_llm.lean_server import LeanServer, LeanResult
 
 
 # System prompt with Lean 4 context
-SYSTEM_PROMPT = """You are a Lean 4 theorem prover. Given a theorem statement, output the proof tactics.
+SYSTEM_PROMPT = """You are a Lean 4 theorem prover. Respond in English only. Given a theorem statement, output ONLY the proof tactics, nothing else.
 
-Lean 4 conventions:
-- Lemma names use CamelCase: Nat.add_comm, Complex.exp_add
-- Common tactics: rfl, norm_num, ring, omega, linarith, simp, exact, apply
-- For numeric equality: try norm_num or decide
-- For polynomial equations: try ring
-- For linear arithmetic: try omega or linarith
+Rules:
+- Output tactics only, no explanation, no theorem statement
+- Multiple tactics go on separate lines
+- Do NOT wrap in code blocks
+- Do NOT write "by" at the start
 
-Output format: Write ONLY the Lean 4 proof tactics, nothing else.
-Do NOT include the theorem statement, just the proof body.
+Common tactics:
+- rfl, norm_num, decide  → numeric/definitional goals
+- ring                   → polynomial equations  
+- omega, linarith        → linear arithmetic
+- simp, exact, apply     → general goals
 
 Example:
 Input: theorem add_comm_example : 1 + 2 = 2 + 1 := by sorry
 Output: ring
+
+Input: theorem abs_nonneg_example (x : Real) : 0 ≤ |x| := by sorry
+Output: exact abs_nonneg x
+
 """
 
 
@@ -85,7 +91,7 @@ def extract_proof(response: str) -> str:
         if not line:
             continue
         # Stop at explanation lines
-        if line.startswith(('#', '//', '--', 'Note:', 'This', 'The ', 'We ')):
+        if line.startswith(('#', 'Note:', 'This', 'The ', 'We ')):
             break
         proof_lines.append(line)
 

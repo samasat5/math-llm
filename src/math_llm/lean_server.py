@@ -6,7 +6,7 @@ Provides fast Lean 4 code execution using persistent REPL process.
 
 import json
 import os
-import select
+import queue
 import subprocess
 import tempfile
 import threading
@@ -68,15 +68,17 @@ class LeanServer:
         project_path: Optional[str] = None,
         timeout: int = 30,
     ):
-        self.project_path = Path(
-            project_path or os.environ.get("MATHLIB_PROJECT_PATH", "")
-        ) if (project_path or os.environ.get("MATHLIB_PROJECT_PATH")) else None
+        _default = str(Path.home() / ".lean-bench")
+        _resolved = project_path or os.environ.get("MATHLIB_PROJECT_PATH", _default)
+        self.project_path = Path(_resolved)
         self.timeout = timeout
         self._process: Optional[subprocess.Popen] = None
         self._temp_dir: Optional[tempfile.TemporaryDirectory] = None
         self._lock = threading.Lock()
         self._imports_loaded = False
         self._env_id = 0
+        self._line_queue: queue.Queue = queue.Queue()
+        self._reader_thread: Optional[threading.Thread] = None
 
     def start(self) -> None:
         """Start the REPL process and preload imports."""
@@ -145,7 +147,7 @@ lean_lib «LeanBench»
             print(f"[lean] Cache warning: {e}")
 
     def _start_process(self) -> None:
-        """Start the REPL subprocess."""
+        """Start the REPL subprocess and a background line-reader thread."""
         print(f"[lean] Starting REPL in {self.project_path}...")
         self._process = subprocess.Popen(
             ["lake", "exe", "repl"],
@@ -158,12 +160,25 @@ lean_lib «LeanBench»
         )
         self._imports_loaded = False
 
+        # Drain and restart the queue
+        self._line_queue = queue.Queue()
+        self._reader_thread = threading.Thread(
+            target=self._read_stdout_loop, daemon=True
+        )
+        self._reader_thread.start()
+
         time.sleep(0.5)
         if self._process.poll() is not None:
             stderr = self._process.stderr.read() if self._process.stderr else ""
             print(f"[lean] REPL failed to start: {stderr[:500]}")
         else:
             print("[lean] REPL process started")
+
+    def _read_stdout_loop(self) -> None:
+        """Background thread: read stdout lines into the queue."""
+        for line in self._process.stdout:
+            self._line_queue.put(line)
+        self._line_queue.put(None)  # sentinel: process ended
 
     def _send_command(self, cmd: dict, timeout: Optional[int] = None) -> dict:
         """Send JSON command to REPL and get response."""
@@ -178,31 +193,28 @@ lean_lib «LeanBench»
                 self._process.stdin.write(cmd_json + "\n\n")
                 self._process.stdin.flush()
 
-                start_time = time.time()
+                deadline = time.time() + timeout
+                buffer = ""
                 while True:
-                    elapsed = time.time() - start_time
-                    remaining = timeout - elapsed
+                    remaining = deadline - time.time()
                     if remaining <= 0:
                         return {"error": f"Timeout after {timeout}s"}
 
-                    ready, _, _ = select.select([self._process.stdout], [], [], remaining)
-                    if not ready:
-                        if self._process.poll() is not None:
-                            stderr = self._process.stderr.read() if self._process.stderr else ""
-                            return {"error": f"REPL died: {stderr[:500]}"}
+                    try:
+                        line = self._line_queue.get(timeout=remaining)
+                    except queue.Empty:
                         return {"error": f"Timeout after {timeout}s"}
 
-                    response_line = self._process.stdout.readline()
-                    if not response_line:
-                        stderr = self._process.stderr.read() if self._process.stderr else ""
-                        return {"error": f"No response. stderr: {stderr[:500]}"}
+                    if line is None:
+                        return {"error": "REPL process ended"}
 
-                    response_line = response_line.strip()
-                    if not response_line:
+                    # Skip non-JSON preamble lines (lake warnings etc.)
+                    if not buffer and not line.lstrip().startswith("{"):
                         continue
 
+                    buffer += line
                     try:
-                        return json.loads(response_line)
+                        return json.loads(buffer)
                     except json.JSONDecodeError:
                         continue
 
@@ -253,18 +265,20 @@ lean_lib «LeanBench»
         if proof.startswith("by "):
             proof = proof[3:].strip()
 
+        indented = "\n".join("  " + line for line in proof.splitlines())
         if ":= by" in statement:
             code = statement.replace("sorry", proof)
         elif ":= sorry" in statement:
-            code = statement.replace(":= sorry", f":= by\n  {proof}")
+            code = statement.replace(":= sorry", f":= by\n{indented}")
         else:
-            code = f"{statement} := by\n  {proof}"
+            code = f"{statement} := by\n{indented}"
 
         # Send to REPL
         cmd = {"cmd": code, "env": self._env_id}
         resp = self._send_command(cmd)
 
         execution_time = time.time() - start_time
+        # import pdb; pdb.set_trace()
         return self._parse_response(resp, execution_time)
 
     def _parse_response(self, resp: dict, execution_time: float) -> LeanResult:
@@ -306,6 +320,43 @@ lean_lib «LeanBench»
         return self.check_proof(statement, tactic)
 
     def __enter__(self) -> "LeanServer":
+        self.start()
+        return self
+
+    def __exit__(self, *_) -> None:
+        self.stop()
+
+
+class LeanServerPool:
+    """Pool of N parallel LeanServer instances for concurrent proof checking."""
+
+    def __init__(self, n_workers: int = 4, **server_kwargs):
+        self._servers = [LeanServer(**server_kwargs) for _ in range(n_workers)]
+        self._queue: queue.Queue = queue.Queue()
+
+    def start(self) -> None:
+        print(f"[lean] Starting pool of {len(self._servers)} servers...")
+        threads = [threading.Thread(target=s.start) for s in self._servers]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        for s in self._servers:
+            self._queue.put(s)
+        print(f"[lean] Pool ready")
+
+    def stop(self) -> None:
+        for s in self._servers:
+            s.stop()
+
+    def check_proof(self, statement: str, proof: str) -> LeanResult:
+        server = self._queue.get()
+        try:
+            return server.check_proof(statement, proof)
+        finally:
+            self._queue.put(server)
+
+    def __enter__(self) -> "LeanServerPool":
         self.start()
         return self
 

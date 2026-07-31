@@ -91,9 +91,9 @@ class Trajectory:
         }
 
 
-class ToolAgent:
+class ActorAgent:
     """
-    Tool-based iterative proof agent.
+    Tool-based iterative proof actor agent.
 
     Generates tactics step by step, using Lean server feedback
     to guide the proof search.

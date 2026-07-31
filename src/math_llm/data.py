@@ -9,7 +9,63 @@ Supports:
 import re
 from dataclasses import dataclass, field
 from typing import Optional
+from datasets import load_dataset
+import json
+from pathlib import Path
 
+def build_trainable_set(raw_problems, lean_pool, out_path, target=3000):
+    """Keep statements that compile on the CURRENT mathlib (v4.25.2), cache to disk."""
+    out = Path(out_path)
+    if out.exists():
+        ids = set(json.loads(out.read_text()))
+        return [p for p in raw_problems if p.id in ids]
+
+    kept = []
+    for p in raw_problems:
+        # check the STATEMENT compiles — append a `sorry` body so an empty proof
+        # still elaborates; we're testing the signature, not proving it.
+        ok = lean_pool.check_compiles(p.statement + "\n  sorry")   # adapt to your API
+        if ok:
+            kept.append(p)
+        if len(kept) >= target:
+            break
+
+    out.write_text(json.dumps([p.id for p in kept]))
+    print(f"[filter] kept {len(kept)} compilable statements (scanned {raw_problems.index(p)+1})")
+    return kept
+
+@dataclass
+class NuminaProblem:
+    id: str
+    statement: str                  
+    answer: Optional[str] = None
+    informal: Optional[str] = None  
+
+_NUMINA_CACHE = None
+
+def load_numina(n_samples=None, test=False, test_frac=0.1, seed=0):
+    global _NUMINA_CACHE
+    if _NUMINA_CACHE is None:
+        ds = load_dataset("AI-MO/NuminaMath-LEAN", split="train")
+        ds = ds.filter(lambda r: r["formal_statement"]) 
+        ds = ds.shuffle(seed=seed)
+        n_test = int(len(ds) * test_frac)
+        _NUMINA_CACHE = {
+            "test":  ds.select(range(n_test)),
+            "train": ds.select(range(n_test, len(ds))),
+        }
+    split = _NUMINA_CACHE["test" if test else "train"]
+    if n_samples is not None:
+        split = split.select(range(min(n_samples, len(split))))
+    return [
+        NuminaProblem(
+            id=r.get("uuid") or str(i),
+            statement=r["formal_statement"],
+            answer=r.get("answer"),
+            informal=r.get("problem"),
+        )
+        for i, r in enumerate(split)
+    ]
 
 @dataclass
 class Problem:
@@ -40,9 +96,25 @@ class Problem:
 
 DUMMY_PROBLEMS = [
     Problem(
+        id="dummy/power_one",
+        statement="theorem power_one (n : Nat) : n ^ 1 = n := by sorry",
+        description="Prove that any number to the power of 1 is itself",
+        proof="ring",
+        source="dummy",
+        difficulty="easy",
+    ),
+    Problem(
         id="dummy/add_one",
         statement="theorem add_one : 1 + 1 = 2 := by sorry",
         description="Prove that 1 + 1 = 2",
+        proof="norm_num",
+        source="dummy",
+        difficulty="trivial",
+    ),
+    Problem(
+        id="dummy/nat_pos",
+        statement="theorem nat_pos : 0 < 1 := by sorry",
+        description="Prove that 0 is less than 1",
         proof="norm_num",
         source="dummy",
         difficulty="trivial",
@@ -52,14 +124,6 @@ DUMMY_PROBLEMS = [
         statement="theorem mul_comm_example : 2 * 3 = 3 * 2 := by sorry",
         description="Prove multiplication is commutative for 2 and 3",
         proof="ring",
-        source="dummy",
-        difficulty="trivial",
-    ),
-    Problem(
-        id="dummy/nat_pos",
-        statement="theorem nat_pos : 0 < 1 := by sorry",
-        description="Prove that 0 is less than 1",
-        proof="norm_num",
         source="dummy",
         difficulty="trivial",
     ),
@@ -104,14 +168,6 @@ DUMMY_PROBLEMS = [
         difficulty="trivial",
     ),
     Problem(
-        id="dummy/power_one",
-        statement="theorem power_one (n : Nat) : n ^ 1 = n := by sorry",
-        description="Prove that any number to the power of 1 is itself",
-        proof="ring",
-        source="dummy",
-        difficulty="easy",
-    ),
-    Problem(
         id="dummy/iff_intro",
         statement="theorem iff_intro : (1 = 1) ↔ (2 = 2) := by sorry",
         description="Prove a simple iff statement",
@@ -142,7 +198,7 @@ def normalize_lean4_syntax(statement: str) -> str:
     return statement
 
 
-def load_minif2f(n_samples: Optional[int] = None) -> list[Problem]:
+def load_minif2f(n_samples: Optional[int] = None, test: bool = False) -> list[Problem]:
     """
     Load MiniF2F Lean 4 problems from HuggingFace.
 
@@ -203,7 +259,7 @@ def load_minif2f(n_samples: Optional[int] = None) -> list[Problem]:
     print(f"[data] Loaded {len(problems)} problems from minif2f-lean4")
 
     if n_samples is not None:
-        problems = problems[:n_samples]
+        problems = problems[-n_samples:] if test else problems[:n_samples]
 
     return problems
 

@@ -21,7 +21,7 @@ from typing import Optional
 from math_llm.data import load_data, list_datasets
 from math_llm.lean_server import LeanServer
 from math_llm.agents import SimpleAgent, ToolAgent
-
+from training.congif import TrainingConfig
 
 def run_benchmark(
     dataset: str,
@@ -76,6 +76,12 @@ def run_benchmark(
             lean_server=lean_server,
             gpu=gpu,
         )
+    # elif agent_type == "grpo":
+    #     agent = Policy(
+    #         model_name=TrainingConfig.model_name,
+    #         lean_server=lean_server,
+    #         gpu=gpu,
+    #     )
     else:
         raise ValueError(f"Unknown agent type: {agent_type}. Use 'simple' or 'tool'")
 
@@ -190,7 +196,7 @@ Examples:
     )
     parser.add_argument(
         "agent",
-        choices=["simple", "tool"],
+        choices=["simple", "tool", "grpo"],
         help="Agent type to use",
     )
     parser.add_argument(
