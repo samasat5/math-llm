@@ -198,12 +198,54 @@ def normalize_lean4_syntax(statement: str) -> str:
     return statement
 
 
-def load_minif2f(n_samples: Optional[int] = None, test: bool = False) -> list[Problem]:
+# Difficulty tier from miniF2F problem-id prefix. The dataset itself carries
+# no difficulty field, so this buckets by provenance: tier 0 is the
+# non-competition problems lifted from the MATH dataset (mathd_*/algebra_*/
+# numbertheory_*/induction_*), which are consistently easier than the
+# AMC/AIME/IMO competition problems in tiers 1-3.
+TIER_PREFIXES = [
+    ("mathd", 0),
+    ("algebra", 0),
+    ("numbertheory", 0),
+    ("induction", 0),
+    ("amc", 1),
+    ("aimeII", 2),
+    ("aimeI", 2),
+    ("aime", 2),
+    ("imosl", 3),
+    ("imo", 3),
+]
+
+
+def compute_tier(problem_name: str) -> int:
+    """Heuristic difficulty tier (0=easiest) from a miniF2F problem-id prefix."""
+    name = problem_name.lower()
+    for prefix, tier in TIER_PREFIXES:
+        if name.startswith(prefix):
+            return tier
+    return 1  # unrecognized prefix -> assume competition-level, not easiest
+
+
+def load_minif2f(
+    n_samples: Optional[int] = None,
+    test: bool = False,
+    tier: Optional[int] = None,
+    easiest_first: bool = False,
+) -> list[Problem]:
     """
     Load MiniF2F Lean 4 problems from HuggingFace.
 
     Dataset: cat-searcher/minif2f-lean4
     ~488 competition math problems (IMO, AMC, AIME, etc.)
+
+    Args:
+        n_samples: Optional limit on number of problems returned.
+        test: If True, take the last n_samples instead of the first.
+        tier: If set, keep only problems in this difficulty tier
+            (0=MATH/mathd, 1=AMC, 2=AIME, 3=IMO). See compute_tier().
+        easiest_first: If True, sort by (tier, informal statement length)
+            ascending before slicing, so the shortest/easiest problems in
+            scope come first.
     """
     try:
         from datasets import load_dataset
@@ -224,7 +266,7 @@ def load_minif2f(n_samples: Optional[int] = None, test: bool = False) -> list[Pr
     problems = []
     for item in all_items:
         statement = item.get("formal_statement", item.get("statement", ""))
-        name = item.get("name", item.get("problem_name", ""))
+        name = item.get("id", item.get("name", item.get("problem_name", "")))
 
         # Normalize syntax
         statement = normalize_lean4_syntax(statement)
@@ -252,11 +294,19 @@ def load_minif2f(n_samples: Optional[int] = None, test: bool = False) -> list[Pr
                 "tags": tags,
                 "competition": item.get("source", ""),
                 "year": item.get("year"),
+                "tier": compute_tier(name),
             },
         )
         problems.append(problem)
 
     print(f"[data] Loaded {len(problems)} problems from minif2f-lean4")
+
+    if tier is not None:
+        problems = [p for p in problems if p.metadata.get("tier") == tier]
+        print(f"[data] Filtered to tier {tier}: {len(problems)} problems")
+
+    if easiest_first:
+        problems.sort(key=lambda p: (p.metadata.get("tier", 0), len(p.description or "")))
 
     if n_samples is not None:
         problems = problems[-n_samples:] if test else problems[:n_samples]
@@ -274,13 +324,20 @@ DATASETS = {
 }
 
 
-def load_data(dataset: str, n_samples: Optional[int] = None) -> list[Problem]:
+def load_data(
+    dataset: str,
+    n_samples: Optional[int] = None,
+    offset: int = 0,
+    tier: Optional[int] = None,
+) -> list[Problem]:
     """
     Load a benchmark dataset.
 
     Args:
         dataset: Dataset name ('dummy' or 'minif2f-lean4')
         n_samples: Optional limit on number of samples (None = all)
+        offset: Number of problems to skip from the start (default 0)
+        tier: Difficulty tier filter (minif2f-lean4 only). See compute_tier().
 
     Returns:
         List of Problem objects
@@ -289,7 +346,19 @@ def load_data(dataset: str, n_samples: Optional[int] = None) -> list[Problem]:
         available = ", ".join(DATASETS.keys())
         raise ValueError(f"Unknown dataset: {dataset}. Available: {available}")
 
-    return DATASETS[dataset](n_samples)
+    if tier is not None:
+        if dataset != "minif2f-lean4":
+            raise ValueError(f"--tier is only supported for minif2f-lean4, not '{dataset}'")
+        loader = lambda n: load_minif2f(n, tier=tier, easiest_first=True)
+    else:
+        loader = DATASETS[dataset]
+
+    if offset:
+        problems = loader(None)
+        end = offset + n_samples if n_samples is not None else None
+        return problems[offset:end]
+
+    return loader(n_samples)
 
 
 def list_datasets() -> list[str]:

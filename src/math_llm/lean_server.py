@@ -23,7 +23,7 @@ REPL_VERSION = "v4.25.0"
 LEAN_TOOLCHAIN = "leanprover/lean4:v4.25.2"
 # =============================================================================
 
-DEFAULT_IMPORTS = "import Mathlib\nimport Aesop"
+DEFAULT_IMPORTS = "import Mathlib\nimport Aesop\nopen BigOperators Real Nat Topology"
 
 
 def _get_lean_env() -> dict:
@@ -226,8 +226,8 @@ lean_lib «LeanBench»
         if self._imports_loaded:
             return True
 
-        print("[lean] Loading Mathlib imports (first time, ~60s)...")
-        resp = self._send_command({"cmd": DEFAULT_IMPORTS}, timeout=120)
+        print("[lean] Loading Mathlib imports (first time, ~60s, up to a few minutes on slow/NFS disks)...")
+        resp = self._send_command({"cmd": DEFAULT_IMPORTS}, timeout=600)
 
         if "error" in resp:
             print(f"[lean] Failed to load imports: {resp['error']}")

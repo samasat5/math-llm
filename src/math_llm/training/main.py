@@ -39,7 +39,7 @@ if __name__ == "__main__":
     test_problems = load_numina(n_samples=100, test=True)
 
     config = TrainingConfig(
-        model_name="outputs/sft_20260615_135832/model",
+        model_name="Qwen/Qwen2.5-14B-Instruct",
         group_size=10,
         temperature=0.9,
         batch_size=1,

@@ -5,11 +5,10 @@ from datasets import load_dataset
 @dataclass
 class NuminaProblem:
     id: str
-    statement: str                  
+    statement: str
+    proof: Optional[str] = None       # formal_ground_truth
     answer: Optional[str] = None
-    informal: Optional[str] = None  
-    
-    
+    informal: Optional[str] = None
     
     
 

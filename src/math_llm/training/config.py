@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class TrainingConfig:
     # Model
-    model_name: str = "Qwen/Qwen2.5-7B-Instruct"
+    model_name: str = "Qwen/Qwen2.5-14B-Instruct"
 
     # Rollout
     group_size: int = 8          # G completions per problem

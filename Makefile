@@ -8,7 +8,7 @@
 #   make test           - Quick test (both agents on dummy data)
 #   make <dataset>-<agent>  - Run specific benchmark
 
-.PHONY: help install lean-server test dummy-simple dummy-tool minif2f-simple minif2f-tool clean
+.PHONY: help install lean-server test dummy-simple dummy-tool minif2f-simple minif2f-tool minif2f-tier0-simple clean
 
 help:
 	@echo "Lean Proof Benchmark"
@@ -24,6 +24,7 @@ help:
 	@echo "  make dummy-tool     - Tool agent on dummy data"
 	@echo "  make minif2f-simple - Simple agent on minif2f-lean4 (10 samples)"
 	@echo "  make minif2f-tool   - Tool agent on minif2f-lean4 (10 samples)"
+	@echo "  make minif2f-tier0-simple - Simple agent, pass@10, 100 easiest tier-0 problems"
 
 # =============================================================================
 # Setup
@@ -61,6 +62,10 @@ minif2f-simple:
 
 minif2f-tool:
 	poetry run python -m math_llm minif2f-lean4 tool --samples 10
+
+# Simple agent, pass@10, over the 100 easiest tier-0 (MATH-sourced) problems
+minif2f-tier0-simple:
+	./scripts/run_tier0_simple.sh
 
 # =============================================================================
 # Cleanup

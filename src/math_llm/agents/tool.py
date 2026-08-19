@@ -101,17 +101,19 @@ class ToolAgent:
 
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen2.5-7B-Instruct",
+        model_name: str = "Goedel-LM/Goedel-Prover-V2-8B",
         lean_server: Optional[LeanServer] = None,
         max_steps: int = 20,
         max_new_tokens: int = 200,
         temperature: float = 0.5,
         gpu: Optional[int] = None,
         log_path: Optional[str] = None,
+        k: int = 1,
     ):
         self.model_name = model_name
         self.lean_server = lean_server
         self.max_steps = max_steps
+        self.k = k
         self.max_new_tokens = max_new_tokens
         self.temperature = temperature
         self.gpu = gpu
@@ -237,25 +239,8 @@ class ToolAgent:
         # print(f"[agent] Extracted tactic: {tactic[:50]}..." if len(tactic) > 50 else f"[agent] Extracted tactic: {tactic}")
         return tactic
 
-    def solve(self, problem: Problem) -> AgentResult:
-        """
-        Solve a problem iteratively with Lean tool feedback.
-
-        Args:
-            problem: The problem to solve
-
-        Returns:
-            AgentResult with trajectory information
-        """
-        if self.lean_server is None:
-            return AgentResult(
-                problem_id=problem.id,
-                success=False,
-                complete=False,
-                proof="",
-                error="ToolAgent requires a LeanServer",
-            )
-
+    def _solve_once(self, problem: Problem, attempt_num: int = 0) -> Trajectory:
+        """Run a single iterative proof-search trajectory."""
         trajectory = Trajectory(problem_id=problem.id)
         accumulated_proof = []
 
@@ -265,17 +250,8 @@ class ToolAgent:
 
             # print(f"\n=== Step {step_num + 1} prompt ===\n###{prompt}###")
 
-            # Generate next tactic
-            try:
-                tactic = self._generate_tactic(prompt)
-            except Exception as e:
-                return AgentResult(
-                    problem_id=problem.id,
-                    success=trajectory.success,
-                    complete=trajectory.complete,
-                    proof=trajectory.final_proof,
-                    error=f"Generation failed at step {step_num + 1}: {e}",
-                )
+            # Generate next tactic (exceptions propagate to caller)
+            tactic = self._generate_tactic(prompt)
 
             # print(f"\n=== Step {step_num + 1} tactic ===\n$$${tactic}$$$")
 
@@ -283,6 +259,7 @@ class ToolAgent:
                 with open(self.log_path, "a") as f:
                     f.write(json.dumps({
                         "problem_id": problem.id,
+                        "attempt": attempt_num + 1,
                         "step": step_num + 1,
                         "prompt": prompt,
                         "tactic": tactic,
@@ -294,18 +271,8 @@ class ToolAgent:
             # Build accumulated proof
             test_proof = "\n".join(accumulated_proof + [tactic])
 
-            # Verify with Lean
-            try:
-                result = self.lean_server.check_proof(problem.statement, test_proof)
-                # import pdb; pdb.set_trace()
-            except Exception as e:
-                return AgentResult(
-                    problem_id=problem.id,
-                    success=trajectory.success,
-                    complete=trajectory.complete,
-                    proof=trajectory.final_proof,
-                    error=f"Lean check failed at step {step_num + 1}: {e}",
-                )
+            # Verify with Lean (exceptions propagate to caller)
+            result = self.lean_server.check_proof(problem.statement, test_proof)
 
             trajectory.add_step(tactic, result)
 
@@ -315,13 +282,74 @@ class ToolAgent:
 
             # Check for completion
             if result.complete:
-                print(f"[agent] Proof complete in {step_num + 1} steps!")
+                print(f"[agent] Proof complete in {step_num + 1} steps (attempt {attempt_num + 1})!")
                 break
+
+        return trajectory
+
+    def solve(self, problem: Problem) -> AgentResult:
+        """
+        Solve a problem iteratively with Lean tool feedback.
+
+        Runs up to k independent trajectories (pass@k): stops early on the
+        first complete proof, otherwise reports the aggregated outcome.
+
+        Args:
+            problem: The problem to solve
+
+        Returns:
+            AgentResult with trajectory information aggregated across attempts
+        """
+        if self.lean_server is None:
+            return AgentResult(
+                problem_id=problem.id,
+                success=False,
+                complete=False,
+                proof="",
+                error="ToolAgent requires a LeanServer",
+                num_attempts=0,
+                attempts=[],
+            )
+
+        attempts = []
+        best_trajectory = None
+
+        for attempt_num in range(self.k):
+            try:
+                trajectory = self._solve_once(problem, attempt_num)
+            except Exception as e:
+                attempts.append({
+                    "proof": "", "success": False, "complete": False,
+                    "num_steps": 0, "error": str(e),
+                })
+                continue
+
+            attempts.append({
+                "proof": trajectory.final_proof,
+                "success": trajectory.success,
+                "complete": trajectory.complete,
+                "num_steps": len(trajectory.steps),
+                "error": None,
+            })
+
+            if best_trajectory is None:
+                best_trajectory = trajectory
+            if trajectory.complete:
+                best_trajectory = trajectory
+                break
+
+        any_success = any(a["success"] for a in attempts)
+        any_complete = any(a["complete"] for a in attempts)
 
         return AgentResult(
             problem_id=problem.id,
-            success=trajectory.success,
-            complete=trajectory.complete,
-            proof=trajectory.final_proof,
-            lean_result=trajectory.steps[-1].result if trajectory.steps else None,
+            success=any_success,
+            complete=any_complete,
+            proof=best_trajectory.final_proof if best_trajectory else "",
+            lean_result=(
+                best_trajectory.steps[-1].result
+                if best_trajectory and best_trajectory.steps else None
+            ),
+            num_attempts=len(attempts),
+            attempts=attempts,
         )
