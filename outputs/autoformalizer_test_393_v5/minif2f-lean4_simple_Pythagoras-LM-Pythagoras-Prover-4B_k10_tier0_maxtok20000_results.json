@@ -1,0 +1,213 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "k": 10,
+  "tier": 0,
+  "max_new_tokens": 20000,
+  "status": "complete",
+  "timestamp": "2026-08-19T18:21:24.976483",
+  "total_problems_planned": 1,
+  "total_problems": 1,
+  "successful": 1,
+  "complete": 0,
+  "success_rate": 1.0,
+  "complete_rate": 0.0,
+  "pass@10": 0.0,
+  "total_time": 4038.2970168590546,
+  "avg_time_per_problem": 4037.7136194705963,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_393",
+      "success": true,
+      "complete": false,
+      "proof": "sorry",
+      "time": 4037.7136194705963,
+      "error": null,
+      "attempts": [
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by\n  rw [\u2190 h1]\n  simp [Equiv.apply_symm_apply]\nexact h2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  4 * 2 ^ 3 + 1\nin the target expression\n  \u03c3.invFun (\u03c3.toFun 2) = 2\n\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh1 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\n\u22a2 \u03c3.invFun (\u03c3.toFun 2) = 2",
+            "Type mismatch\n  h2\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "apply \u03c3.rightInverse",
+          "success": false,
+          "complete": false,
+          "error": [
+            "Invalid field `rightInverse`: The environment does not contain `Equiv.rightInverse`\n  \u03c3\nhas type\n  \u211d \u2243 \u211d"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 33 := by norm_num [h\u2080]\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by rw [\u2190Equiv.apply_inverse_self_right h]\nexact h2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "Unknown constant `Equiv.apply_inverse_self_right`",
+            "Type mismatch\n  h2\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by simp [h0, h1]\nexact h2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "Unknown identifier `h0`",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh1 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\n\u22a2 \u03c3.symm (4 * 2 ^ 3 + 1) = 2",
+            "Type mismatch\n  h2\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "(h\u2080 : \u2200 x, \u03c3.1 x = 4 * x^3 + 1) :\n  \u03c3.2 33 = 2 :=\nby\n  have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num [h\u2080]\n  simp [h1]",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unknown tactic",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\nhave h\u2082 : \u03c3.2 (\u03c3.1 2) = 2 := by simp [h\u2081, h\u2080]\nexact h\u2082",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh\u2081 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\n\u22a2 \u03c3.symm (4 * 2 ^ 3 + 1) = 2",
+            "Type mismatch\n  h\u2082\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\n  simp [h1]\n  exact sigma.inv_eq_of_surj h0 2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh1 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\n\u22a2 \u03c3.invFun 33 = 2",
+            "unexpected identifier; expected command"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num [h\u2080]\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by\n  apply sigma_symm_apply_self\n  exact h1\nexact h2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "Unknown identifier `sigma_symm_apply_self`",
+            "No goals to be solved",
+            "Type mismatch\n  h2\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by simp [Equiv.inv_apply]\nhave h3 : \u03c3.1 2 = 33 := by rw [h1]\nhave h4 : \u03c3.2 33 = 2 := by rw [h2, h3]\nexact h4",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh1 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\nh2 : \u03c3.invFun (\u03c3.toFun 2) = 2\n\u22a2 4 * 2 ^ 3 + 1 = 33",
+            "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  \u03c3.invFun (\u03c3.toFun 2)\nin the target expression\n  \u03c3.invFun 33 = 2\n\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\nh1 : \u03c3.toFun 2 = 4 * 2 ^ 3 + 1\nh2 : \u03c3.invFun (\u03c3.toFun 2) = 2\nh3 : \u03c3.toFun 2 = 33\n\u22a2 \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "have h1 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\nhave h2 : \u03c3.2 (\u03c3.1 2) = 2 := by\n  apply sigma_inv_apply\n  exact h1\nexact h2",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3 2 = 33",
+            "Unknown identifier `sigma_inv_apply`",
+            "No goals to be solved",
+            "Type mismatch\n  h2\nhas type\n  \u03c3.invFun (\u03c3.toFun 2) = 2\nbut is expected to have type\n  \u03c3.invFun 33 = 2"
+          ],
+          "source": "autoformalizer"
+        },
+        {
+          "proof": "sorry",
+          "success": true,
+          "complete": false,
+          "error": null,
+          "source": "prover"
+        },
+        {
+          "proof": "theorem mathd_algebra_393\n  (\u03c3 : Equiv \u211d \u211d)\n  (h\u2080 : \u2200 x, \u03c3.1 x = 4 * x^3 + 1) :\n  \u03c3.2 33 = 2 :=\nby\n  have h\u2081 : \u03c3.1 2 = 4 * 2^3 + 1 := by norm_num\n  have h\u2082 : \u03c3.2 (\u03c3.1 2) = 2 := by\n    apply Equiv.apply_symm_apply\n    exact h\u2080 2\n  exact h\u2082",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'theorem'; expected '{' or tactic",
+            "unsolved goals\n\u03c3 : \u211d \u2243 \u211d\nh\u2080 : \u2200 (x : \u211d), \u03c3.toFun x = 4 * x ^ 3 + 1\n\u22a2 \u03c3.invFun 33 = 2",
+            "`mathd_algebra_393` has already been declared"
+          ],
+          "source": "autoformalizer"
+        }
+      ]
+    }
+  ]
+}

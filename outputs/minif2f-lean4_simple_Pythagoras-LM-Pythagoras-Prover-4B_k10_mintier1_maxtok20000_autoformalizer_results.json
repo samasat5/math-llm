@@ -1,0 +1,39 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "k": 10,
+  "tier": null,
+  "min_tier": 1,
+  "max_new_tokens": 20000,
+  "status": "in_progress",
+  "timestamp": "2026-08-20T11:58:49.825061",
+  "total_problems_planned": 160,
+  "total_problems": 1,
+  "successful": 1,
+  "complete": 1,
+  "success_rate": 1.0,
+  "complete_rate": 1.0,
+  "pass@10": 1.0,
+  "total_time": 175.38936972618103,
+  "avg_time_per_problem": 175.38928031921387,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/amc12a_2011_p18",
+      "success": true,
+      "complete": true,
+      "proof": "have h\u2081 : abs x \u2264 1 := by\n  have h\u2081\u2081 : abs (x + y) + abs (x - y) \u2265 2 * abs x := by\n    -- Use the triangle inequality to show that |x + y| + |x - y| \u2265 2|x|\n    cases' le_total 0 (x + y) with h h <;>\n      cases' le_total 0 (x - y) with h' h' <;>\n        cases' le_total 0 x with h'' h'' <;>\n          simp_all [abs_of_nonneg, abs_of_nonpos, abs_of_neg, le_of_lt] <;>\n            nlinarith\n  -- Since |x + y| + |x - y| = 2, we have 2|x| \u2264 2\n  linarith\n\nhave h\u2082 : x^2 + y^2 \u2264 2 := by\n  have h\u2082\u2081 : (abs (x + y) + abs (x - y))^2 = 4 := by\n    rw [h\u2080]\n    <;> norm_num\n  have h\u2082\u2082 : (abs (x + y) + abs (x - y))^2 = (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) := by\n    have h\u2082\u2082\u2081 : 0 \u2264 abs (x + y) := abs_nonneg (x + y)\n    have h\u2082\u2082\u2082 : 0 \u2264 abs (x - y) := abs_nonneg (x - y)\n    have h\u2082\u2082\u2083 : 0 \u2264 abs (x + y) * abs (x - y) := by positivity\n    calc\n      (abs (x + y) + abs (x - y))^2 = (abs (x + y))^2 + (abs (x - y))^2 + 2 * (abs (x + y) * abs (x - y)) := by\n        ring_nf\n        <;> nlinarith\n      _ = (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) := by\n        have h\u2082\u2082\u2084 : (abs (x + y))^2 = (x + y)^2 := by\n          rw [sq_abs]\n          <;> nlinarith\n        have h\u2082\u2082\u2085 : (abs (x - y))^2 = (x - y)^2 := by\n          rw [sq_abs]\n          <;> nlinarith\n        rw [h\u2082\u2082\u2084, h\u2082\u2082\u2085]\n        <;> ring_nf\n        <;> nlinarith\n  have h\u2082\u2083 : (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) = 4 := by\n    linarith\n  have h\u2082\u2084 : (x + y)^2 + (x - y)^2 = 2 * (x^2 + y^2) := by\n    ring_nf\n    <;> nlinarith\n  have h\u2082\u2085 : 2 * (x^2 + y^2) + 2 * (abs (x + y) * abs (x - y)) = 4 := by\n    linarith\n  have h\u2082\u2086 : 2 * (x^2 + y^2) \u2264 4 := by\n    have h\u2082\u2086\u2081 : 0 \u2264 abs (x + y) * abs (x - y) := by positivity\n    linarith\n  linarith\n\nhave h\u2083 : x \u2265 -1 := by\n  have h\u2083\u2081 : abs x \u2264 1 := h\u2081\n  have h\u2083\u2082 : -1 \u2264 x := by\n    linarith [abs_le.mp h\u2083\u2081]\n  linarith\n\nhave h\u2084 : x^2 - 6 * x + y^2 \u2264 8 := by\n  have h\u2084\u2081 : x^2 - 6 * x + y^2 \u2264 2 - 6 * x := by\n    nlinarith [h\u2082]\n  have h\u2084\u2082 : 2 - 6 * x \u2264 8 := by\n    nlinarith [h\u2083]\n  linarith\n\nexact h\u2084",
+      "time": 175.38928031921387,
+      "error": null,
+      "attempts": [
+        {
+          "proof": "have h\u2081 : abs x \u2264 1 := by\n  have h\u2081\u2081 : abs (x + y) + abs (x - y) \u2265 2 * abs x := by\n    -- Use the triangle inequality to show that |x + y| + |x - y| \u2265 2|x|\n    cases' le_total 0 (x + y) with h h <;>\n      cases' le_total 0 (x - y) with h' h' <;>\n        cases' le_total 0 x with h'' h'' <;>\n          simp_all [abs_of_nonneg, abs_of_nonpos, abs_of_neg, le_of_lt] <;>\n            nlinarith\n  -- Since |x + y| + |x - y| = 2, we have 2|x| \u2264 2\n  linarith\n\nhave h\u2082 : x^2 + y^2 \u2264 2 := by\n  have h\u2082\u2081 : (abs (x + y) + abs (x - y))^2 = 4 := by\n    rw [h\u2080]\n    <;> norm_num\n  have h\u2082\u2082 : (abs (x + y) + abs (x - y))^2 = (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) := by\n    have h\u2082\u2082\u2081 : 0 \u2264 abs (x + y) := abs_nonneg (x + y)\n    have h\u2082\u2082\u2082 : 0 \u2264 abs (x - y) := abs_nonneg (x - y)\n    have h\u2082\u2082\u2083 : 0 \u2264 abs (x + y) * abs (x - y) := by positivity\n    calc\n      (abs (x + y) + abs (x - y))^2 = (abs (x + y))^2 + (abs (x - y))^2 + 2 * (abs (x + y) * abs (x - y)) := by\n        ring_nf\n        <;> nlinarith\n      _ = (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) := by\n        have h\u2082\u2082\u2084 : (abs (x + y))^2 = (x + y)^2 := by\n          rw [sq_abs]\n          <;> nlinarith\n        have h\u2082\u2082\u2085 : (abs (x - y))^2 = (x - y)^2 := by\n          rw [sq_abs]\n          <;> nlinarith\n        rw [h\u2082\u2082\u2084, h\u2082\u2082\u2085]\n        <;> ring_nf\n        <;> nlinarith\n  have h\u2082\u2083 : (x + y)^2 + (x - y)^2 + 2 * (abs (x + y) * abs (x - y)) = 4 := by\n    linarith\n  have h\u2082\u2084 : (x + y)^2 + (x - y)^2 = 2 * (x^2 + y^2) := by\n    ring_nf\n    <;> nlinarith\n  have h\u2082\u2085 : 2 * (x^2 + y^2) + 2 * (abs (x + y) * abs (x - y)) = 4 := by\n    linarith\n  have h\u2082\u2086 : 2 * (x^2 + y^2) \u2264 4 := by\n    have h\u2082\u2086\u2081 : 0 \u2264 abs (x + y) * abs (x - y) := by positivity\n    linarith\n  linarith\n\nhave h\u2083 : x \u2265 -1 := by\n  have h\u2083\u2081 : abs x \u2264 1 := h\u2081\n  have h\u2083\u2082 : -1 \u2264 x := by\n    linarith [abs_le.mp h\u2083\u2081]\n  linarith\n\nhave h\u2084 : x^2 - 6 * x + y^2 \u2264 8 := by\n  have h\u2084\u2081 : x^2 - 6 * x + y^2 \u2264 2 - 6 * x := by\n    nlinarith [h\u2082]\n  have h\u2084\u2082 : 2 - 6 * x \u2264 8 := by\n    nlinarith [h\u2083]\n  linarith\n\nexact h\u2084",
+          "success": true,
+          "complete": true,
+          "error": null,
+          "source": "prover"
+        }
+      ]
+    }
+  ]
+}

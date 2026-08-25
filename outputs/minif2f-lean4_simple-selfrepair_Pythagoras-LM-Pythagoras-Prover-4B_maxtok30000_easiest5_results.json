@@ -1,0 +1,59 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple-selfrepair",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "max_new_tokens": 30000,
+  "max_attempts_per_problem": 10,
+  "ordering": "easiest_to_hardest (tier then informal-statement length)",
+  "timestamp": "2026-08-18T11:50:08.557340",
+  "status": "in_progress",
+  "total_problems": 5,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_22",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "rw [show (5 : \u2115) ^ 4 = 625 by norm_num]\n    rw [show (5 : \u2115) ^ 2 = 25 by norm_num]\n    -- Use the property of Nat.log to verify the logarithm\n    rw [Nat.log_eq_iff] <;> norm_num\n    <;>\n    (try decide) <;>\n    (try\n      {\n        norm_num\n        <;>\n        decide\n      })\n  exact h\u2082\nexact h\u2081",
+      "num_attempts": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "proof": "rw [show (5 : \u2115) ^ 4 = 625 by norm_num]\n    rw [show (5 : \u2115) ^ 2 = 25 by norm_num]\n    -- Use the property of Nat.log to verify the logarithm\n    rw [Nat.log_eq_iff] <;> norm_num\n    <;>\n    (try decide) <;>\n    (try\n      {\n        norm_num\n        <;>\n        decide\n      })\n  exact h\u2082\nexact h\u2081",
+          "success": false,
+          "complete": false,
+          "errors": [
+            "unsolved goals\n\u22a2 Nat.log (5 ^ 2) 625 = 2",
+            "unexpected identifier; expected command"
+          ],
+          "goals": []
+        },
+        {
+          "attempt": 2,
+          "proof": "rw [Nat.log_eq_iff] <;> norm_num at h\u2081 h\u2082 \u22a2 <;>\n  (try decide) <;>\n  (try\n    {\n      norm_num at h\u2081 h\u2082 \u22a2\n      <;>\n      (try omega)\n      <;>\n      (try\n        {\n          nlinarith\n        })\n    })\n  <;>\n  (try\n    {\n      simp_all [Nat.pow_succ, Nat.mul_assoc]\n      <;>\n      norm_num\n      <;>\n      omega\n    })\n\napply h\u2083",
+          "success": false,
+          "complete": false,
+          "errors": [
+            "Unknown identifier `h\u2081`",
+            "Unknown identifier `h\u2081`"
+          ],
+          "goals": []
+        },
+        {
+          "attempt": 3,
+          "proof": "-- Prove that 25^2 \u2264 625 < 25^3\n    rw [Nat.log_eq_iff] <;> norm_num at h\u2083 h\u2084 \u22a2 <;>\n      (try decide) <;>\n      (try omega)\n  -- Use the previously computed value of the logarithm\n  rw [h\u2086]\n\napply h\u2085",
+          "success": false,
+          "complete": false,
+          "errors": [
+            "Unknown identifier `h\u2083`",
+            "Unknown identifier `h\u2083`",
+            "unexpected identifier; expected command"
+          ],
+          "goals": []
+        }
+      ],
+      "time": null,
+      "error": null
+    }
+  ]
+}

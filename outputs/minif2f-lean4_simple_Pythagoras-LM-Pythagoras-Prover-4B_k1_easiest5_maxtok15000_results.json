@@ -1,0 +1,62 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "k": 1,
+  "max_new_tokens": 15000,
+  "ordering": "easiest_to_hardest (tier then informal-statement length)",
+  "timestamp": "2026-08-18T10:54:33.801763",
+  "total_problems": 5,
+  "successful": 0,
+  "complete": 0,
+  "success_rate": 0.0,
+  "complete_rate": 0.0,
+  "total_time": 509.3987658023834,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_22",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "omega\n     cases h\u2084 with\n     | inl h\u2084 =>\n       -- If b^(k+1) > n, then we can stop here\n       simp_all [Nat.pow_succ, Nat.mul_le_mul_left]\n       <;> nlinarith [pow_pos (by omega : 0 < b) k]\n     | inr h\u2084 =>\n       -- If b^(k+1) \u2264 n, then we can continue\n       simp_all [Nat.pow_succ, Nat.mul_le_mul_left]\n       <;> nlinarith [pow_pos (by omega : 0 < b) k]\n   \u27e9)",
+      "time": 385.9812750816345,
+      "error": null
+    },
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_48",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "theorem mathd_algebra_48\n(q e : \u2102)\n(h\u2080 : q = 9 - 4 * Complex.I)\n(h\u2081 : e = -3 - 4 * Complex.I) : q - e = 12 := sorry",
+      "time": 23.994166374206543,
+      "error": null
+    },
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_432",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "theorem mathd_algebra_432\n(x : \u211d) :\n(x + 3) * (2 * x - 6) = 2 * x^2 - 18 := sorry",
+      "time": 24.68316960334778,
+      "error": null
+    },
+    {
+      "problem_id": "minif2f-lean4/mathd_numbertheory_207",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "theorem mathd_numbertheory_207 :\n8 * 9^2 + 5 * 9 + 2 = 695 := sorry",
+      "time": 28.735044717788696,
+      "error": null
+    },
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_263",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "sorry\n sorry",
+      "time": 45.639872789382935,
+      "error": null
+    }
+  ]
+}

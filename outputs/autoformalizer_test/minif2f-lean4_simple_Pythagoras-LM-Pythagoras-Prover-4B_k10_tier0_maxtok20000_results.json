@@ -1,0 +1,138 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "k": 10,
+  "tier": 0,
+  "max_new_tokens": 20000,
+  "status": "complete",
+  "timestamp": "2026-08-19T12:59:29.227164",
+  "total_problems_planned": 2,
+  "total_problems": 2,
+  "successful": 1,
+  "complete": 1,
+  "success_rate": 0.5,
+  "complete_rate": 0.5,
+  "pass@10": 0.5,
+  "total_time": 526.9243323802948,
+  "avg_time_per_problem": 262.78545928001404,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_484",
+      "success": false,
+      "complete": false,
+      "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+      "time": 223.06912636756897,
+      "error": null,
+      "attempts": [
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow]\n    <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring\n  <;> norm_num\n\napply h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow]\n    <;> norm_num\n  rw [h\u2081\u2082]\n  <;> ring\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow]\n    <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  have h\u2083\u2081 : (3 : \u211d) * Real.log 3 / Real.log 3 = 3 := by\n    field_simp [h\u2082]\n    <;> ring\n    <;> norm_num\n  rw [h\u2083\u2081]\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        },
+        {
+          "proof": "have h\u2081 : Real.log 27 = 3 * Real.log 3 := by\n  have h\u2081\u2081 : Real.log 27 = Real.log (3 ^ 3) := by norm_num\n  rw [h\u2081\u2081]\n  have h\u2081\u2082 : Real.log (3 ^ 3) = 3 * Real.log 3 := by\n    rw [Real.log_pow] <;> norm_num\n  rw [h\u2081\u2082]\n  <;>\n  norm_num\n\nhave h\u2082 : Real.log 3 \u2260 0 := by\n  have h\u2082\u2081 : Real.log 3 > 0 := Real.log_pos (by norm_num)\n  linarith\n\nhave h\u2083 : Real.log 27 / Real.log 3 = 3 := by\n  rw [h\u2081]\n  field_simp [h\u2082]\n  <;> ring_nf\n  <;> norm_num\n\nexact h\u2083",
+          "success": false,
+          "complete": false,
+          "error": [
+            "unexpected token 'have'; expected command"
+          ],
+          "source": "prover"
+        }
+      ]
+    },
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_22",
+      "success": true,
+      "complete": true,
+      "proof": "have h : log (5 ^ 2) (5 ^ 4) = 2 := by\n  rw [show (5 : \u2115) ^ 2 = 25 by norm_num]\n  rw [show (5 : \u2115) ^ 4 = 625 by norm_num]\n  -- Use the property of Nat.log to find the largest k such that 25^k \u2264 625\n  rw [Nat.log_eq_iff] <;> norm_num\n  <;>\n  (try decide) <;>\n  (try\n    {\n      -- Verify that 25^2 \u2264 625 and 25^3 > 625\n      norm_num\n      <;>\n      decide\n    })\n  <;>\n  (try\n    {\n      -- Use linear arithmetic to confirm the inequalities\n      linarith\n    })\nexact h",
+      "time": 302.5017921924591,
+      "error": null,
+      "attempts": [
+        {
+          "proof": "have h : log (5 ^ 2) (5 ^ 4) = 2 := by\n  rw [show (5 : \u2115) ^ 2 = 25 by norm_num]\n  rw [show (5 : \u2115) ^ 4 = 625 by norm_num]\n  -- Use the property of Nat.log to find the largest k such that 25^k \u2264 625\n  rw [Nat.log_eq_iff] <;> norm_num\n  <;>\n  (try decide) <;>\n  (try\n    {\n      -- Verify that 25^2 \u2264 625 and 25^3 > 625\n      norm_num\n      <;>\n      decide\n    })\n  <;>\n  (try\n    {\n      -- Use linear arithmetic to confirm the inequalities\n      linarith\n    })\nexact h",
+          "success": true,
+          "complete": true,
+          "error": null,
+          "source": "prover"
+        }
+      ]
+    }
+  ]
+}

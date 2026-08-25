@@ -1,0 +1,55 @@
+{
+  "dataset": "minif2f-lean4",
+  "agent": "simple",
+  "model": "Pythagoras-LM/Pythagoras-Prover-4B",
+  "k": 30,
+  "max_new_tokens": 15000,
+  "ordering": "easiest_to_hardest (tier then informal-statement length)",
+  "timestamp": "2026-08-18T11:23:02.187024",
+  "status": "in_progress",
+  "total_problems": 5,
+  "results": [
+    {
+      "problem_id": "minif2f-lean4/mathd_algebra_22",
+      "tier": 0,
+      "success": false,
+      "complete": false,
+      "proof": "theorem mathd_algebra_22 : log (5 ^ 2) (5 ^ 4) = 2 := sorry",
+      "num_attempts": 5,
+      "attempts": [
+        {
+          "proof": "theorem mathd_algebra_22 : log (5 ^ 2) (5 ^ 4) = 2 := sorry",
+          "success": false,
+          "complete": false,
+          "error": null
+        },
+        {
+          "proof": "-- Use the property of logarithms to simplify the expression\n  rw [show (5 : \u2115) ^ 4 = (5 ^ 2) ^ 2 by norm_num]\n  -- Now the expression becomes log (5^2) ((5^2)^2)\n  rw [log_pow]\n  -- Simplify the exponent\n  <;> norm_num\n  <;> rfl\n\n-- The main result follows directly from the established fact\nexact h_main",
+          "success": false,
+          "complete": false,
+          "error": null
+        },
+        {
+          "proof": "log_b(a) = x  if and only if  b^x = a.",
+          "success": false,
+          "complete": false,
+          "error": null
+        },
+        {
+          "proof": "rw [show (5 : \u2115) ^ 4 = (5 ^ 2) ^ 2 by\n    norm_num [pow_succ, pow_zero, pow_one, mul_assoc]]\n  -- Now we need to compute log (5^2) ((5^2)^2)\n  rw [show (5 : \u2115) ^ 2 = 25 by norm_num]\n  -- Now we need to compute log 25 (25^2)\n  rw [show (25 : \u2115) ^ 2 = 625 by norm_num]\n  -- Now we need to compute log 25 625\n  rw [Nat.log_eq_iff] <;> norm_num\n  <;>\n  (try decide) <;>\n  (try\n    {\n      norm_num\n      <;>\n      decide\n    })\n\nexact h_main",
+          "success": false,
+          "complete": false,
+          "error": null
+        },
+        {
+          "proof": "-- Use the change of base formula for logarithms\n    rw [Real.log_div (by positivity) (by positivity)]\n    <;> simp [Real.log_rpow, Real.log_pow]\n    <;> ring_nf\n    <;> norm_num\n    <;> field_simp [Real.log_mul, Real.log_rpow, Real.log_pow]\n    <;> ring_nf\n    <;> norm_num\n  rw [h\u2085\u2081]\n  -- Use the previously established fact h\u2084 to conclude the proof\n  rw [h\u2084]\n\nexact h\u2085",
+          "success": false,
+          "complete": false,
+          "error": null
+        }
+      ],
+      "time": null,
+      "error": null
+    }
+  ]
+}
