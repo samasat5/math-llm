@@ -20,7 +20,7 @@ from typing import Optional
 
 from math_llm.data import load_data, list_datasets
 from math_llm.lean_server import LeanServer
-from math_llm.agents import SimpleAgent, ToolAgent
+from math_llm.agents import SimpleAgent, ToolAgent, Autoformalizer
 from math_llm.training.config import TrainingConfig
 
 def run_benchmark(
@@ -33,7 +33,10 @@ def run_benchmark(
     k: int = 1,
     offset: int = 0,
     tier: Optional[int] = None,
+    min_tier: Optional[int] = None,
+    seed: Optional[int] = None,
     max_new_tokens: Optional[int] = None,
+    autoformalizer_model: Optional[str] = None,
 ) -> dict:
     """
     Run benchmark on a dataset with specified agent.
@@ -47,7 +50,9 @@ def run_benchmark(
         gpu: Force specific GPU device (None = auto)
         k: Number of samples per problem for pass@k
         offset: Number of problems to skip from the start
-        tier: Difficulty tier filter, minif2f-lean4 only (0=MATH/mathd, 1=AMC, 2=AIME, 3=IMO)
+        tier: Exact difficulty tier filter, minif2f-lean4 only (0=MATH/mathd, 1=AMC, 2=AIME, 3=IMO)
+        min_tier: Keep tier >= this value, e.g. 1 for every competition problem. Mutually exclusive with tier.
+        seed: If set, deterministically shuffle before slicing to n_samples - a reproducible random subset instead of a prefix.
         max_new_tokens: Max tokens to generate per sample (None = agent default)
 
     Returns:
@@ -61,13 +66,14 @@ def run_benchmark(
     print(f"Model: {model_name}")
     print(f"Samples: {n_samples or 'all'}")
     print(f"Offset: {offset}")
-    print(f"Tier: {tier if tier is not None else 'all'}")
+    print(f"Tier: {tier if tier is not None else (f'>={min_tier}' if min_tier is not None else 'all')}")
     print(f"Pass@k: {k}")
     print(f"Max new tokens: {max_new_tokens or 'agent default'}")
+    print(f"Autoformalizer: {autoformalizer_model or 'disabled'}")
     print(f"{'='*60}\n")
 
     # Load data
-    problems = load_data(dataset, n_samples, offset=offset, tier=tier)
+    problems = load_data(dataset, n_samples, offset=offset, tier=tier, min_tier=min_tier, shuffle_seed=seed)
     print(f"Loaded {len(problems)} problems\n")
 
     # Start Lean server
@@ -81,6 +87,8 @@ def run_benchmark(
         agent_kwargs["max_new_tokens"] = max_new_tokens
 
     if agent_type == "simple":
+        if autoformalizer_model:
+            agent_kwargs["autoformalizer"] = Autoformalizer(model_name=autoformalizer_model, gpu=gpu)
         agent = SimpleAgent(**agent_kwargs)
     elif agent_type == "tool":
         agent = ToolAgent(**agent_kwargs)
@@ -97,9 +105,11 @@ def run_benchmark(
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     model_slug = model_name.replace("/", "-")  # sanitize model name for filename
-    tier_suffix = f"_tier{tier}" if tier is not None else ""
+    tier_suffix = f"_tier{tier}" if tier is not None else (f"_mintier{min_tier}" if min_tier is not None else "")
+    seed_suffix = f"_seed{seed}" if seed is not None else ""
     maxtok_suffix = f"_maxtok{max_new_tokens}" if max_new_tokens is not None else ""
-    output_file = output_path / f"{dataset}_{agent_type}_{model_slug}_k{k}{tier_suffix}{maxtok_suffix}_results.json"
+    af_suffix = "_autoformalizer" if autoformalizer_model else ""
+    output_file = output_path / f"{dataset}_{agent_type}_{model_slug}_k{k}{tier_suffix}{seed_suffix}{maxtok_suffix}{af_suffix}_results.json"
 
     # Run benchmark
     results = []
@@ -116,6 +126,8 @@ def run_benchmark(
             "model": model_name,
             "k": k,
             "tier": tier,
+            "min_tier": min_tier,
+            "seed": seed,
             "max_new_tokens": max_new_tokens,
             "status": status,
             "timestamp": datetime.now().isoformat(),
@@ -271,10 +283,43 @@ Examples:
         ),
     )
     parser.add_argument(
+        "--min-tier",
+        type=int,
+        default=None,
+        choices=[0, 1, 2, 3],
+        help=(
+            "Keep minif2f-lean4 problems with tier >= this value, e.g. 1 for "
+            "every competition problem (AMC+AIME+IMO, excludes tier-0 MATH-"
+            "sourced ones); also sorts easiest-first within scope. Mutually "
+            "exclusive with --tier. Default: no filter."
+        ),
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help=(
+            "If set, deterministically shuffle problems (within any --tier/"
+            "--min-tier scope) before slicing to --samples, picking a "
+            "reproducible random subset instead of a prefix. Default: no shuffle."
+        ),
+    )
+    parser.add_argument(
         "--max-tokens",
         type=int,
         default=None,
         help="Max new tokens to generate per sample (default: agent default)",
+    )
+    parser.add_argument(
+        "--autoformalizer-model",
+        type=str,
+        default=None,
+        help=(
+            "If set (simple agent only), a second model that translates the "
+            "prover's own reasoning into Lean 4 tactics whenever a sample "
+            "loops instead of producing a real proof (default: disabled). "
+            "Example: Qwen/Qwen2.5-Coder-7B-Instruct"
+        ),
     )
 
     args = parser.parse_args()
@@ -289,7 +334,10 @@ Examples:
         k=args.k,
         offset=args.offset,
         tier=args.tier,
+        min_tier=args.min_tier,
+        seed=args.seed,
         max_new_tokens=args.max_tokens,
+        autoformalizer_model=args.autoformalizer_model,
     )
 
 

@@ -319,6 +319,20 @@ lean_lib «LeanBench»
         """
         return self.check_proof(statement, tactic)
 
+    def identifier_exists(self, name: str) -> bool:
+        """Check whether a (possibly namespaced) identifier resolves in the
+        current environment, e.g. to catch a hallucinated Mathlib lemma name
+        before it's used in a proof rather than after a failed check."""
+        if not self._load_imports():
+            return False
+
+        resp = self._send_command({"cmd": f"#check {name}", "env": self._env_id})
+        if "error" in resp:
+            return False
+
+        messages = resp.get("messages", [])
+        return not any(m.get("severity") == "error" for m in messages)
+
     def __enter__(self) -> "LeanServer":
         self.start()
         return self

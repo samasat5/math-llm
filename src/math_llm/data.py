@@ -6,6 +6,7 @@ Supports:
 - minif2f-lean4: Competition math problems from HuggingFace
 """
 
+import random
 import re
 from dataclasses import dataclass, field
 from typing import Optional
@@ -230,7 +231,9 @@ def load_minif2f(
     n_samples: Optional[int] = None,
     test: bool = False,
     tier: Optional[int] = None,
+    min_tier: Optional[int] = None,
     easiest_first: bool = False,
+    shuffle_seed: Optional[int] = None,
 ) -> list[Problem]:
     """
     Load MiniF2F Lean 4 problems from HuggingFace.
@@ -241,11 +244,20 @@ def load_minif2f(
     Args:
         n_samples: Optional limit on number of problems returned.
         test: If True, take the last n_samples instead of the first.
-        tier: If set, keep only problems in this difficulty tier
+        tier: If set, keep only problems in this exact difficulty tier
             (0=MATH/mathd, 1=AMC, 2=AIME, 3=IMO). See compute_tier().
+            Mutually exclusive with min_tier.
+        min_tier: If set, keep problems with tier >= this value - e.g.
+            min_tier=1 keeps every competition problem (AMC+AIME+IMO),
+            excluding the easier tier-0 MATH-sourced ones. Mutually
+            exclusive with tier.
         easiest_first: If True, sort by (tier, informal statement length)
             ascending before slicing, so the shortest/easiest problems in
-            scope come first.
+            scope come first. Ignored if shuffle_seed is set.
+        shuffle_seed: If set, deterministically shuffle problems (within
+            whatever tier/min_tier scope applies) before slicing, so
+            n_samples picks a reproducible random subset instead of a
+            prefix. Takes precedence over easiest_first.
     """
     try:
         from datasets import load_dataset
@@ -304,8 +316,13 @@ def load_minif2f(
     if tier is not None:
         problems = [p for p in problems if p.metadata.get("tier") == tier]
         print(f"[data] Filtered to tier {tier}: {len(problems)} problems")
+    elif min_tier is not None:
+        problems = [p for p in problems if p.metadata.get("tier", 0) >= min_tier]
+        print(f"[data] Filtered to tier >= {min_tier}: {len(problems)} problems")
 
-    if easiest_first:
+    if shuffle_seed is not None:
+        random.Random(shuffle_seed).shuffle(problems)
+    elif easiest_first:
         problems.sort(key=lambda p: (p.metadata.get("tier", 0), len(p.description or "")))
 
     if n_samples is not None:
@@ -329,6 +346,8 @@ def load_data(
     n_samples: Optional[int] = None,
     offset: int = 0,
     tier: Optional[int] = None,
+    min_tier: Optional[int] = None,
+    shuffle_seed: Optional[int] = None,
 ) -> list[Problem]:
     """
     Load a benchmark dataset.
@@ -337,7 +356,13 @@ def load_data(
         dataset: Dataset name ('dummy' or 'minif2f-lean4')
         n_samples: Optional limit on number of samples (None = all)
         offset: Number of problems to skip from the start (default 0)
-        tier: Difficulty tier filter (minif2f-lean4 only). See compute_tier().
+        tier: Exact difficulty tier filter (minif2f-lean4 only). Mutually
+            exclusive with min_tier. See compute_tier().
+        min_tier: Keep tier >= this value, e.g. 1 for every competition
+            problem (AMC+AIME+IMO). Mutually exclusive with tier.
+        shuffle_seed: If set, deterministically shuffle before slicing to
+            n_samples, picking a reproducible random subset instead of a
+            prefix (minif2f-lean4 only).
 
     Returns:
         List of Problem objects
@@ -346,10 +371,10 @@ def load_data(
         available = ", ".join(DATASETS.keys())
         raise ValueError(f"Unknown dataset: {dataset}. Available: {available}")
 
-    if tier is not None:
+    if tier is not None or min_tier is not None or shuffle_seed is not None:
         if dataset != "minif2f-lean4":
-            raise ValueError(f"--tier is only supported for minif2f-lean4, not '{dataset}'")
-        loader = lambda n: load_minif2f(n, tier=tier, easiest_first=True)
+            raise ValueError(f"--tier/--min-tier/--seed is only supported for minif2f-lean4, not '{dataset}'")
+        loader = lambda n: load_minif2f(n, tier=tier, min_tier=min_tier, easiest_first=True, shuffle_seed=shuffle_seed)
     else:
         loader = DATASETS[dataset]
 

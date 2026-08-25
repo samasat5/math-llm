@@ -33,10 +33,10 @@ if __name__ == "__main__":
     output_dir = os.path.join("outputs", run_id)
     os.makedirs(output_dir, exist_ok=True)
 
-    # problems = load_minif2f(n_samples=100, test=False)
-    # test_problems = load_minif2f(n_samples=20, test=True)
-    problems = load_numina(n_samples=2000, test=False)
-    test_problems = load_numina(n_samples=100, test=True)
+    problems = load_minif2f(n_samples=300, test=False)
+    test_problems = load_minif2f(n_samples=10, test=True)
+    # problems = load_numina(n_samples=2000, test=False)
+    # test_problems = load_numina(n_samples=100, test=True)
 
     config = TrainingConfig(
         model_name="Qwen/Qwen2.5-14B-Instruct",

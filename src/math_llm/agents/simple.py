@@ -12,6 +12,7 @@ from typing import Optional
 
 from math_llm.data import Problem
 from math_llm.lean_server import LeanServer, LeanResult
+from math_llm.agents.autoformalizer import Autoformalizer, is_degenerate, extract_clean_plan, has_hallucinated_lemma
 
 
 # System prompt with Lean 4 context
@@ -100,8 +101,19 @@ def extract_pythagoras_proof(response: str) -> str:
     # an early abandoned draft instead of the model's final proof).
     blocks = re.findall(r"```lean4?\s*\n?(.*?)```", response, re.DOTALL)
     code = next((b for b in reversed(blocks) if ":= by" in b or re.search(r":=\s*\n", b)), None)
+    if code is None and blocks:
+        code = blocks[-1]
     if code is None:
-        code = blocks[-1] if blocks else response
+        # Either no ``` fence anywhere (model abandoned markdown entirely -
+        # the sorry-placeholder detection below handles that case), or the
+        # last fence never closed because generation got cut off mid-block.
+        # In the latter case, findall above matched nothing at all (it only
+        # pairs closed fences), so falling back to the raw `response` would
+        # include all the reasoning prose before the dangling opening
+        # marker too - take everything after the LAST such marker instead,
+        # consistent with always preferring the model's final attempt.
+        opens = list(re.finditer(r"```lean4?\s*\n?", response))
+        code = response[opens[-1].end():] if opens else response
 
     if ":=" in code:
         tactics = code.split(":=", 1)[1]
@@ -176,6 +188,11 @@ def extract_proof(response: str) -> str:
         match = re.search(r'```(?:lean4?|proof)?\s*\n?(.*?)\n?```', response, re.DOTALL)
         if match:
             response = match.group(1).strip()
+        else:
+            # Fence never closed (generation cut off mid-block) - still
+            # strip the leading marker, or it survives as a literal
+            # backtick token that breaks Lean's parser outright.
+            response = re.sub(r"^```(?:lean4?|proof)?\s*\n?", "", response).strip()
 
     # Remove common prefixes
     prefixes = [
@@ -221,6 +238,7 @@ class SimpleAgent:
         temperature: float = 0.1,
         gpu: Optional[int] = None,
         k: int = 1,
+        autoformalizer: Optional[Autoformalizer] = None,
     ):
         self.model_name = model_name
         self.lean_server = lean_server
@@ -228,6 +246,7 @@ class SimpleAgent:
         self.temperature = temperature
         self.gpu = gpu
         self.k = k
+        self.autoformalizer = autoformalizer
         self._model = None
         self._tokenizer = None
 
@@ -355,7 +374,7 @@ class SimpleAgent:
             proof = extract(response)
             print(f"\n  [agent] Sample {i + 1} raw response:\n{textwrap.indent(response, '    ')}")
             print(f"  [agent] Sample {i + 1} extracted proof:\n{textwrap.indent(proof, '    ')}\n")
-            yield proof
+            yield proof, response
 
     def solve(self, problem: Problem) -> AgentResult:
         """
@@ -376,45 +395,74 @@ class SimpleAgent:
         best_proof = ""
         best_lean_result = None
 
+        def verify(proof: str, source: str) -> Optional[LeanResult]:
+            """Check one candidate proof with Lean and record the attempt.
+            Returns the LeanResult, or None if it couldn't be verified."""
+            if self.lean_server is None:
+                attempts.append({
+                    "proof": proof, "success": True, "complete": False,
+                    "error": "No Lean server - proof not verified", "source": source,
+                })
+                return None
+
+            try:
+                lean_result = self.lean_server.check_proof(problem.statement, proof)
+            except Exception as e:
+                attempts.append({
+                    "proof": proof, "success": False, "complete": False,
+                    "error": f"Lean verification failed: {e}", "source": source,
+                })
+                return None
+
+            attempts.append({
+                "proof": proof,
+                "success": lean_result.success,
+                "complete": lean_result.complete,
+                "error": lean_result.errors if lean_result.errors else None,
+                "source": source,
+            })
+            status = "COMPLETE" if lean_result.complete else ("OK" if lean_result.success else "FAIL")
+            print(f"  [agent] Sample {len(attempts)} ({source}) result: {status}")
+            if lean_result.errors:
+                print(f"  [agent] Sample {len(attempts)} lean error: {lean_result.errors[0]}")
+            return lean_result
+
         try:
             proof_stream = self.generate_proofs(problem, k=self.k)
-            for proof in proof_stream:
+            for proof, response in proof_stream:
                 if not best_proof:
                     best_proof = proof
 
-                if self.lean_server is not None:
-                    try:
-                        lean_result = self.lean_server.check_proof(problem.statement, proof)
-                    except Exception as e:
-                        attempts.append({
-                            "proof": proof, "success": False, "complete": False,
-                            "error": f"Lean verification failed: {e}",
-                        })
-                        continue
+                lean_result = verify(proof, source="prover")
 
-                    attempts.append({
-                        "proof": proof,
-                        "success": lean_result.success,
-                        "complete": lean_result.complete,
-                        "error": lean_result.errors if lean_result.errors else None,
-                    })
-                    status = "COMPLETE" if lean_result.complete else ("OK" if lean_result.success else "FAIL")
-                    print(f"  [agent] Sample {len(attempts)} result: {status}")
-                    if lean_result.errors:
-                        print(f"  [agent] Sample {len(attempts)} lean error: {lean_result.errors[0]}")
+                if lean_result is not None and lean_result.complete:
+                    best_proof, best_lean_result = proof, lean_result
+                    print(f"  [agent] Complete proof found on sample {len(attempts)} - stopping early")
+                    proof_stream.close()
+                    break
 
-                    if lean_result.complete:
-                        best_proof = proof
-                        best_lean_result = lean_result
-                        print(f"  [agent] Complete proof found on sample {len(attempts)} - stopping early")
+                # The prover either looped instead of writing a real proof
+                # (repeated placeholder / repeated paragraph) or hallucinated
+                # a Mathlib lemma name that doesn't exist - in both cases its
+                # plan may still be sound (see mathd_algebra_393), so hand it
+                # to a second model whose only job is translating an
+                # already-correct plan into tactics, rather than burning
+                # another full k-sample attempt hoping the same prover avoids
+                # the same mistake.
+                needs_rescue = is_degenerate(proof, response) or has_hallucinated_lemma(
+                    lean_result.errors if lean_result is not None else None
+                )
+                if self.autoformalizer is not None and needs_rescue:
+                    plan = extract_clean_plan(response)
+                    print(f"  [agent] Sample {len(attempts)} looked degenerate - handing plan to autoformalizer")
+                    af_result = self.autoformalizer.formalize(problem.statement, plan, lean_server=self.lean_server)
+                    af_lean_result = verify(af_result.proof, source="autoformalizer")
+
+                    if af_lean_result is not None and af_lean_result.complete:
+                        best_proof, best_lean_result = af_result.proof, af_lean_result
+                        print(f"  [agent] Autoformalizer rescued sample {len(attempts)} - stopping early")
                         proof_stream.close()
                         break
-                else:
-                    # No Lean server - assume success without verification
-                    attempts.append({
-                        "proof": proof, "success": True, "complete": False,
-                        "error": "No Lean server - proof not verified",
-                    })
         except Exception as e:
             print(f"  [agent] Error: {e}")
             if not attempts:
