@@ -99,7 +99,29 @@ def extract_pythagoras_proof(response: str) -> str:
     # that actually contains a proof attempt, not the first fence in the
     # response (which previously grabbed unrelated quoted Mathlib source or
     # an early abandoned draft instead of the model's final proof).
-    blocks = re.findall(r"```lean4?\s*\n?(.*?)```", response, re.DOTALL)
+    closed = list(re.finditer(r"```lean4?\s*\n?(.*?)```", response, re.DOTALL))
+    blocks = [m.group(1) for m in closed]
+
+    # The model's actual final attempt is sometimes an unclosed trailing
+    # fence - generation got cut off by the token budget mid-block, AFTER
+    # one or more earlier closed fences (e.g. an abandoned `sorry`
+    # placeholder it wrote before trying again). The regex above only ever
+    # matches closed pairs, so without this the most-developed attempt gets
+    # silently dropped in favor of an earlier, worse, already-closed one
+    # just because that one happened to close in time.
+    # Require ":=" specifically (not just non-empty) - the block selected
+    # here must have gotten at least as far as the theorem's own placeholder
+    # before being cut off, since everything below splits on ":=" and bails
+    # via extract_proof() otherwise. A fragment cut off mid-signature (e.g.
+    # just "theorem foo {a b : G" with no ":=" yet) is pure noise, no more
+    # useful than the closed blocks, and must not preempt them.
+    tail_start = closed[-1].end() if closed else 0
+    trailing_open = re.search(r"```lean4?\s*\n?", response[tail_start:])
+    if trailing_open:
+        trailing_code = response[tail_start + trailing_open.end():]
+        if ":=" in trailing_code:
+            blocks.append(trailing_code)
+
     code = next((b for b in reversed(blocks) if ":= by" in b or re.search(r":=\s*\n", b)), None)
     if code is None and blocks:
         code = blocks[-1]
