@@ -1,0 +1,2063 @@
+[
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p5",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "dvd_neg_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": " number divides two terms, it divides their sum           simpa [dvd_add_right, dvd_neg_right] using h₉         exact h₁₀       exact h₇     -- Step 3: Check all possible di"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p5",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "y",
+        "kind": "dangling_local_reference",
+        "context": "have h_main : 3 * (x^2 * y^2) = 588 := by   have h₁ : x = 0 → False := by     intro hx     have h₂ : (y : "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p5",
+    "attempt_index": 11,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "s",
+        "kind": "dangling_local_reference",
+        "context": "#checks have h₁ : (3 * x^2 + 1) * y^2 = 30 * x^2 + 517 := by   have h₁₁ : y^2 + 3 * (x^"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "   · exact Or.inr (by             have h₅ : Odd (k + 2) := by               rw [Nat.odd_iff_not_even]               exact h             exact h₅)       cases h₄ with       | inl h_"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 7,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "nat.rec_on",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h1 : f 2017 = 2017 + 1 := by   apply nat.rec_on 2016   -- Base case: n = 1   simp [h₀]   -- Inductive step: n = k + 1   intro k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 11,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "   · exact Or.inr (by             have h₅ : Odd (k + 2) := by               rw [Nat.odd_iff_not_even]               exact h             exact h₅)       cases h₄ with       | inl h_"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 14,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "cases",
+        "kind": "invented_lemma_or_tactic",
+        "context": "+ 1 :=   fun n ih =>     have h3 : n % 2 = 0 ∨ n % 2 = 1 := by norm_num [n]     cases h3     | inl h3' =>       have h4 : 1 < n - 1 := by linarith [ih]       have h5"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "     omega             have h₁₀ : 2 ^ (y + 3) ≥ 2 ^ 3 := by               apply pow_le_pow_right               · norm_num               · linarith             norm_num at h₁₀ ⊢"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₃",
+        "kind": "dangling_local_reference",
+        "context": "y; rw [h₂]; simp have h7 : ∀ y, f 4 (y + 1) = 2 * f 4 y + 3 := by intros y; rw [h₃]; simp have h8 : ∀ y, f 4 y = 2 * f 4 (y - 1) + 3 := by intros y; rw [h₄]; simp"
+      },
+      {
+        "name": "h₄",
+        "kind": "dangling_local_reference",
+        "context": "y; rw [h₃]; simp have h8 : ∀ y, f 4 y = 2 * f 4 (y - 1) + 3 := by intros y; rw [h₄]; simp have h9 : ∀ y, f 4 y = 2 * (2 * f 4 (y - 2) + 3) + 3 := by intros y; rw "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₂₀ : y ≥ 1001 := by omega                       omega                     exact pow_le_pow_right (by norm_num) h₁₉                   have h₂₁ : 2 ^ 23 > 2 * (y + 1) + 18 := by "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 8,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "y",
+        "kind": "dangling_local_reference",
+        "context": "have h₁ : ∀ (x : ℕ), f 1 x = 2 * x + 1 := by   intro x   induction x with   | zero => simp [h₀]   | succ x ih => have h₂ := "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "mega             calc               2^(n + 1) ≥ 2^2 := by                 exact pow_le_pow_right (by norm_num) h₃₃               _ = 4 := by norm_num           have h₃₄ : 2^(n "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 11,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h_f1_0",
+        "kind": "invented_lemma_or_tactic",
+        "context": " induction k with                       | zero =>                         simp [h_f1_0]                       | succ k ih =>                         have h₁₂ : f 1 (k"
+      },
+      {
+        "name": "h_f2_0",
+        "kind": "invented_lemma_or_tactic",
+        "context": "             induction m with                 | zero =>                   simp [h_f2_0]                 | succ m ih =>                   have h₉ : f 2 (m + 1) = f 1 ("
+      },
+      {
+        "name": "h_f3_0",
+        "kind": "invented_lemma_or_tactic",
+        "context": "       intro n           induction n with           | zero =>             simp [h_f3_0]             <;> norm_num           | succ n ih =>             have h₆ : f 3 (n"
+      },
+      {
+        "name": "h₁₁",
+        "kind": "dangling_local_reference",
+        "context": "      have h₁₀ : f 1 (f 2 m) = 2^(f 2 m + 1) - 3 := by                     have h₁₁ : ∀ k : ℕ, f 1 k = 2^(k + 1) - 3 := by                       intro k           "
+      },
+      {
+        "name": "h₂ₖ",
+        "kind": "invented_lemma_or_tactic",
+        "context": " + 1) * 2 - 3 = 2^(k + 1) - 2 := by omega                                 exact h₂ₖ                               exact h₂₄                             omega      "
+      },
+      {
+        "name": "h₃₉",
+        "kind": "dangling_local_reference",
+        "context": "₃₈ : 2^(f 4 (y + 1)) - 3 + 1 = f 4 (y + 1) + 3 := by                       have h₃₉ : 2^(f 4 (y + 1)) - 3 + 1 = f 4 (y + 1) + 3 := by                         have "
+      },
+      {
+        "name": "h₄",
+        "kind": "dangling_local_reference",
+        "context": "f 4 0 + 3) - 3 := by       have h₃ : f 4 0 = 2^23 - 3 := by norm_num       have h₄ : f 4 1 = 2^(2^23 - 3 + 1) - 3 := by norm_num       have h₅ : 2^(f 4 0 + 3) - 3"
+      },
+      {
+        "name": "h₈",
+        "kind": "dangling_local_reference",
+        "context": "             have h₇ : f 2 (f 3 n) = 2^(f 3 n + 1) - 3 := by               have h₈ : ∀ m : ℕ, f 2 m = 2^(m + 1) - 3 := by                 intro m                 "
+      },
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "                  2^(k + 1) ≥ 2^2 := by                                   exact pow_le_pow_right (by norm_num) h₁₇                                 _ = 4 := by norm_num         "
+      },
+      {
+        "name": "y",
+        "kind": "dangling_local_reference",
+        "context": "have h₁ : f 4 (y + 1) = 2^(f 4 y + 3) - 3 := by   induction y with   | zero =>     have h₂ : f 4"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 12,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": " 0 := by omega           have h₁₆ : 2 ^ (y + 8) ≥ 2 ^ 8 := by             apply Nat.pow_le_pow_of_le_right             norm_num             omega           have h₁₇ : 2 ^ (y + 8) - 3 = ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1981_p6",
+    "attempt_index": 13,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": " 0 := by omega           have h₁₆ : 2 ^ (y + 8) ≥ 2 ^ 8 := by             apply Nat.pow_le_pow_of_le_right             norm_num             omega           have h₁₇ : 2 ^ (y + 8) - 3 = ("
+      },
+      {
+        "name": "h₁₀",
+        "kind": "dangling_local_reference",
+        "context": "= (y + 1) + 5 := by       have h₉ : f 4 (y + 1) = f 4 (y + 1) := rfl       have h₁₀ : f 4 (y + 1) = (y + 1) + 5 := by         have h₁₁ : ∀ (y : ℕ), f 4 (y + 1) = ("
+      },
+      {
+        "name": "h₁₁",
+        "kind": "dangling_local_reference",
+        "context": " 4 (y + 1) := rfl       have h₁₀ : f 4 (y + 1) = (y + 1) + 5 := by         have h₁₁ : ∀ (y : ℕ), f 4 (y + 1) = (y + 1) + 5 := by           intro y           induct"
+      },
+      {
+        "name": "h₁₄",
+        "kind": "dangling_local_reference",
+        "context": "             have h₁₂ := h₂ 4 y             have h₁₃ := h₂ 3 y             have h₁₄ := h₂ 2 y             have h₁₅ := h₂ 1 y             have h₁₆ := h_f4 y        "
+      },
+      {
+        "name": "h₁₇",
+        "kind": "dangling_local_reference",
+        "context": "             have h₁₅ := h₂ 1 y             have h₁₆ := h_f4 y             have h₁₇ := h_f3 y             have h₁₈ := h_f2 y             have h₁₉ := h_f1 y        "
+      },
+      {
+        "name": "h₂₀",
+        "kind": "dangling_local_reference",
+        "context": ":= rfl             have h₁ₙ : 2 ^ (y + 8) = 2 ^ (y + 8) := rfl             have h₂₀ : 2 ^ (y + 8) - 3 = (y + 1) + 5 := by               have h₂₁ : y + 1 = (y + 1) "
+      },
+      {
+        "name": "h₂₃",
+        "kind": "dangling_local_reference",
+        "context": "fl               have h₂₂ : 2 ^ (y + 8) = 2 ^ (y + 8) := rfl               have h₂₃ : 2 ^ (y + 8) - 3 = (y + 1) + 5 := by                 have h₂₄ : ∀ (n : ℕ), 2 ^"
+      },
+      {
+        "name": "h₈",
+        "kind": "dangling_local_reference",
+        "context": " : f 4 y = y + 5 := h_f4 y   have h₇ : f 4 (y + 1) = (y + 1) + 5 := by     have h₈ : f 4 (y + 1) = (y + 1) + 5 := by       have h₉ : f 4 (y + 1) = f 4 (y + 1) := "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12_2000_p15",
+    "attempt_index": 6,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "card",
+        "kind": "invented_lemma_or_tactic",
+        "context": "nset.sum_congr h₂ (fun _ => rfl)]  have h₅ : ∑ y ∈ (f⁻¹' {7}).toFinset, 7 = 7 * card (f ⁻¹' {7}) := by   rw [Finset.sum_const]  have h₆ : card (f ⁻¹' {7}) = fintype"
+      },
+      {
+        "name": "fintype.card",
+        "kind": "invented_lemma_or_tactic",
+        "context": " * card (f ⁻¹' {7}) := by   rw [Finset.sum_const]  have h₆ : card (f ⁻¹' {7}) = fintype.card (f ⁻¹' {7}) := by   exact h₁  have h₇ : 7 * card (f ⁻¹' {7}) = 7 * fintype.card"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12_2000_p15",
+    "attempt_index": 9,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.sum_to_list",
+        "kind": "invented_lemma_or_tactic",
+        "context": "    exact h6  have h₄ : ∑ y ∈ (f⁻¹' {7}).toFinset, y / 3 = -1 / 9 := by   rw [← Finset.sum_to_list]   simp [h₃]   unfold List.sum   simp [List.map, List.sum_map, List.length, Lis"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12_2000_p15",
+    "attempt_index": 13,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "hy",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h6 : f⁻¹' {7} = {2 / 3, -1} := by   apply Finset.ext fun y =>     by_cases hy : y = 2 / 3       . simp [hy, h4]     . by_cases hy : y = -1       . simp [hy, "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2009_p15",
+    "attempt_index": 6,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2009_p15",
+    "attempt_index": 9,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "i",
+        "kind": "dangling_local_reference",
+        "context": "have h2 : ∑ k ∈ Finset.Icc 1 n, k * Complex.I^k = 48 + 49 * Complex.I := by rw [h₁] have h3 : ∑ k "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2009_p15",
+    "attempt_index": 14,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₂",
+        "kind": "dangling_local_reference",
+        "context": "find an x such that f x = 0       -- Since f x ≥ 0, we can try x = 0       have h₁₂ : f 0 = 0 := by         rw [h₁]         have h₁₃ : Real.sqrt (a * (0 : ℝ) ^ 2 +"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 2,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "begin",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h3 : ∀ y, ∃ x, f x = y :=   begin     intro y,     cases y,     { exact exists.intro 0 (by norm_num) },     { let"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 6,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "begin",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h3 : {x | a * x^2 + b * x ≥ 0} = {y | y ≥ 0} :=   begin     apply eq_of_subset_subset,     { intros x hx,       simp [hx],       norm_n"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 8,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "image_def",
+        "kind": "invented_lemma_or_tactic",
+        "context": " ext x   simp [h3]  have h5 : f '' {x | 0 ≤ f x} = f '' ℝ := by   ext y   simp [image_def, h3]  have h6 : f '' ℝ ⊆ [0, ∞) := by   intros y hy   obtain ⟨x, hx⟩ := hy   rw"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Set.mem_image_set",
+        "kind": "invented_lemma_or_tactic",
+        "context": " : ℝ | ∃ (x : ℝ), a * x ^ 2 + b * x = y ^ 2} := by       ext y       simp only [Set.mem_image_set, Set.mem_setOf_eq]       constructor       · -- Prove the forward direction: if"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 10,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "y",
+        "kind": "dangling_local_reference",
+        "context": "have h3 : {x | 0 ≤ f x} = {y | ∃ x, 0 ≤ f x ∧ f x = y} :=   have h4 : ∀ x, 0 ≤ f x ↔ ∃ x', 0 ≤ f x' ∧ f x' ="
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 14,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 15,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": " y) = 1 := h₁₉           have h₂₂ : a * y ^ 2 + b * y = 1 := by             rw [Real.sqrt_eq_iff_sq_eq] at h₂₁ <;> nlinarith [h₀]           exact h₂₂         exact h₂₀       -- Check"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 16,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "begin",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h3 : ∀ y ≥ 0, ∃ x, f x = y :=   begin     intros y hy,     cases y,     { exact exists.intro 0 (by norm_num [h]) },  "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p25",
+    "attempt_index": 18,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "mul_nonneg_of_nonneg_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "trans_le h4 x have h6 : ∀ x, a * x^2 + b * x ≥ 0 := by intro x; apply le_trans (mul_nonneg_of_nonneg_left h5 x) (add_nonneg h5 (mul_nonneg_of_nonneg_right h5 x)) have h7 : ∀ x, a * x^2 "
+      },
+      {
+        "name": "mul_nonneg_of_nonneg_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": " := by intro x; apply le_trans (mul_nonneg_of_nonneg_left h5 x) (add_nonneg h5 (mul_nonneg_of_nonneg_right h5 x)) have h7 : ∀ x, a * x^2 + b * x > 0 := by intro x; exact h6.trans_lt h5 x"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1984_p1",
+    "attempt_index": 11,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k.succ",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ve_by_elim [h6] have h8 : u 0 = -2357 / 49 := by norm_num [h7] have h9 : u (2 * k.succ) = u (k.succ) + u (k.succ) := by simp [h₀] have h10 : ∑ k ∈ Finset.range 49, u "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1984_p1",
+    "attempt_index": 12,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₂₁",
+        "kind": "dangling_local_reference",
+        "context": "have h₂ : ∀ n : ℕ, u (n + 1) = u 0 + n := by   intro n   have h₂₁ : ∀ n : ℕ, u (n + 1) = u 0 + n := by     intro n     induction n with     | zer"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1997_p11",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "                                <;>                                 field_simp [Real.sqrt_eq_iff_sq_eq] <;>                                 ring_nf <;>                               "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1997_p11",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "eal.sin_pi_div_six]                       <;>                       field_simp [Real.sqrt_eq_iff_sq_eq] <;>                       ring_nf <;>                       norm_num          "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1997_p11",
+    "attempt_index": 5,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h4",
+        "kind": "dangling_local_reference",
+        "context": " by rw [h₀]; rw [h1]; simp have h3 : 100 * x = 100 := by rw [h2]; norm_num have h4 : Int.floor (100 * x) = Int.floor 100 := by rw [h3]; simp exact h4"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1997_p11",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "x",
+        "kind": "dangling_local_reference",
+        "context": "#check Int.floor (100 * x) #eval (100 : ℝ) * x #eval (100 : ℝ) * ((∑ n ∈ Finset.Icc (1 : ℕ) 44, Real.cos "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1997_p11",
+    "attempt_index": 9,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁",
+        "kind": "dangling_local_reference",
+        "context": "um_sin : (∑ n ∈ Finset.Icc (1 : ℕ) 44, Real.sin (n * π / 180)) > 0 := by   have h₁ : ∀ n ∈ Finset.Icc (1 : ℕ) 44, Real.sin (n * π / 180) > 0 := by     intro n hn "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "abs_add",
+        "kind": "invented_lemma_or_tactic",
+        "context": "[abs_of_nonneg, abs_of_nonpos, abs_of_neg, le_of_lt] <;>             nlinarith [abs_add (x + y) (x - y), abs_sub (x + y) (x - y)]   -- Combine with the given condition"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 2,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "abs_add_le_abs_sum",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h1 : |x| ≤ 1 := by   linarith [abs_add_le_abs_sum h₀]  have h2 : |y| ≤ 1 := by   linarith [abs_add_le_abs_sum h₀]  have h3 : x² ≤"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "e_total 0 (x - y) with h₂ h₂ <;>   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_zero, zero_add,     sub_eq_add_neg, neg_add_rev] <;>   (try"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": " y) with h₂ h₂ <;>   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_zero, zero_add,     sub_eq_add_neg, neg_add_rev] <;>   (try { nlinarith })"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 4,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "assume",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h1 : x + y ≥ 0 ∧ x - y ≥ 0 → x = 1 :=   assume h2 : x + y ≥ 0 ∧ x - y ≥ 0,   have h3 : x + y = 2 := by linarith [h2],   have h"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "^ 2 - y ^ 2) with h'' h'' <;>           simp_all [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>             nlinarith [sq_nonneg (x + y), sq_non"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ith h'' h'' <;>           simp_all [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>             nlinarith [sq_nonneg (x + y), sq_nonneg (x - y), sq"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "es' le_total 0 (x - y) with h₂ h₂ <;>   simp_all [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { nlinarith }) <;>   (try {     -- Case 1"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": " (x - y) with h₂ h₂ <;>   simp_all [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { nlinarith }) <;>   (try {     -- Case 1: x + y ≥ 0 and"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 11,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "abs_add",
+        "kind": "invented_lemma_or_tactic",
+        "context": "p_all [abs_of_nonneg, abs_of_nonpos, abs_of_neg, le_of_lt] <;>       nlinarith [abs_add (x + y) (x - y)]     -- Since |x + y| + |x - y| = 2, we have 2|x| ≤ 2     linar"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 12,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "abs_add_le_abs_sum",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h1 : x ∈ [-1, 1] := by linarith [abs_add_le_abs_sum h₀] have h2 : y ∈ [-1, 1] := by linarith [abs_sub_le_abs_diff h₀] have h3 : x² "
+      },
+      {
+        "name": "abs_sub_le_abs_diff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "1] := by linarith [abs_add_le_abs_sum h₀] have h2 : y ∈ [-1, 1] := by linarith [abs_sub_le_abs_diff h₀] have h3 : x² + y² ≤ 2 := by   rw [← add_mul_self_left x, ← add_mul_self_lef"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 13,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "solute values based on the cases   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { contradiction }) <;>   (try {     -- Ca"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "based on the cases   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { contradiction }) <;>   (try {     -- Case 1: x + y ≥ 0"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 16,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "e_total 0 (x - y) with h₂ h₂ <;>   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { nlinarith [sq_nonneg (x + y), sq_nonneg"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": " y) with h₂ h₂ <;>   simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_assoc] <;>   (try { nlinarith [sq_nonneg (x + y), sq_nonneg (x - y)] }) <;"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1994_p3",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Int.inductionOn",
+        "kind": "invented_lemma_or_tactic",
+        "context": ": ℤ), f n = g n + (n * (n - 1)) / 2 := by       intro n       induction n using Int.inductionOn with       | h n ih =>         cases n with         | ofNat n =>           simp"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1994_p3",
+    "attempt_index": 2,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "f94",
+        "kind": "dangling_local_reference",
+        "context": "have h2 : f 94 = 4095 := f94, rw [h2], norm_num, rfl"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p4",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.div_emod_of_lt",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ega             have h₂₁ : n / 1000 ∈ Nat.digits 10 n := by               apply Nat.div_emod_of_lt               <;> omega             exact h₂₁           exact h₁₈ h₁₉         h"
+      },
+      {
+        "name": "Nat.mod_mem_digits",
+        "kind": "invented_lemma_or_tactic",
+        "context": "a               have h₁₉ : n % 10 ∈ Nat.digits 10 n := by                 apply Nat.mod_mem_digits                 <;> omega               exact h₁₉             have h₂₀ : Even ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p4",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.unfold",
+        "kind": "invented_lemma_or_tactic",
+        "context": "9 ∧ (∀ (d : ℕ), d ∈ Nat.digits 10 n → Even d) ∧ 5 ∣ n) (Finset.Icc 1000 9999) = Finset.unfold (Finset.filter (fun n => 1000 ≤ n ∧ n ≤ 9999 ∧ (∀ (d : ℕ), d ∈ Nat.digits 10 n "
+      },
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p4",
+    "attempt_index": 8,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "n",
+        "kind": "dangling_local_reference",
+        "context": "have h1 : ∀ (d : ℕ), d ∈ Nat.digits 10 n → Even d := by   intro d hd   cases hd   simp [Nat.digits, Even]  have h2 : ∀ ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1990_p15",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "a",
+        "kind": "dangling_local_reference",
+        "context": "def s : ℕ → ℝ := fun n => a * x ^ n + b * y ^ n  have h_s1 : s 1 = 3 := by   have h₄ : s 1 = a * x + b * y "
+      },
+      {
+        "name": "b",
+        "kind": "dangling_local_reference",
+        "context": "def s : ℕ → ℝ := fun n => a * x ^ n + b * y ^ n  have h_s1 : s 1 = 3 := by   have h₄ : s 1 = a * x + b * y := by     si"
+      },
+      {
+        "name": "x",
+        "kind": "dangling_local_reference",
+        "context": "def s : ℕ → ℝ := fun n => a * x ^ n + b * y ^ n  have h_s1 : s 1 = 3 := by   have h₄ : s 1 = a * x + b * y := b"
+      },
+      {
+        "name": "y",
+        "kind": "dangling_local_reference",
+        "context": "def s : ℕ → ℝ := fun n => a * x ^ n + b * y ^ n  have h_s1 : s 1 = 3 := by   have h₄ : s 1 = a * x + b * y := by     simp ["
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1990_p15",
+    "attempt_index": 11,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "s",
+        "kind": "dangling_local_reference",
+        "context": "have h_s1 : s 1 = 3 := by   have h₄ : s 1 = a * x + b * y := by     simp [s]     <;> rin"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1960_p2",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "Real.sqrt (1 + 2 * x)) ^ 2 ≥ 2 * x + 9 := by         rw [ge_iff_le]         rw [le_div_iff h₇₆]         nlinarith       exact h₇₇     linarith   exact h₇₃  have h₈ : Fals"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1960_p2",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "Real.sqrt (1 + 2 * x)) ^ 2 ≥ 2 * x + 9 := by         rw [ge_iff_le]         rw [le_div_iff h₇₆]         nlinarith       exact h₇₇     linarith   exact h₇₃  have h₈ : Fals"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2021_p18",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "begin",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h1 : f 1 = 0 :=   begin     rw [h₀],     simp,   end  have h2 : f (1/11) = -11 :=   begin     rw [h₀], "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1984_p5",
+    "attempt_index": 7,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "ln",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₂ : ln a + 3 * ln b = 15 * ln 2 := by simp [h₀] have h₃ : ln b + 3 * ln a = 21 * ln 2 "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1984_p5",
+    "attempt_index": 10,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1991_p9",
+    "attempt_index": 12,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₀",
+        "kind": "dangling_local_reference",
+        "context": " = 7 / 121 := by     have h₉ : 1 / Real.cos x = 22 / 7 + 7 / 968 := h₆     have h₁₀ : Real.cos x ≠ 0 := h_cos_ne_zero     have h₁₁ : 1 / Real.cos x = 22 / 7 + 7 / "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1984_p7",
+    "attempt_index": 12,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h",
+        "kind": "dangling_local_reference",
+        "context": "#check h₁ 89 #check h₁ 88 #check h₁ 87 #check h₁ 86 #check h₁ 85 #check h₁ 84 #chec"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2010_p22",
+    "attempt_index": 3,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.sum_le_sum_of_nonneg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "neg _  have h2 : ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * x - 1) ≥ 0 := by   apply Finset.sum_le_sum_of_nonneg   exact h1  have h3 : ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * x - 1) ≥ 49 := by  "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2010_p22",
+    "attempt_index": 7,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "begin",
+        "kind": "lean3_syntax_artifact",
+        "context": "have h1 : ∃ x, 49 ≤ ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * x - 1) := begin   refine ⟨1 / 60, _⟩,   calc     ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * (1 / 60)"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2010_p22",
+    "attempt_index": 12,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2010_p22",
+    "attempt_index": 15,
+    "source": "autoformalizer",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.sum_le_sum_of_nonneg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "neg _  have h2 : ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * x - 1) ≥ 0 := by   apply Finset.sum_le_sum_of_nonneg   exact h1  have h3 : ∑ k ∈ Finset.Icc (1:ℕ) 119, abs (↑k * x - 1) ≥ 49 := by  "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1994_p4",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "h₈",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "h₉",
+        "kind": "dangling_local_reference",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p13",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "h₅₃",
+        "kind": "dangling_local_reference",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p13",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p13",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1999_p11",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "h₂₈",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "h₂₉",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "h₃₀",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "h₃₁",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "h₃₂",
+        "kind": "dangling_local_reference",
+        "context": null
+      },
+      {
+        "name": "le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "nl h₉)       | inr h₉ =>         exact Or.inr (Or.inr h₉)   exact h₅  have h₄ : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by   have h₅ : a = 2 ∨ a = 2 * Complex.exp (2 * R"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "exact h₂₂  have h₃ : b^3 - 8 * b^2 - 8 * b + 64 = 0 := by   exact h₁  have h₄ : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by   have h₅ : a = 2 ∨ a = 2 * Complex.exp (Compl"
+      },
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "        <;> norm_num <;>           (try             {               field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> norm_num <;>               (try                 {             "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₂ : Complex.abs a = 2 := by   have h₂₁ : a ^ 3 = 8 := by     rw [← sub_eq_zero]     linear_comb"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₇)       | inr h₇ =>         exact Or.inr (Or.inr h₇)   exact h₃  have h_main : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by   have h₂ : a = 2 ∨ a = 2 * Complex.exp (2 * R"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "r.inr (Or.inl h₆)     | inr h₆ =>       exact Or.inr (Or.inr h₆)  have h_main : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by   rcases h_a_cases with (rfl | rfl | rfl) <;> "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "Or.inr (Or.inl h₄₀)     | inr h₄₀ =>       exact Or.inr (Or.inr h₄₀)  have h₄ : Complex.abs a = 2 := by   have h₄₁ : a ^ 3 = 8 := by     rw [← sub_eq_zero]     linear_comb"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "h₃₆)       | inr h₃₆ =>         exact Or.inr (Or.inr h₃₆)   exact h₃₂ have h₄ : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by   rcases h₂ with (rfl | rfl | rfl) <;>   rcase"
+      },
+      {
+        "name": "Complex.sq_abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "qrt (show 0 ≤ 3 by norm_num)]       }) <;>     (try       {         field_simp [Real.sqrt_eq_iff_sq_eq] at *         <;>         nlinarith [Real.sqrt_nonneg 3, Real.sq_sqrt (show 0 ≤"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1988_p4",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12b_2002_p11",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12b_2002_p11",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1985_p6",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1985_p6",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1985_p6",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "pow_lt_one",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ctor         · -- First inequality: 8/15 < 112 / (112 + 97)           norm_num [div_lt_div_iff]           <;>           norm_num <;>           linarith         · -- Second in"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.ceil_nonneg",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_le_div_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "es       constructor       · -- Prove 8/15 < 112 / (112 + 85)         norm_num [div_lt_div_iff]         <;>         norm_num <;>         linarith       · -- Prove 112 / (112 "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "es       constructor       · -- Prove 8/15 < 112 / (112 + 97)         norm_num [div_lt_div_iff]         <;>         norm_num <;>         linarith       · -- Prove 112 / (112 "
+      },
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "h₁₃",
+        "kind": "dangling_local_reference",
+        "context": " by omega         have h₁₂ : (k : ℝ) ≥ 98 := by exact_mod_cast h₁₁         have h₁₃ : (8 : ℝ) * (112 + k : ℝ) ≥ (8 : ℝ) * (112 + 98 : ℝ) := by           nlinarith "
+      },
+      {
+        "name": "k",
+        "kind": "dangling_local_reference",
+        "context": "have h₁ : 112 ∈ {n : ℕ | 0 < n ∧ ∃! k : ℕ, (8 : ℝ) / 15 < n / (n + k) ∧ (n : ℝ) / (n + k) < 7 / 13} := by   have h₂ :"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12_2001_p21",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12_2001_p21",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "b",
+        "kind": "dangling_local_reference",
+        "context": "nt>     <step>       <description>         We need to find positive integers a, b, c, d such that:         1. a * b * c * d = 40320         2. a * b + a + b = 52"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1974_p5",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ter than 1   have h₁₃₀ : a / (a + b + d) > a / (a + b + c + d) := by     apply (div_lt_div_iff (by positivity) (by positivity)).mpr     nlinarith [h₀.1, h₀.2.1, h₀.2.2.1, h₀."
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p8",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "2 * Real.sqrt 2 := by     have h₅ : (Real.sqrt 2) ^ 2 = 2 := by       norm_num [Real.sqrt_eq_iff_sq_eq]     have h₆ : (Real.sqrt 2) ^ 3 = (Real.sqrt 2) ^ 2 * Real.sqrt 2 := by       "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p8",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "   -- Use the property of square roots to solve for x     apply Eq.symm     rw [Real.sqrt_eq_iff_sq_eq] <;> nlinarith [Real.sqrt_nonneg 2, Real.sq_sqrt (show 0 ≤ 2 by norm_num)]   ex"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_2006_p6",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_2006_p6",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".sqrt 2 := Real.sqrt_nonneg _   have h₂ : (Real.sqrt 2) ^ 2 = 2 := by norm_num [Real.sqrt_eq_iff_sq_eq]   have h₃ : 0 ≤ Real.sqrt 2 := Real.sqrt_nonneg _   -- Use the fact that the s"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_2006_p6",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".sqrt 2 := Real.sqrt_nonneg _   have h₂ : (Real.sqrt 2) ^ 2 = 2 := by norm_num [Real.sqrt_eq_iff_sq_eq]   -- Use non-linear arithmetic to prove the inequality   nlinarith [sq_nonneg "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1984_p6",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₉₅₁₇",
+        "kind": "dangling_local_reference",
+        "context": " fact that a ≥ 3 to derive a contradiction               have h₉₅₅₄₂ : a ≥ 3 := h₉₅₁₇               have h₉₅₅₄₃ : b ≥ 2 * a := h₉₅₃₀               have h₉₅₅₄₄ : d ≥ "
+      },
+      {
+        "name": "h₉₅₂₇",
+        "kind": "dangling_local_reference",
+        "context": "     omega                   have h₉₅₅₂₈ : Even a := by                     rw [h₉₅₂₇]                     decide                   have h₉₅₅₂₉ : Odd a := h₁.1      "
+      },
+      {
+        "name": "h₉₅₂₉",
+        "kind": "dangling_local_reference",
+        "context": "  decide                   have h₉₅₅₂₉ : Odd a := h₁.1                   cases' h₉₅₂₉ with k hk                   omega                 exact h₉₅₅₂₄               --"
+      },
+      {
+        "name": "h₉₅₃₀",
+        "kind": "dangling_local_reference",
+        "context": "            have h₉₅₅₃₆ : a < d := h₉₄               have h₉₅₅₃₇ : b ≥ 2 * a := h₉₅₃₀               have h₉₅₅₃₈ : d ≥ 2 * a := h₉₅₃₁               have h₉₅₅₃₉ : a * "
+      },
+      {
+        "name": "h₉₅₃₁",
+        "kind": "dangling_local_reference",
+        "context": "      have h₉₅₅₃₇ : b ≥ 2 * a := h₉₅₃₀               have h₉₅₅₃₈ : d ≥ 2 * a := h₉₅₃₁               have h₉₅₅₃₉ : a * d = b * c := h₃               have h₉₅₅₄₀ : a +"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1984_p6",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ve h₆₆₆ : m ≥ 2 := h₆₅₉         have h₆₆₇ : 2 ^ m ≥ 2 ^ 2 := by           exact pow_le_pow_right (by norm_num) h₆₆₆         norm_num at h₆₆₇ ⊢         <;> linarith       -- Use"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1977_p6",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₂",
+        "kind": "dangling_local_reference",
+        "context": "        have h₁₀ : f (f 1) ≥ 2 := by             by_contra h₁₁             have h₁₂ : f (f 1) ≤ 1 := by omega             have h₁₃ : f (f 1) = 1 := by             "
+      },
+      {
+        "name": "h₁₅",
+        "kind": "dangling_local_reference",
+        "context": " by               omega             have h₁₄ : f 1 = 1 := by               have h₁₅ : f (f 1) = 1 := h₁₃               have h₁₆ : f 1 ≥ 2 := h₄               have "
+      },
+      {
+        "name": "h₁₈",
+        "kind": "dangling_local_reference",
+        "context": "        have h₁₇ : f (f 1) < f (1 + 1) := h₁ 1 (by norm_num)               have h₁₈ : f (1 + 1) ≥ 2 := by                 have h₁₉ : 0 < f (1 + 1) := h₀ (1 + 1)   "
+      },
+      {
+        "name": "k",
+        "kind": "dangling_local_reference",
+        "context": "       exact h₁₄         omega       exact h₃     · -- Inductive step: assume f k ≤ k, prove f (k + 1) ≤ k + 1       have h₃ : f (k + 1) ≤ k + 1 := by         by"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1977_p6",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₂",
+        "kind": "dangling_local_reference",
+        "context": " by             -- Use the fact that f is increasing for m ≥ 2             have h₁₂ : ∀ m : ℕ, m ≥ 2 → f m ≥ f 1 := by               intro m hm               have "
+      },
+      {
+        "name": "h₃₀",
+        "kind": "dangling_local_reference",
+        "context": "      have h₂₉ : f (f (k + 1)) ≥ f (k + 1) := by                           have h₃₀ : ∀ m : ℕ, m ≥ 1 → f m ≥ f (k + 1) := by                             intro m hm"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1995_p7",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "num             rw [h₅₁₃, h₅₁₄]             ring_nf             <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> nlinarith [Real.sin_sq_add_cos_sq t, Real.sqrt_nonneg 2, Real."
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p15",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₄₃",
+        "kind": "dangling_local_reference",
+        "context": " h₄₁ : k % 4 = 0 := h₃   have h₄₂ : ∃ m, k = 4 * m := by     use k / 4     have h₄₃ : k % 4 = 0 := h₃     have h₄₄ : k = 4 * (k / 4) := by       have h₄₅ := Nat.mo"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p15",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₃₃ : 2 ^ 2008 ≥ 10 := by       have h₃₄ : 2 ^ 2008 ≥ 2 ^ 10 := by         apply Nat.pow_le_pow_of_le_right         · norm_num         · norm_num       have h₃₅ : 2 ^ 10 = 1024 := by norm"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1982_p1",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₈₄",
+        "kind": "dangling_local_reference",
+        "context": "     have h₈₃ : f (2 * (m + 1)) ≤ f (m + 1) + f (m + 1) := h₈₀             have h₈₄ : f (m + 1) + f (m + 1) = f (2 * m) + f (m + 1) := by               have h₈₅ : "
+      },
+      {
+        "name": "h₈₅",
+        "kind": "dangling_local_reference",
+        "context": "ve h₈₄ : f (m + 1) + f (m + 1) = f (2 * m) + f (m + 1) := by               have h₈₅ : f (m + 1) + f (m + 1) = f (2 * m) + f (m + 1) := by                 have h₈₆ "
+      },
+      {
+        "name": "h₈₆",
+        "kind": "dangling_local_reference",
+        "context": " h₈₅ : f (m + 1) + f (m + 1) = f (2 * m) + f (m + 1) := by                 have h₈₆ : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                   have h₈"
+      },
+      {
+        "name": "h₈₇",
+        "kind": "dangling_local_reference",
+        "context": "₈₆ : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                   have h₈₇ : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                     have "
+      },
+      {
+        "name": "h₈₈",
+        "kind": "dangling_local_reference",
+        "context": " : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                     have h₈₈ : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                       hav"
+      },
+      {
+        "name": "h₈₉",
+        "kind": "dangling_local_reference",
+        "context": " f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                       have h₈₉ : f (2 * m) + f (m + 1) = f (m + 1) + f (m + 1) := by                         h"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1988_p6",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.dvd_sub'",
+        "kind": "invented_lemma_or_tactic",
+        "context": " (a - 1) := h₁₂           have h₁₆ : a + 1 ∣ (a ^ 2 + 1) - (a + 1) * (a - 1) := Nat.dvd_sub' h₁₄ h₁₅           have h₁₇ : (a ^ 2 + 1) - (a + 1) * (a - 1) = 2 := by         "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p25",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": " 0 := Real.sqrt_nonneg _       have h₄₅ : (Real.sqrt 3) ^ 2 = 3 := by norm_num [Real.sqrt_eq_iff_sq_eq]       ring_nf       <;>       (try norm_num) <;>       (try nlinarith [Real.sq"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p25",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "ing",
+        "kind": "invented_lemma_or_tactic",
+        "context": "#checking have h₄ : ∀ (n : ℕ), (a (n + 1))^2 + (b (n + 1))^2 = (a n)^2 + (b n)^2 := by   "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p25",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "ing",
+        "kind": "invented_lemma_or_tactic",
+        "context": "#checking theorem amc12a_2008_p25   (a b : ℕ → ℝ)   (h₀ : ∀ n, a (n + 1) = Real.sqrt 3 * "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p25",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "ing",
+        "kind": "invented_lemma_or_tactic",
+        "context": "#checking theorem amc12a_2008_p25   (a b : ℕ → ℝ)   (h₀ : ∀ n, a (n + 1) = Real.sqrt 3 * "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2003_p23",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "i!",
+        "kind": "invented_lemma_or_tactic",
+        "context": "#eval (∏ i ∈ Finset.Icc 1 9, i!) -- 13953120000 #eval (∏ i in Finset.Icc 1 9, i!) -- 13953120000  theorem amc12"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p21",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.gcd_pos_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "Nat.gcd_pos_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p21",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": null,
+        "kind": "unknown_tactic_no_name_in_error",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.lcm_zero",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "/ 4) = -Real.sqrt 2 := by       rw [h₄]       <;> ring_nf       <;> field_simp [Real.sqrt_eq_iff_sq_eq]       <;> ring_nf       <;> nlinarith [Real.sqrt_nonneg 2, Real.sq_sqrt (show "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "1 - (Real.sin (2 * x)) ^ 2) = Real.cos x := by           rw [h₉₄]           rw [Real.sqrt_eq_iff_sq_eq] <;> nlinarith [Real.sin_sq_add_cos_sq x]         rw [h₉₅]       rw [h₉₁]      "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p1",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₄₆",
+        "kind": "dangling_local_reference",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1987_p6",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.floor_nonneg.mpr",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "Nat.le_floor.mpr",
+        "kind": "invented_lemma_or_tactic",
+        "context": "h₈       have h₁₀ : (i : ℕ) ≤ Nat.floor (Real.sqrt (p / 3)) := by         apply Nat.le_floor.mpr         exact by           simpa [Nat.cast_le] using h₉       have h₁₁ : Nat.Pr"
+      },
+      {
+        "name": "h₁",
+        "kind": "dangling_local_reference",
+        "context": "have h_main : ∀ (i : ℕ), i ≤ p - 2 → Nat.Prime (f i) := by   intro i hi   have h₁ : i ≤ p - 2 := hi   have h₂ : p ≥ 2 := by     by_contra h     -- If p < 2, then"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1987_p6",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.le_floor.mpr",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1987_p6",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.le_floor.mpr",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₄",
+        "kind": "dangling_local_reference",
+        "context": " Finset.Icc 1 n → (1 : ℝ) / k ≤ (a k : ℝ) / k ^ 2 := by     intro k hk     have h₄ : 1 ≤ k := by       simp [Finset.mem_Icc] at hk       linarith     have h₅ : k "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_of_le_of_nonneg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "         have h₁₂ : (a k : ℝ) / (k : ℝ)^2 ≥ 1 / (k : ℝ)^2 := by           exact div_le_div_of_le_of_nonneg h₁₁ (by positivity)         have h₁₃ : (1 : ℝ) / (k : ℝ)^2 ≥ (1 : ℝ) / k := by "
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₄",
+        "kind": "dangling_local_reference",
+        "context": ":= by linarith   by_contra h   -- Assume for contradiction that a(k) < k   have h₄ : (a k : ℕ) < k := by     have h₅ : (a k : ℝ) < k := by       linarith     have"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.card_le_of_subset",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h_main",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "simpa",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Finset.card_le_of_subset",
+        "kind": "invented_lemma_or_tactic",
+        "context": null
+      },
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "e inequality       have h₁₃ : (1 : ℝ) / k ≤ (a k : ℝ) / k ^ 2 := by         rw [div_le_div_iff (by positivity) (by positivity)]         have h₁₄ : (k : ℝ) ^ 2 ≥ k := by      "
+      }
+    ]
+  }
+]
