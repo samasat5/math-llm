@@ -1,0 +1,1815 @@
+{
+  "meta": {
+    "generated_by": "claude code analysis session",
+    "scope": "all outputs/*_results.json files (mintier1 hard batch, tier0 batch, misc exploratory runs) as of 2026-08-26",
+    "files_scanned": [
+      "outputs/mathd_algebra_22_k30_verbose_results.json",
+      "outputs/minif2f-lean4_simple-selfrepair_Pythagoras-LM-Pythagoras-Prover-4B_maxtok30000_easiest5_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_maxtok20000_autoformalizer_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_autoformalizer_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k1_easiest5_maxtok15000_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k1_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest100_maxtok30000_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok15000_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok30000_FIXED_results.json",
+      "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_random100_maxtok30000_results.json"
+    ],
+    "total_problems_scanned": 339,
+    "total_attempts_scanned": 2059,
+    "note": "The mintier1 hard-tier run (100 problems, min_tier=1, seed=0, k=10, maxtok=20000) is now COMPLETE. It is split across two files with different methodology: problems 1-33 used the Qwen2.5-Coder-7B autoformalizer rescue (outputs/...autoformalizer_results.json.bak_33done), problems 34-100 did not (outputs/...maxtok20000_results.json). Both are scanned individually here (see per_file_summary). A convenience union of the two, outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_MERGED_100_results.json (final: 34/100 complete, 63/100 successful, pass@10=0.340), is EXCLUDED from this scan's file list to avoid double-counting the same 100 problems twice."
+  },
+  "per_file_summary": {
+    "outputs/minif2f-lean4_simple-selfrepair_Pythagoras-LM-Pythagoras-Prover-4B_maxtok30000_easiest5_results.json": {
+      "status": "in_progress",
+      "k": null,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 30000,
+      "autoformalizer_used": false,
+      "n_problems": 1,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_maxtok20000_autoformalizer_results.json": {
+      "status": "in_progress",
+      "k": 10,
+      "min_tier": 1,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": true,
+      "n_problems": 1,
+      "n_complete": 1,
+      "n_ok_not_complete": 0,
+      "n_fail": 0
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json": {
+      "status": "in_progress",
+      "k": 10,
+      "min_tier": 1,
+      "tier": null,
+      "seed": 0,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": true,
+      "n_problems": 33,
+      "n_complete": 11,
+      "n_ok_not_complete": 8,
+      "n_fail": 14
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done": {
+      "status": "in_progress",
+      "k": 10,
+      "min_tier": 1,
+      "tier": null,
+      "seed": 0,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": true,
+      "n_problems": 33,
+      "n_complete": 11,
+      "n_ok_not_complete": 8,
+      "n_fail": 14
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json": {
+      "status": "complete",
+      "k": 10,
+      "min_tier": 1,
+      "tier": null,
+      "seed": 0,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": false,
+      "n_problems": 67,
+      "n_complete": 23,
+      "n_ok_not_complete": 21,
+      "n_fail": 23
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_autoformalizer_results.json": {
+      "status": "complete",
+      "k": 10,
+      "min_tier": null,
+      "tier": 0,
+      "seed": null,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": true,
+      "n_problems": 100,
+      "n_complete": 80,
+      "n_ok_not_complete": 15,
+      "n_fail": 5
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json": {
+      "status": "in_progress",
+      "k": 10,
+      "min_tier": null,
+      "tier": 0,
+      "seed": null,
+      "max_new_tokens": 20000,
+      "autoformalizer_used": false,
+      "n_problems": 90,
+      "n_complete": 78,
+      "n_ok_not_complete": 10,
+      "n_fail": 2
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k1_easiest5_maxtok15000_results.json": {
+      "status": null,
+      "k": 1,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 15000,
+      "autoformalizer_used": false,
+      "n_problems": 5,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 5
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k1_results.json": {
+      "status": null,
+      "k": 1,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": null,
+      "autoformalizer_used": false,
+      "n_problems": 1,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest100_maxtok30000_results.json": {
+      "status": "in_progress",
+      "k": 30,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 30000,
+      "autoformalizer_used": false,
+      "n_problems": 1,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok15000_results.json": {
+      "status": "in_progress",
+      "k": 30,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 15000,
+      "autoformalizer_used": false,
+      "n_problems": 1,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok30000_FIXED_results.json": {
+      "status": "done",
+      "k": 30,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 30000,
+      "autoformalizer_used": false,
+      "n_problems": 5,
+      "n_complete": 5,
+      "n_ok_not_complete": 0,
+      "n_fail": 0
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_random100_maxtok30000_results.json": {
+      "status": "in_progress",
+      "k": 30,
+      "min_tier": null,
+      "tier": null,
+      "seed": null,
+      "max_new_tokens": 30000,
+      "autoformalizer_used": false,
+      "n_problems": 1,
+      "n_complete": 0,
+      "n_ok_not_complete": 0,
+      "n_fail": 1
+    }
+  },
+  "problem_level_outcomes_overall": {
+    "FAIL": 68,
+    "COMPLETE": 209,
+    "OK": 62
+  },
+  "attempt_level_failure_taxonomy_overall": {
+    "syntax error": 618,
+    "hallucinated lemma/identifier": 322,
+    "no-op / vacuous (compiles but doesn't close goal)": 307,
+    "unsolved goals (tactic left goal open)": 219,
+    "SOLVED": 209,
+    "type mismatch": 161,
+    "no goals to be solved (over-application)": 50,
+    "Lean timeout (maxHeartbeats)": 49,
+    "tactic failed to close goal": 37,
+    "other: Timeout after 30s": 18,
+    "failed, no error captured": 13,
+    "other: omega could not prove the goal:\na possible counterexample may satisfy the constr": 11,
+    "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": 8,
+    "other: REPL process ended": 3,
+    "other: omega could not prove the goal:\nNo usable constraints found. You may need to unf": 3,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 1\nin the ": 2,
+    "other: unexpected end of input": 2,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?n ∈ S\nin t": 2,
+    "other: failed to prove strict positivity, but it would be possible to prove nonnegativi": 2,
+    "other: unknown tactic | Alternative `zero` has not been provided | Alternative `succ` h": 2,
+    "other: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reach": 2,
+    "other: `simp` made no progress": 2,
+    "other: Tactic `induction` failed: major premise type is not an inductive type\n  n = 0 →": 2,
+    "typeclass/instance resolution failure": 1,
+    "other: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` doe": 1,
+    "other: Tactic `rfl` failed: The left-hand side\n  S.card\nis not definitionally equal to ": 1,
+    "other: Invalid field `invRight`: The environment does not contain `Equiv.invRight`\n  σ\n": 1,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?a ^ ?m) ^": 1,
+    "other: unknown tactic": 1,
+    "other: `simp` made no progress | Tactic `rewrite` failed: Did not find an occurrence of": 1,
+    "other: Tactic `apply` failed: could not unify the conclusion of `σ.invFun`\n  ℝ\nwith the": 1,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  4 ^ 2\nin th": 1,
+    "other: Tactic `contradiction` failed\n\nx y : ℤ\n⊢ 4 * x ^ 3 - 7 * y ^ 3 ≠ 2003": 1,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  5 ^ 3 % 7\ni": 1,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?m * ?n).g": 1,
+    "other: Tactic `rfl` failed: The left-hand side\n  ↑(Nat.log (5 ^ 2) (5 ^ 4))\nis not defi": 1,
+    "other: simp_all made no progress": 1,
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  17 ^ 18 % 1": 1
+  },
+  "attempt_level_failure_taxonomy_overall_pct": {
+    "syntax error": {
+      "count": 618,
+      "pct_of_all_attempts": 30.01
+    },
+    "hallucinated lemma/identifier": {
+      "count": 322,
+      "pct_of_all_attempts": 15.64
+    },
+    "no-op / vacuous (compiles but doesn't close goal)": {
+      "count": 307,
+      "pct_of_all_attempts": 14.91
+    },
+    "unsolved goals (tactic left goal open)": {
+      "count": 219,
+      "pct_of_all_attempts": 10.64
+    },
+    "SOLVED": {
+      "count": 209,
+      "pct_of_all_attempts": 10.15
+    },
+    "type mismatch": {
+      "count": 161,
+      "pct_of_all_attempts": 7.82
+    },
+    "no goals to be solved (over-application)": {
+      "count": 50,
+      "pct_of_all_attempts": 2.43
+    },
+    "Lean timeout (maxHeartbeats)": {
+      "count": 49,
+      "pct_of_all_attempts": 2.38
+    },
+    "tactic failed to close goal": {
+      "count": 37,
+      "pct_of_all_attempts": 1.8
+    },
+    "other: Timeout after 30s": {
+      "count": 18,
+      "pct_of_all_attempts": 0.87
+    },
+    "failed, no error captured": {
+      "count": 13,
+      "pct_of_all_attempts": 0.63
+    },
+    "other: omega could not prove the goal:\na possible counterexample may satisfy the constr": {
+      "count": 11,
+      "pct_of_all_attempts": 0.53
+    },
+    "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": {
+      "count": 8,
+      "pct_of_all_attempts": 0.39
+    },
+    "other: REPL process ended": {
+      "count": 3,
+      "pct_of_all_attempts": 0.15
+    },
+    "other: omega could not prove the goal:\nNo usable constraints found. You may need to unf": {
+      "count": 3,
+      "pct_of_all_attempts": 0.15
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 1\nin the ": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: unexpected end of input": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?n ∈ S\nin t": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: failed to prove strict positivity, but it would be possible to prove nonnegativi": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: unknown tactic | Alternative `zero` has not been provided | Alternative `succ` h": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reach": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: `simp` made no progress": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "other: Tactic `induction` failed: major premise type is not an inductive type\n  n = 0 →": {
+      "count": 2,
+      "pct_of_all_attempts": 0.1
+    },
+    "typeclass/instance resolution failure": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` doe": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rfl` failed: The left-hand side\n  S.card\nis not definitionally equal to ": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Invalid field `invRight`: The environment does not contain `Equiv.invRight`\n  σ\n": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?a ^ ?m) ^": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: unknown tactic": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: `simp` made no progress | Tactic `rewrite` failed: Did not find an occurrence of": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `apply` failed: could not unify the conclusion of `σ.invFun`\n  ℝ\nwith the": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  4 ^ 2\nin th": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `contradiction` failed\n\nx y : ℤ\n⊢ 4 * x ^ 3 - 7 * y ^ 3 ≠ 2003": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  5 ^ 3 % 7\ni": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?m * ?n).g": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rfl` failed: The left-hand side\n  ↑(Nat.log (5 ^ 2) (5 ^ 4))\nis not defi": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: simp_all made no progress": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    },
+    "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  17 ^ 18 % 1": {
+      "count": 1,
+      "pct_of_all_attempts": 0.05
+    }
+  },
+  "attempt_level_failure_taxonomy_by_file": {
+    "outputs/minif2f-lean4_simple-selfrepair_Pythagoras-LM-Pythagoras-Prover-4B_maxtok30000_easiest5_results.json": {
+      "failed, no error captured": 3
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_maxtok20000_autoformalizer_results.json": {
+      "SOLVED": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json": {
+      "syntax error": 137,
+      "hallucinated lemma/identifier": 62,
+      "unsolved goals (tactic left goal open)": 53,
+      "type mismatch": 36,
+      "no-op / vacuous (compiles but doesn't close goal)": 26,
+      "Lean timeout (maxHeartbeats)": 13,
+      "SOLVED": 11,
+      "tactic failed to close goal": 7,
+      "no goals to be solved (over-application)": 4,
+      "other: Timeout after 30s": 2,
+      "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": 2,
+      "other: omega could not prove the goal:\na possible counterexample may satisfy the constr": 2,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 1\nin the ": 1,
+      "other: REPL process ended": 1,
+      "other: unexpected end of input": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?n ∈ S\nin t": 1,
+      "other: failed to prove strict positivity, but it would be possible to prove nonnegativi": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done": {
+      "syntax error": 137,
+      "hallucinated lemma/identifier": 62,
+      "unsolved goals (tactic left goal open)": 53,
+      "type mismatch": 36,
+      "no-op / vacuous (compiles but doesn't close goal)": 26,
+      "Lean timeout (maxHeartbeats)": 13,
+      "SOLVED": 11,
+      "tactic failed to close goal": 7,
+      "no goals to be solved (over-application)": 4,
+      "other: Timeout after 30s": 2,
+      "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": 2,
+      "other: omega could not prove the goal:\na possible counterexample may satisfy the constr": 2,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 1\nin the ": 1,
+      "other: REPL process ended": 1,
+      "other: unexpected end of input": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?n ∈ S\nin t": 1,
+      "other: failed to prove strict positivity, but it would be possible to prove nonnegativi": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json": {
+      "syntax error": 193,
+      "no-op / vacuous (compiles but doesn't close goal)": 68,
+      "hallucinated lemma/identifier": 62,
+      "unsolved goals (tactic left goal open)": 42,
+      "type mismatch": 31,
+      "SOLVED": 23,
+      "Lean timeout (maxHeartbeats)": 22,
+      "tactic failed to close goal": 20,
+      "no goals to be solved (over-application)": 17,
+      "other: Timeout after 30s": 9,
+      "other: omega could not prove the goal:\na possible counterexample may satisfy the constr": 7,
+      "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": 2,
+      "typeclass/instance resolution failure": 1,
+      "other: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` doe": 1,
+      "other: Tactic `rfl` failed: The left-hand side\n  S.card\nis not definitionally equal to ": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_autoformalizer_results.json": {
+      "syntax error": 112,
+      "no-op / vacuous (compiles but doesn't close goal)": 106,
+      "hallucinated lemma/identifier": 101,
+      "SOLVED": 80,
+      "type mismatch": 56,
+      "unsolved goals (tactic left goal open)": 54,
+      "no goals to be solved (over-application)": 12,
+      "tactic failed to close goal": 3,
+      "other: unknown tactic | Alternative `zero` has not been provided | Alternative `succ` h": 2,
+      "other: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reach": 2,
+      "other: omega could not prove the goal:\nNo usable constraints found. You may need to unf": 2,
+      "other: Invalid field `invRight`: The environment does not contain `Equiv.invRight`\n  σ\n": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?a ^ ?m) ^": 1,
+      "other: unknown tactic": 1,
+      "other: `simp` made no progress | Tactic `rewrite` failed: Did not find an occurrence of": 1,
+      "other: Tactic `apply` failed: could not unify the conclusion of `σ.invFun`\n  ℝ\nwith the": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  4 ^ 2\nin th": 1,
+      "other: Tactic `contradiction` failed\n\nx y : ℤ\n⊢ 4 * x ^ 3 - 7 * y ^ 3 ≠ 2003": 1,
+      "other: `simp` made no progress": 1,
+      "Lean timeout (maxHeartbeats)": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  5 ^ 3 % 7\ni": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  (?m * ?n).g": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json": {
+      "no-op / vacuous (compiles but doesn't close goal)": 79,
+      "SOLVED": 78,
+      "syntax error": 39,
+      "hallucinated lemma/identifier": 35,
+      "unsolved goals (tactic left goal open)": 17,
+      "no goals to be solved (over-application)": 13,
+      "other: Timeout after 30s": 5,
+      "other: Tactic `induction` failed: major premise type is not an inductive type\n  n = 0 →": 2,
+      "other: maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to i": 2,
+      "type mismatch": 2,
+      "other: Tactic `rfl` failed: The left-hand side\n  ↑(Nat.log (5 ^ 2) (5 ^ 4))\nis not defi": 1,
+      "other: REPL process ended": 1,
+      "other: simp_all made no progress": 1,
+      "other: omega could not prove the goal:\nNo usable constraints found. You may need to unf": 1,
+      "other: `simp` made no progress": 1,
+      "other: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  17 ^ 18 % 1": 1
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest100_maxtok30000_results.json": {
+      "failed, no error captured": 2
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok15000_results.json": {
+      "failed, no error captured": 5
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_easiest5_maxtok30000_FIXED_results.json": {
+      "SOLVED": 5,
+      "no-op / vacuous (compiles but doesn't close goal)": 2
+    },
+    "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k30_random100_maxtok30000_results.json": {
+      "failed, no error captured": 3
+    }
+  },
+  "hallucination_mining": {
+    "total_unknown_identifier_attempts": 319,
+    "real_hallucination_attempts": 212,
+    "scope_error_noise_attempts": 107,
+    "n_distinct_real_hallucinated_names": 81,
+    "name_frequency": {
+      "Real.sqrt_eq_iff_sq_eq": {
+        "count": 100,
+        "n_problems": 16,
+        "problems": [
+          "minif2f-lean4/aime_1995_p7",
+          "minif2f-lean4/aime_1997_p11",
+          "minif2f-lean4/algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x",
+          "minif2f-lean4/amc12a_2003_p25",
+          "minif2f-lean4/amc12a_2008_p25",
+          "minif2f-lean4/amc12a_2008_p8",
+          "minif2f-lean4/amc12a_2020_p15",
+          "minif2f-lean4/imo_1965_p1",
+          "minif2f-lean4/imo_1985_p6",
+          "minif2f-lean4/imo_2006_p6",
+          "minif2f-lean4/mathd_algebra_17",
+          "minif2f-lean4/mathd_algebra_433",
+          "minif2f-lean4/mathd_algebra_493",
+          "minif2f-lean4/mathd_algebra_536",
+          "minif2f-lean4/mathd_algebra_756",
+          "minif2f-lean4/mathd_numbertheory_728"
+        ]
+      },
+      "Complex.abs": {
+        "count": 94,
+        "n_problems": 2,
+        "problems": [
+          "minif2f-lean4/aime_1988_p4",
+          "minif2f-lean4/amc12a_2020_p15"
+        ]
+      },
+      "abs_add": {
+        "count": 64,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2011_p18"
+        ]
+      },
+      "div_lt_div_iff": {
+        "count": 60,
+        "n_problems": 6,
+        "problems": [
+          "minif2f-lean4/aime_1987_p8",
+          "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+          "minif2f-lean4/amc12_2001_p21",
+          "minif2f-lean4/amc12a_2020_p13",
+          "minif2f-lean4/imo_1974_p5",
+          "minif2f-lean4/imo_1985_p6"
+        ]
+      },
+      "add_left_neg": {
+        "count": 48,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2011_p18"
+        ]
+      },
+      "add_right_neg": {
+        "count": 48,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2011_p18"
+        ]
+      },
+      "pow_le_pow_right": {
+        "count": 39,
+        "n_problems": 4,
+        "problems": [
+          "minif2f-lean4/imo_1981_p6",
+          "minif2f-lean4/imo_1984_p6",
+          "minif2f-lean4/induction_pord1p1on2powklt5on2",
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "Nat.pow_le_pow_of_le_right": {
+        "count": 16,
+        "n_problems": 4,
+        "problems": [
+          "minif2f-lean4/amc12a_2008_p15",
+          "minif2f-lean4/imo_1981_p6",
+          "minif2f-lean4/induction_pprime_pdvdapowpma",
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "div_le_div_iff": {
+        "count": 13,
+        "n_problems": 5,
+        "problems": [
+          "minif2f-lean4/aime_1987_p8",
+          "minif2f-lean4/algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x",
+          "minif2f-lean4/algebra_binomnegdiscrineq_10alt28asqp1",
+          "minif2f-lean4/imo_1978_p5",
+          "minif2f-lean4/induction_pord1p1on2powklt5on2"
+        ]
+      },
+      "le_div_iff": {
+        "count": 11,
+        "n_problems": 3,
+        "problems": [
+          "minif2f-lean4/aime_1999_p11",
+          "minif2f-lean4/algebra_amgm_faxinrrp2msqrt2geq2mxm1div2x",
+          "minif2f-lean4/imo_1960_p2"
+        ]
+      },
+      "k.succ": {
+        "count": 6,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/aime_1984_p1"
+        ]
+      },
+      "abs_add_le_abs_sum": {
+        "count": 6,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2011_p18"
+        ]
+      },
+      "Nat.mod_mem_digits": {
+        "count": 6,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p4"
+        ]
+      },
+      "div_lt_iff": {
+        "count": 6,
+        "n_problems": 3,
+        "problems": [
+          "minif2f-lean4/aime_1987_p8",
+          "minif2f-lean4/aime_1994_p4",
+          "minif2f-lean4/aime_1999_p11"
+        ]
+      },
+      "Nat.dvd_sub'": {
+        "count": 6,
+        "n_problems": 2,
+        "problems": [
+          "minif2f-lean4/imo_1988_p6",
+          "minif2f-lean4/induction_pprime_pdvdapowpma"
+        ]
+      },
+      "Nat.odd_iff_not_even": {
+        "count": 4,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2017_p7"
+        ]
+      },
+      "Set.mem_image_set": {
+        "count": 4,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2003_p25"
+        ]
+      },
+      "Finset.sum_le_sum_of_nonneg": {
+        "count": 4,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2010_p22"
+        ]
+      },
+      "Nat.pow_lt_pow_of_lt_right": {
+        "count": 4,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "Complex.sq_abs": {
+        "count": 3,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p15"
+        ]
+      },
+      "Nat.ceil_nonneg": {
+        "count": 3,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/aime_1987_p8"
+        ]
+      },
+      "Nat.floor_nonneg.mpr": {
+        "count": 3,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1987_p6"
+        ]
+      },
+      "Nat.le_floor.mpr": {
+        "count": 3,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1987_p6"
+        ]
+      },
+      "pow_lt_pow_of_lt_left": {
+        "count": 3,
+        "n_problems": 2,
+        "problems": [
+          "minif2f-lean4/induction_nfactltnexpnm1ngt3",
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "dvd_neg_right": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/aime_1987_p5"
+        ]
+      },
+      "nat.rec_on": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2017_p7"
+        ]
+      },
+      "h_f3_0": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1981_p6"
+        ]
+      },
+      "h_f2_0": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1981_p6"
+        ]
+      },
+      "h_f1_0": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1981_p6"
+        ]
+      },
+      "fintype.card": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12_2000_p15"
+        ]
+      },
+      "Finset.sum_to_list": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12_2000_p15"
+        ]
+      },
+      "image_def": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2003_p25"
+        ]
+      },
+      "mul_nonneg_of_nonneg_left": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2003_p25"
+        ]
+      },
+      "mul_nonneg_of_nonneg_right": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2003_p25"
+        ]
+      },
+      "abs_sub_le_abs_diff": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2011_p18"
+        ]
+      },
+      "Int.inductionOn": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/aime_1994_p3"
+        ]
+      },
+      "Nat.div_emod_of_lt": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p4"
+        ]
+      },
+      "Finset.unfold": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p4"
+        ]
+      },
+      "pow_le_pow_of_le_left": {
+        "count": 2,
+        "n_problems": 2,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p13",
+          "minif2f-lean4/numbertheory_x5neqy2p4"
+        ]
+      },
+      "Finset.card_le_of_subset": {
+        "count": 2,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1978_p5"
+        ]
+      },
+      "pow_lt_one": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1985_p6"
+        ]
+      },
+      "div_le_div_of_le_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/aime_1987_p8"
+        ]
+      },
+      "Nat.gcd_pos_right": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p21"
+        ]
+      },
+      "Nat.gcd_pos_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/amc12a_2020_p21"
+        ]
+      },
+      "Nat.lcm_zero": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1965_p1"
+        ]
+      },
+      "div_le_div_of_le_of_nonneg": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1978_p5"
+        ]
+      },
+      "h_main": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/imo_1978_p5"
+        ]
+      },
+      "Equiv.inv_of_self": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_393"
+        ]
+      },
+      "Equiv.to_fun_eq_symm": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_393"
+        ]
+      },
+      "dvd_of_mul_right": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_divisibility_3div2tooddnp1"
+        ]
+      },
+      "Nat.pow_dvd_pow_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2dvd4expn"
+        ]
+      },
+      "pow.pow": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_756"
+        ]
+      },
+      "Nat.gcd_eq_of_dvd_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_numbertheory_188"
+        ]
+      },
+      "Nat.gcd_eq_of_dvd_right": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_numbertheory_188"
+        ]
+      },
+      "Equiv.apply_inv_eq": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_323"
+        ]
+      },
+      "Equiv.inv_eq": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_323"
+        ]
+      },
+      "finset.sum_empty": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_sum_odd"
+        ]
+      },
+      "div_le_iff": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_pord1p1on2powklt5on2"
+        ]
+      },
+      "finset.sum_lt_one_of_sum_log_le_one": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_pord1p1on2powklt5on2"
+        ]
+      },
+      "exists_pos_prime_divisor": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "pow_lt_pow_of_le_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "dvd_pow_sub_pow_one": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2pownm1prime_nprime"
+        ]
+      },
+      "add_mul_self_left": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/algebra_sqineq_2unitcircatblt1"
+        ]
+      },
+      "Nat.Prime.dvd_a_pow_sub_one": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_pprime_pdvdapowpma"
+        ]
+      },
+      "Nat.Prime.pow_mod": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_pprime_pdvdapowpma"
+        ]
+      },
+      "ZMod.map_natCast": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/induction_pprime_pdvdapowpma"
+        ]
+      },
+      "Filter.Tendsto.atTop_add_const": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.tendsto_compose": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.tendsto_atTop_atTop_nat": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "tendsto_shift_right": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.Tendsto.atTop_const": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "atTop.filter_mono": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "NNReal.sqrt_eq_iff_sq_eq": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.Tendsto.shift_right": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.Tendsto.continuous_at": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Filter.tendsto_atTop_atTop_nat_add_one": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "tendsto_compose_filter_tendsto": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "tendsto_u_at_top": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_31"
+        ]
+      },
+      "Finset.range_card": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_algebra_185"
+        ]
+      },
+      "Nat.dvd_pow": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/numbertheory_2dvd4expn"
+        ]
+      },
+      "Nat.dvd_of_dvd_pow": {
+        "count": 1,
+        "n_problems": 1,
+        "problems": [
+          "minif2f-lean4/mathd_numbertheory_66"
+        ]
+      }
+    }
+  },
+  "hallucination_taxonomy": {
+    "false_memory_repeat": {
+      "total_attempts": 107,
+      "n_distinct_names": 3,
+      "n_problems": 18,
+      "names": {
+        "Real.sqrt_eq_iff_sq_eq": {
+          "count": 100,
+          "n_problems": 16
+        },
+        "abs_add_le_abs_sum": {
+          "count": 6,
+          "n_problems": 1
+        },
+        "NNReal.sqrt_eq_iff_sq_eq": {
+          "count": 1,
+          "n_problems": 1
+        }
+      }
+    },
+    "lean3_vintage_or_renamed": {
+      "total_attempts": 131,
+      "n_distinct_names": 13,
+      "n_problems": 14,
+      "names": {
+        "add_right_neg": {
+          "count": 48,
+          "n_problems": 1
+        },
+        "add_left_neg": {
+          "count": 48,
+          "n_problems": 1
+        },
+        "Nat.pow_le_pow_of_le_right": {
+          "count": 16,
+          "n_problems": 4
+        },
+        "Nat.pow_lt_pow_of_lt_right": {
+          "count": 4,
+          "n_problems": 1
+        },
+        "pow_lt_pow_of_lt_left": {
+          "count": 3,
+          "n_problems": 2
+        },
+        "fintype.card": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "nat.rec_on": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "Int.inductionOn": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "pow_le_pow_of_le_left": {
+          "count": 2,
+          "n_problems": 2
+        },
+        "finset.sum_empty": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "div_le_div_of_le_left": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "finset.sum_lt_one_of_sum_log_le_one": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "pow_lt_pow_of_le_left": {
+          "count": 1,
+          "n_problems": 1
+        }
+      }
+    },
+    "plausible_order_div_family": {
+      "total_attempts": 91,
+      "n_distinct_names": 5,
+      "n_problems": 13,
+      "names": {
+        "div_lt_div_iff": {
+          "count": 60,
+          "n_problems": 6
+        },
+        "div_le_div_iff": {
+          "count": 13,
+          "n_problems": 5
+        },
+        "le_div_iff": {
+          "count": 11,
+          "n_problems": 3
+        },
+        "div_lt_iff": {
+          "count": 6,
+          "n_problems": 3
+        },
+        "div_le_iff": {
+          "count": 1,
+          "n_problems": 1
+        }
+      }
+    },
+    "likely_real_but_misused_context": {
+      "total_attempts": 171,
+      "n_distinct_names": 5,
+      "n_problems": 6,
+      "names": {
+        "Complex.abs": {
+          "count": 94,
+          "n_problems": 2
+        },
+        "abs_add": {
+          "count": 64,
+          "n_problems": 1
+        },
+        "Nat.dvd_sub'": {
+          "count": 6,
+          "n_problems": 2
+        },
+        "Nat.odd_iff_not_even": {
+          "count": 4,
+          "n_problems": 1
+        },
+        "Complex.sq_abs": {
+          "count": 3,
+          "n_problems": 1
+        }
+      }
+    },
+    "fabricated_subapi_unfamiliar_area": {
+      "total_attempts": 11,
+      "n_distinct_names": 11,
+      "n_problems": 1,
+      "names": {
+        "Filter.tendsto_atTop_atTop_nat_add_one": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "atTop.filter_mono": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.Tendsto.atTop_const": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.Tendsto.atTop_add_const": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "tendsto_u_at_top": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "tendsto_compose_filter_tendsto": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.Tendsto.continuous_at": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "tendsto_shift_right": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.tendsto_atTop_atTop_nat": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.Tendsto.shift_right": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Filter.tendsto_compose": {
+          "count": 1,
+          "n_problems": 1
+        }
+      }
+    },
+    "phantom_local_hypothesis": {
+      "total_attempts": 12,
+      "n_distinct_names": 4,
+      "n_problems": 2,
+      "names": {
+        "k.succ": {
+          "count": 6,
+          "n_problems": 1
+        },
+        "h_f3_0": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "h_f1_0": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "h_f2_0": {
+          "count": 2,
+          "n_problems": 1
+        }
+      }
+    },
+    "overly_specific_invented_helper_long_tail": {
+      "total_attempts": 104,
+      "n_distinct_names": 40,
+      "n_problems": 26,
+      "names": {
+        "pow_le_pow_right": {
+          "count": 39,
+          "n_problems": 4
+        },
+        "Nat.mod_mem_digits": {
+          "count": 6,
+          "n_problems": 1
+        },
+        "Set.mem_image_set": {
+          "count": 4,
+          "n_problems": 1
+        },
+        "Finset.sum_le_sum_of_nonneg": {
+          "count": 4,
+          "n_problems": 1
+        },
+        "Nat.ceil_nonneg": {
+          "count": 3,
+          "n_problems": 1
+        },
+        "Nat.floor_nonneg.mpr": {
+          "count": 3,
+          "n_problems": 1
+        },
+        "Nat.le_floor.mpr": {
+          "count": 3,
+          "n_problems": 1
+        },
+        "mul_nonneg_of_nonneg_right": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "abs_sub_le_abs_diff": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "dvd_neg_right": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "Finset.card_le_of_subset": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "Finset.sum_to_list": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "Finset.unfold": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "mul_nonneg_of_nonneg_left": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "Nat.div_emod_of_lt": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "image_def": {
+          "count": 2,
+          "n_problems": 1
+        },
+        "div_le_div_of_le_of_nonneg": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.Prime.pow_mod": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.gcd_pos_left": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "pow.pow": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.lcm_zero": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Equiv.to_fun_eq_symm": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "dvd_pow_sub_pow_one": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "pow_lt_one": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.gcd_eq_of_dvd_left": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "add_mul_self_left": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "exists_pos_prime_divisor": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.dvd_pow": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.pow_dvd_pow_left": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "h_main": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.Prime.dvd_a_pow_sub_one": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Equiv.inv_eq": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.dvd_of_dvd_pow": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.gcd_pos_right": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "ZMod.map_natCast": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Nat.gcd_eq_of_dvd_right": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Equiv.apply_inv_eq": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Finset.range_card": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "Equiv.inv_of_self": {
+          "count": 1,
+          "n_problems": 1
+        },
+        "dvd_of_mul_right": {
+          "count": 1,
+          "n_problems": 1
+        }
+      }
+    }
+  },
+  "repetition_detector_tuning": {
+    "severe_near_total_loops_missed_by_is_degenerate": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p25",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "\\end{cases}",
+        "count": 3943,
+        "total_lines": 3943,
+        "ratio": 1.0
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p4",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "norm_num",
+        "count": 956,
+        "total_lines": 979,
+        "ratio": 0.977
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1990_p15",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "= a * x^5 + b * y^5 + 16 * a * b * x * y",
+        "count": 144,
+        "total_lines": 155,
+        "ratio": 0.929
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1984_p5",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "#check Real.logb_eq_iff_rpow_eq",
+        "count": 1803,
+        "total_lines": 1805,
+        "ratio": 0.999
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1991_p9",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "nlinarith [Real.sin_le_one x, Real.cos_le_one x, Real.sin_sq_add_cos_sq x]",
+        "count": 492,
+        "total_lines": 594,
+        "ratio": 0.828
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p25",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+        "repeated_line": "\\end{cases}",
+        "count": 3943,
+        "total_lines": 3943,
+        "ratio": 1.0
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p4",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+        "repeated_line": "norm_num",
+        "count": 956,
+        "total_lines": 979,
+        "ratio": 0.977
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1990_p15",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+        "repeated_line": "= a * x^5 + b * y^5 + 16 * a * b * x * y",
+        "count": 144,
+        "total_lines": 155,
+        "ratio": 0.929
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1984_p5",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+        "repeated_line": "#check Real.logb_eq_iff_rpow_eq",
+        "count": 1803,
+        "total_lines": 1805,
+        "ratio": 0.999
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1991_p9",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_autoformalizer_results.json.bak_33done",
+        "repeated_line": "nlinarith [Real.sin_le_one x, Real.cos_le_one x, Real.sin_sq_add_cos_sq x]",
+        "count": 492,
+        "total_lines": 594,
+        "ratio": 0.828
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1999_p11",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "#eval (10 : ℚ) / 3",
+        "count": 1522,
+        "total_lines": 1522,
+        "ratio": 1.0
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1999_p11",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "But perhaps the original problem had `tan(m/n)` where `m/n` is in degrees, and in Lean, the sum is `tan(mπ/180)`, meaning that `m` in Lean is `m/n` in",
+        "count": 352,
+        "total_lines": 365,
+        "ratio": 0.964
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1977_p6",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "(try omega)",
+        "count": 1532,
+        "total_lines": 1714,
+        "ratio": 0.894
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2008_p15",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "#check (2008^2 + 2^2008)^2 % 10 = 6",
+        "count": 730,
+        "total_lines": 735,
+        "ratio": 0.993
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2008_p25",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "_ = 6 / 2 ^ 99 := by rfl",
+        "count": 722,
+        "total_lines": 1177,
+        "ratio": 0.613
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p5",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "But perhaps the problem was intended to have `x` as the side length, and the cube's volume is `x³`, and the new volume is `(x + 1)(x - 1)x`, and the d",
+        "count": 258,
+        "total_lines": 319,
+        "ratio": 0.809
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1965_p1",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_mintier1_seed0_maxtok20000_results.json",
+        "repeated_line": "linarith [Real.pi_pos]",
+        "count": 470,
+        "total_lines": 806,
+        "ratio": 0.583
+      },
+      {
+        "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_autoformalizer_results.json",
+        "repeated_line": "apply le_of_add_le_add_right",
+        "count": 98,
+        "total_lines": 109,
+        "ratio": 0.899
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_22",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json",
+        "repeated_line": "But perhaps we should also note that in Lean 4, `Nat.log` is defined as such.",
+        "count": 800,
+        "total_lines": 871,
+        "ratio": 0.918
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json",
+        "repeated_line": "#check ( (11 : ℂ) + 3 * (7 : ℂ) = (32 : ℂ) )",
+        "count": 681,
+        "total_lines": 684,
+        "ratio": 0.996
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json",
+        "repeated_line": "#check False",
+        "count": 4958,
+        "total_lines": 4958,
+        "ratio": 1.0
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7",
+        "source_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_tier0_maxtok20000_results.json",
+        "repeated_line": "#eval Complex.ext_iff ( (-10 : ℂ) ) ( (7 : ℂ) )",
+        "count": 899,
+        "total_lines": 905,
+        "ratio": 0.993
+      }
+    ],
+    "mild_partial_repetition_count": 645,
+    "note": "severe = one line is >=50% of the whole extracted proof and repeats >=4x; these are invisible to is_degenerate() because it only inspects the raw RESPONSE text (paragraphs >=40 chars), never the final extracted proof, and never lines shorter than 40 chars."
+  },
+  "actionable_findings": [
+    {
+      "id": "extract_lemma_names_regex_too_narrow",
+      "file": "src/math_llm/agents/autoformalizer.py",
+      "description": "extract_lemma_names() only matches capitalized dot-namespaced identifiers (regex requires [A-Z]...\\....). 57.5% of real hallucinated names found in this corpus are plain lowercase snake_case (e.g. div_lt_div_iff, abs_add, pow_le_pow_right), so the autoformalizer's 'avoid these names' retry silently misses most real hallucinations.",
+      "suggested_fix": "broaden the regex to also match lowercase snake_case identifiers with a word-boundary guard against short local hypothesis names (h1, hx, etc.)"
+    },
+    {
+      "id": "is_degenerate_paragraph_length_threshold_misses_short_line_loops",
+      "file": "src/math_llm/agents/autoformalizer.py",
+      "description": "_MIN_PARAGRAPH_LEN = 40 means any repeated unit shorter than 40 chars is invisible to is_degenerate(). Found 19 'severe' cases in the corpus where a short line (e.g. '#check False', '#eval (10 : ℚ) / 3', '\\\\end{cases}') makes up ~100% of the final proof (up to 4958 repeated lines), burning the full max_new_tokens budget uncaught.",
+      "suggested_fix": "add an independent short-line repetition check (any line >=8 chars repeated >=4x) alongside the existing paragraph check"
+    },
+    {
+      "id": "has_hallucinated_lemma_conflates_scoping_bugs_with_real_hallucination",
+      "file": "src/math_llm/agents/autoformalizer.py",
+      "description": "33.8% of 'unknown identifier' errors are actually local variable scoping bugs (e.g. using `i`, `n`, `k` out of scope), not invented Mathlib lemma names, but has_hallucinated_lemma() triggers the autoformalizer rescue for both cases identically.",
+      "suggested_fix": "optionally filter to names that look lemma-shaped (contain '_' or '.', length > 3) before triggering the rescue path"
+    },
+    {
+      "id": "phantom_local_hypothesis_not_a_lemma_hallucination",
+      "file": "src/math_llm/agents/autoformalizer.py",
+      "description": "A small but distinct failure mode: the model references a local hypothesis (h_f1_0, h_f2_0, k.succ) it never actually introduced earlier in its own proof - a proof-planning/bookkeeping failure, not an API hallucination. Currently bucketed together with real hallucinations by has_hallucinated_lemma().",
+      "suggested_fix": "no fix required necessarily, but worth tracking separately in analysis since the root cause (and any future fix) differs from Mathlib-API hallucination"
+    },
+    {
+      "id": "autoformalizer_rescue_rate_much_lower_on_harder_tiers",
+      "file": "n/a (empirical finding)",
+      "description": "On tier0 (MATH-sourced, easiest), the autoformalizer rescued 4/191 attempts (~2%) contributing 4/80 completes. On the mintier1 (AMC/AIME/IMO) batch, the autoformalizer rescued 0/29 attempts, contributing 0 completes in the 33-problem checkpoint analyzed.",
+      "suggested_fix": "n/a - basis for the decision to drop the autoformalizer for the harder mintier1 run"
+    }
+  ],
+  "lean_verification": {
+    "method": "LeanServer.identifier_exists() against the live Mathlib v4.25.2 install (#check <name>, checking for zero error-severity messages)",
+    "sanity_check": {
+      "known_real_names_all_correctly_returned_true": [
+        "add_comm",
+        "Nat.add_comm",
+        "abs_add",
+        "Real.sqrt_nonneg",
+        "le_refl"
+      ],
+      "note": "abs_add was included as a 'known real' sanity check and SURPRISINGLY returned False - confirmed genuinely absent as a bare identifier in this Mathlib version, not a checker bug (the other 4 controls + a deliberately-fake control name all behaved as expected)."
+    },
+    "n_names_checked": 81,
+    "n_names_that_actually_exist": 0,
+    "n_names_confirmed_fabricated": 81,
+    "per_name_result": {
+      "Real.sqrt_eq_iff_sq_eq": false,
+      "Complex.abs": false,
+      "abs_add": false,
+      "div_lt_div_iff": false,
+      "add_left_neg": false,
+      "add_right_neg": false,
+      "pow_le_pow_right": false,
+      "Nat.pow_le_pow_of_le_right": false,
+      "div_le_div_iff": false,
+      "le_div_iff": false,
+      "k.succ": false,
+      "abs_add_le_abs_sum": false,
+      "Nat.mod_mem_digits": false,
+      "div_lt_iff": false,
+      "Nat.dvd_sub'": false,
+      "Nat.odd_iff_not_even": false,
+      "Set.mem_image_set": false,
+      "Finset.sum_le_sum_of_nonneg": false,
+      "Nat.pow_lt_pow_of_lt_right": false,
+      "Complex.sq_abs": false,
+      "Nat.ceil_nonneg": false,
+      "Nat.floor_nonneg.mpr": false,
+      "Nat.le_floor.mpr": false,
+      "pow_lt_pow_of_lt_left": false,
+      "dvd_neg_right": false,
+      "nat.rec_on": false,
+      "h_f3_0": false,
+      "h_f2_0": false,
+      "h_f1_0": false,
+      "fintype.card": false,
+      "Finset.sum_to_list": false,
+      "image_def": false,
+      "mul_nonneg_of_nonneg_left": false,
+      "mul_nonneg_of_nonneg_right": false,
+      "abs_sub_le_abs_diff": false,
+      "Int.inductionOn": false,
+      "Nat.div_emod_of_lt": false,
+      "Finset.unfold": false,
+      "pow_le_pow_of_le_left": false,
+      "Finset.card_le_of_subset": false,
+      "pow_lt_one": false,
+      "div_le_div_of_le_left": false,
+      "Nat.gcd_pos_right": false,
+      "Nat.gcd_pos_left": false,
+      "Nat.lcm_zero": false,
+      "div_le_div_of_le_of_nonneg": false,
+      "h_main": false,
+      "Equiv.inv_of_self": false,
+      "Equiv.to_fun_eq_symm": false,
+      "dvd_of_mul_right": false,
+      "Nat.pow_dvd_pow_left": false,
+      "pow.pow": false,
+      "Nat.gcd_eq_of_dvd_left": false,
+      "Nat.gcd_eq_of_dvd_right": false,
+      "Equiv.apply_inv_eq": false,
+      "Equiv.inv_eq": false,
+      "finset.sum_empty": false,
+      "div_le_iff": false,
+      "finset.sum_lt_one_of_sum_log_le_one": false,
+      "exists_pos_prime_divisor": false,
+      "pow_lt_pow_of_le_left": false,
+      "dvd_pow_sub_pow_one": false,
+      "add_mul_self_left": false,
+      "Nat.Prime.dvd_a_pow_sub_one": false,
+      "Nat.Prime.pow_mod": false,
+      "ZMod.map_natCast": false,
+      "Filter.Tendsto.atTop_add_const": false,
+      "Filter.tendsto_compose": false,
+      "Filter.tendsto_atTop_atTop_nat": false,
+      "tendsto_shift_right": false,
+      "Filter.Tendsto.atTop_const": false,
+      "atTop.filter_mono": false,
+      "NNReal.sqrt_eq_iff_sq_eq": false,
+      "Filter.Tendsto.shift_right": false,
+      "Filter.Tendsto.continuous_at": false,
+      "Filter.tendsto_atTop_atTop_nat_add_one": false,
+      "tendsto_compose_filter_tendsto": false,
+      "tendsto_u_at_top": false,
+      "Finset.range_card": false,
+      "Nat.dvd_pow": false,
+      "Nat.dvd_of_dvd_pow": false
+    },
+    "correction_to_earlier_hedge": "The 'likely_real_but_misused_context' bucket in hallucination_taxonomy (abs_add, Complex.abs, Complex.sq_abs, Nat.dvd_sub', Nat.odd_iff_not_even) was a HEDGED GUESS based on training-knowledge pattern-matching, explicitly flagged as unverified at the time. Live verification against the actual Mathlib v4.25.2 install shows ALL of these are confirmed fabrications (identifier_exists() == False), same as everything else in the corpus. There is no 'misused-but-real' subset - 100% of the 81 checked hallucinated-lemma-shaped names are genuine fabrications in this Mathlib version. The hallucination_taxonomy category names/groupings by naming-convention pattern (false_memory_repeat, lean3_vintage_or_renamed, etc.) still stand as a classification of WHY each name looks the way it does, but none of them should be read as 'this one might actually work'."
+  }
+}

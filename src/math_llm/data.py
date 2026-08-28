@@ -4,6 +4,7 @@ Data loading for Lean proof benchmarks.
 Supports:
 - dummy: Simple test problems for verification
 - minif2f-lean4: Competition math problems from HuggingFace
+- proofnet: Undergraduate-level pure math exercises from HuggingFace
 """
 
 import random
@@ -332,12 +333,72 @@ def load_minif2f(
 
 
 # =============================================================================
+# PROOFNET - Undergraduate pure math exercises (analysis, algebra, topology)
+# =============================================================================
+
+def _proofnet_opens(src_header: str) -> str:
+    """Pull just the `open ...` lines out of a ProofNet lean4_src_header,
+    dropping the `import Mathlib` line - the shared LeanServer environment
+    already has Mathlib imported once at startup, and re-importing inside a
+    per-problem command isn't valid REPL usage."""
+    lines = [
+        line for line in src_header.splitlines()
+        if line.strip() and not line.strip().startswith("import")
+    ]
+    return "\n".join(lines)
+
+
+def load_proofnet(
+    n_samples: Optional[int] = None,
+    split: str = "all",
+) -> list[Problem]:
+    """
+    Load the ProofNet# benchmark from HuggingFace (PAug/ProofNetSharp) - a
+    corrected Lean 4 port of ProofNet's 371 undergraduate pure-math exercises
+    (real analysis, abstract algebra, topology) drawn from standard textbooks
+    (Rudin, Dummit & Foote, Munkres, etc.).
+
+    Dataset: PAug/ProofNetSharp
+    Splits: valid (185), test (186)
+
+    Args:
+        n_samples: Optional limit on number of problems returned.
+        split: "valid", "test", or "all" (default) to combine both splits.
+    """
+    print("[data] Loading proofnet (PAug/ProofNetSharp) from HuggingFace...")
+    ds = load_dataset("PAug/ProofNetSharp")
+
+    splits = ds.keys() if split == "all" else [split]
+    problems = []
+    for split_name in splits:
+        for item in ds[split_name]:
+            opens = _proofnet_opens(item["lean4_src_header"])
+            statement = opens + "\n\n" + item["lean4_formalization"].rstrip() + " sorry"
+            problems.append(Problem(
+                id=f"proofnet/{item['id']}",
+                statement=statement,
+                description=item["nl_statement"],
+                proof=item.get("nl_proof"),
+                source="proofnet",
+                metadata={"split": split_name},
+            ))
+
+    print(f"[data] Loaded {len(problems)} problems from proofnet")
+
+    if n_samples is not None:
+        problems = problems[:n_samples]
+
+    return problems
+
+
+# =============================================================================
 # DATA LOADING API
 # =============================================================================
 
 DATASETS = {
     "dummy": load_dummy,
     "minif2f-lean4": load_minif2f,
+    "proofnet": load_proofnet,
 }
 
 
