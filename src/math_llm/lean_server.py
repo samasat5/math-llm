@@ -213,10 +213,23 @@ lean_lib «LeanBench»
                         continue
 
                     buffer += line
-                    try:
-                        return json.loads(buffer)
-                    except json.JSONDecodeError:
-                        continue
+
+                    # We terminate each command with a blank line ("\n\n"
+                    # above); the REPL mirrors that and terminates its
+                    # response with a blank line too. Only attempt to parse
+                    # at that boundary, not after every line - a large/slow
+                    # response can arrive across many lines, and trying to
+                    # parse the accumulated prefix after each one risks
+                    # succeeding early on a partial-but-syntactically-valid
+                    # JSON value, silently discarding the real result that
+                    # follows on later lines. If parsing at a blank line
+                    # fails, it wasn't the real terminator (just embedded
+                    # formatting) - keep accumulating.
+                    if line == "\n":
+                        try:
+                            return json.loads(buffer)
+                        except json.JSONDecodeError:
+                            continue
 
             except Exception as e:
                 return {"error": str(e)}
