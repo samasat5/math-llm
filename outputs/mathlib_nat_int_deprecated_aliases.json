@@ -1,0 +1,217 @@
+[
+  {
+    "old": "Nat.prod_pow_pos_of_zero_not_mem_support",
+    "new": "Nat.prod_pow_pos_of_zero_notMem_support",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/BigOperators/Finsupp/Basic.lean"
+  },
+  {
+    "old": "Nat.addSubmonoid_closure_one",
+    "new": "Nat.addSubmonoidClosure_one",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Group/Submonoid/Operations.lean"
+  },
+  {
+    "old": "Int.ceil.ceil_eq_floor_add_one_iff_not_mem",
+    "new": "Int.ceil.ceil_eq_floor_add_one_iff_notMem",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Order/Floor/Ring.lean"
+  },
+  {
+    "old": "Int.abs_sign_of_nonzero",
+    "new": "Int.abs_sign_of_ne_zero",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Order/Group/Unbundled/Int.lean"
+  },
+  {
+    "old": "Int.LinearOrderedRing.cast_natAbs",
+    "new": "Nat.cast_natAbs",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Order/Ring/Cast.lean"
+  },
+  {
+    "old": "Nat.nat_sub_dvd_pow_sub_pow",
+    "new": "Nat.sub_dvd_pow_sub_pow",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Ring/GeomSum.lean"
+  },
+  {
+    "old": "Nat.nat_pow_one_sub_dvd_pow_mul_sub_one",
+    "new": "Nat.sub_one_dvd_pow_sub_one",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Algebra/Ring/GeomSum.lean"
+  },
+  {
+    "old": "Nat.Partrec.Code..rec_computable",
+    "new": "Nat.Partrec.Code..computable_recOn",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Computability/PartrecCode.lean"
+  },
+  {
+    "old": "Nat.Partrec.Code.const_prim",
+    "new": "Nat.Partrec.Code.primrec_const",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Computability/PartrecCode.lean"
+  },
+  {
+    "old": "Nat.Partrec.Code.curry_prim",
+    "new": "Nat.Partrec.Code.primrec\u2082_curry",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Computability/PartrecCode.lean"
+  },
+  {
+    "old": "Nat.Partrec.Code..evaln_prim",
+    "new": "Nat.Partrec.Code..primrec_evaln",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Computability/PartrecCode.lean"
+  },
+  {
+    "old": "Int.ediv_ediv_eq_ediv_mul",
+    "new": "Int.ediv_ediv",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Int/DivMod.lean"
+  },
+  {
+    "old": "Int.modEq_add_fac",
+    "new": "Int.add_modulus_mul_modEq_iff",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Int/ModEq.lean"
+  },
+  {
+    "old": "Int.modEq_sub_fac",
+    "new": "Int.sub_modulus_mul_modEq_iff",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Int/ModEq.lean"
+  },
+  {
+    "old": "Nat.not_mem_bitIndices_self",
+    "new": "Nat.notMem_bitIndices_self",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/BitIndices.lean"
+  },
+  {
+    "old": "Nat.bit_decomp",
+    "new": "Nat.bit_bodd_div2",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bits.lean"
+  },
+  {
+    "old": "Nat.bit_zero",
+    "new": "Nat.bit_false_zero",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bits.lean"
+  },
+  {
+    "old": "Nat.xor_cancel_right",
+    "new": "Nat.xor_xor_cancel_right",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bitwise.lean"
+  },
+  {
+    "old": "Nat.xor_cancel_left",
+    "new": "Nat.xor_xor_cancel_left",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bitwise.lean"
+  },
+  {
+    "old": "Nat.xor_eq_zero",
+    "new": "Nat.xor_eq_zero_iff",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bitwise.lean"
+  },
+  {
+    "old": "Nat.xor_ne_zero",
+    "new": "Nat.xor_ne_zero_iff",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Bitwise.lean"
+  },
+  {
+    "old": "Nat.primeFactorsList_chain",
+    "new": "Nat.isChain_cons_primeFactorsList",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Factors.lean"
+  },
+  {
+    "old": "Nat.primeFactorsList_chain_2",
+    "new": "Nat.isChain_two_cons_primeFactorsList",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Factors.lean"
+  },
+  {
+    "old": "Nat.forall_lt_succ",
+    "new": "Nat.forall_lt_succ_right",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.exists_lt_succ",
+    "new": "Nat.exists_lt_succ_right",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.mul_right_eq_self_iff",
+    "new": "Nat.mul_eq_left",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.mul_left_eq_self_iff",
+    "new": "Nat.mul_eq_right",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.eq_zero_of_double_le",
+    "new": "Nat.eq_zero_of_two_mul_le",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.eq_zero_of_le_half",
+    "new": "Nat.eq_zero_of_le_div_two",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.le_half_of_half_lt_sub",
+    "new": "Nat.le_div_two_of_div_two_lt_sub",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.half_le_of_sub_le_half",
+    "new": "Nat.div_two_le_of_sub_le_div_two",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Init.lean"
+  },
+  {
+    "old": "Nat.not_mem_of_lt_sInf",
+    "new": "Nat.notMem_of_lt_sInf",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Lattice.lean"
+  },
+  {
+    "old": "Nat.pow_le_iff_le_log",
+    "new": "Nat.le_log_iff_pow_le",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Log.lean"
+  },
+  {
+    "old": "Nat.lt_pow_iff_log_lt",
+    "new": "Nat.log_lt_iff_lt_pow",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Log.lean"
+  },
+  {
+    "old": "Nat.le_pow_iff_clog_le",
+    "new": "Nat.clog_le_iff_le_pow",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Log.lean"
+  },
+  {
+    "old": "Nat.pow_lt_iff_lt_clog",
+    "new": "Nat.lt_clog_iff_pow_lt",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Log.lean"
+  },
+  {
+    "old": "Nat.ModEq.self_mul_add",
+    "new": "Nat.ModEq.modulus_mul_add",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/ModEq.lean"
+  },
+  {
+    "old": "Nat.coe_int_ofDigits",
+    "new": "Nat.coe_ofDigits",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Digits/Defs.lean"
+  },
+  {
+    "old": "Nat.factorialBinarySplitting_eq_factorial",
+    "new": "Nat.factorial_eq_factorialBinarySplitting",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Factorial/Basic.lean"
+  },
+  {
+    "old": "Nat.factorization_eq_zero_of_non_prime",
+    "new": "Nat.factorization_eq_zero_of_not_prime",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/Data/Nat/Factorization/Defs.lean"
+  },
+  {
+    "old": "Nat.tensto_primeCounting",
+    "new": "Nat.tendsto_primeCounting",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/NumberTheory/PrimeCounting.lean"
+  },
+  {
+    "old": "Nat.not_mem_primesBelow",
+    "new": "Nat.notMem_primesBelow",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/NumberTheory/SmoothNumbers.lean"
+  },
+  {
+    "old": "Nat.smmoothNumbers_eq_factoredNumbers_primesBelow",
+    "new": "Nat.smoothNumbers_eq_factoredNumbers_primesBelow",
+    "source": "/home/satariyan/.lean-bench/.lake/packages/mathlib/Mathlib/NumberTheory/SmoothNumbers.lean"
+  }
+]

@@ -57,6 +57,15 @@ GUIDED_PROMPT_TEMPLATE = BASELINE_PROMPT_TEMPLATE + """
 
 When a case admits no integer solution, derive False with omega from the hypothesis directly. Never assert a specific value for a variable in such a branch. Remember linarith/nlinarith do not know that variables are integers; use omega for integrality reasoning."""
 
+# Targets two recurring, verified-against-Mathlib-source failure modes seen
+# specifically on amc12a_2017_p7 (in both this sweep and the original
+# 100-problem benchmark run, weeks apart): a hallucinated lemma name
+# invented every time, and a nat-cast associativity mismatch after applying
+# an induction hypothesis at a shifted index.
+PARITY_GUIDED_PROMPT_TEMPLATE = GUIDED_PROMPT_TEMPLATE + """
+
+Mathlib parity API: Nat.even_or_odd n : Even n ∨ Odd n gives the case split directly — do not derive one parity from the negation of the other. To relate them use Nat.not_even_iff_odd : ¬Even n ↔ Odd n or Nat.not_odd_iff_even. There is no Nat.odd_iff_not_even. omega cannot see inside Even/Odd; rewrite with Nat.odd_iff (n % 2 = 1) or Nat.even_iff first. After applying an induction hypothesis at k + c, run push_cast before linarith."""
+
 
 def strip_goal_turnstile(proof: str) -> str:
     """Drop a trailing `⊢` from `tac at h₁ h₂ ⊢` clauses.
@@ -92,6 +101,14 @@ VARIANTS = {
     "guided_v1_retry3": {"prompt_template": GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
     "guided_v1_retry4": {"prompt_template": GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
     "guided_v1_retry5": {"prompt_template": GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    # Parity-API + push_cast guidance, for amc12a_2017_p7's recurring
+    # hallucinated-lemma / cast-associativity failures.
+    "parity_guided_v1": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    "parity_guided_v1_retry2": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    "parity_guided_v1_retry3": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    "parity_guided_v1_retry4": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    "parity_guided_v1_retry5": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
+    "parity_guided_v1_retry6": {"prompt_template": PARITY_GUIDED_PROMPT_TEMPLATE, "strip_turnstile": True},
 }
 
 # Each entry is one (temperature, variant) run. Ones already saved in
@@ -121,6 +138,19 @@ RUN_SPECS_BY_PROBLEM = {
         {"temperature": 0.8, "variant": "guided_v1"},
         {"temperature": 0.99, "variant": "guided_v1"},
         {"temperature": 0.1, "variant": "guided_v1"},
+    ],
+    "amc12a_2017_p7": [
+        {"temperature": 0.6, "variant": "guided_v1"},
+        {"temperature": 0.6, "variant": "guided_v1_retry"},
+        {"temperature": 0.6, "variant": "guided_v1_retry2"},
+        {"temperature": 0.6, "variant": "guided_v1_retry3"},
+        {"temperature": 0.6, "variant": "guided_v1_retry4"},
+        {"temperature": 0.6, "variant": "parity_guided_v1"},
+        {"temperature": 0.6, "variant": "parity_guided_v1_retry2"},
+        {"temperature": 0.6, "variant": "parity_guided_v1_retry3"},
+        {"temperature": 0.6, "variant": "parity_guided_v1_retry4"},
+        {"temperature": 0.6, "variant": "parity_guided_v1_retry5"},
+        {"temperature": 0.6, "variant": "parity_guided_v1_retry6"},
     ],
 }
 DEFAULT_RUN_SPECS = [{"temperature": 0.6, "variant": "guided_v1"}]

@@ -1,0 +1,303 @@
+[
+  {
+    "old": "Nat.prod_pow_pos_of_zero_not_mem_support",
+    "new": "Nat.prod_pow_pos_of_zero_notMem_support",
+    "logP_old": -53.52699279785156,
+    "logP_new": -65.38463592529297,
+    "gap": 11.857643127441406
+  },
+  {
+    "old": "Nat.addSubmonoid_closure_one",
+    "new": "Nat.addSubmonoidClosure_one",
+    "logP_old": -43.042877197265625,
+    "logP_new": -44.67493438720703,
+    "gap": 1.6320571899414062
+  },
+  {
+    "old": "Int.ceil.ceil_eq_floor_add_one_iff_not_mem",
+    "new": "Int.ceil.ceil_eq_floor_add_one_iff_notMem",
+    "logP_old": -67.66730499267578,
+    "logP_new": -74.36661529541016,
+    "gap": 6.699310302734375
+  },
+  {
+    "old": "Int.abs_sign_of_nonzero",
+    "new": "Int.abs_sign_of_ne_zero",
+    "logP_old": -32.56324768066406,
+    "logP_new": -31.294523239135742,
+    "gap": -1.2687244415283203
+  },
+  {
+    "old": "Int.LinearOrderedRing.cast_natAbs",
+    "new": "Nat.cast_natAbs",
+    "logP_old": -47.261451721191406,
+    "logP_new": -25.798145294189453,
+    "gap": -21.463306427001953
+  },
+  {
+    "old": "Nat.nat_sub_dvd_pow_sub_pow",
+    "new": "Nat.sub_dvd_pow_sub_pow",
+    "logP_old": -32.909820556640625,
+    "logP_new": -21.33930206298828,
+    "gap": -11.570518493652344
+  },
+  {
+    "old": "Nat.nat_pow_one_sub_dvd_pow_mul_sub_one",
+    "new": "Nat.sub_one_dvd_pow_sub_one",
+    "logP_old": -62.09820556640625,
+    "logP_new": -31.0502986907959,
+    "gap": -31.04790687561035
+  },
+  {
+    "old": "Nat.Partrec.Code..rec_computable",
+    "new": "Nat.Partrec.Code..computable_recOn",
+    "logP_old": -79.66361999511719,
+    "logP_new": -75.23469543457031,
+    "gap": -4.428924560546875
+  },
+  {
+    "old": "Nat.Partrec.Code.const_prim",
+    "new": "Nat.Partrec.Code.primrec_const",
+    "logP_old": -66.4099349975586,
+    "logP_new": -63.14696502685547,
+    "gap": -3.262969970703125
+  },
+  {
+    "old": "Nat.Partrec.Code.curry_prim",
+    "new": "Nat.Partrec.Code.primrec\u2082_curry",
+    "logP_old": -69.71167755126953,
+    "logP_new": -72.41241455078125,
+    "gap": 2.7007369995117188
+  },
+  {
+    "old": "Nat.Partrec.Code..evaln_prim",
+    "new": "Nat.Partrec.Code..primrec_evaln",
+    "logP_old": -82.30514526367188,
+    "logP_new": -84.0363540649414,
+    "gap": 1.7312088012695312
+  },
+  {
+    "old": "Int.ediv_ediv_eq_ediv_mul",
+    "new": "Int.ediv_ediv",
+    "logP_old": -35.69438934326172,
+    "logP_new": -22.13639259338379,
+    "gap": -13.55799674987793
+  },
+  {
+    "old": "Int.modEq_add_fac",
+    "new": "Int.add_modulus_mul_modEq_iff",
+    "logP_old": -34.65142822265625,
+    "logP_new": -52.52705383300781,
+    "gap": 17.875625610351562
+  },
+  {
+    "old": "Int.modEq_sub_fac",
+    "new": "Int.sub_modulus_mul_modEq_iff",
+    "logP_old": -37.46405029296875,
+    "logP_new": -54.09321594238281,
+    "gap": 16.629165649414062
+  },
+  {
+    "old": "Nat.not_mem_bitIndices_self",
+    "new": "Nat.notMem_bitIndices_self",
+    "logP_old": -46.530181884765625,
+    "logP_new": -47.57923889160156,
+    "gap": 1.0490570068359375
+  },
+  {
+    "old": "Nat.bit_decomp",
+    "new": "Nat.bit_bodd_div2",
+    "logP_old": -23.09579086303711,
+    "logP_new": -52.633155822753906,
+    "gap": 29.537364959716797
+  },
+  {
+    "old": "Nat.bit_zero",
+    "new": "Nat.bit_false_zero",
+    "logP_old": -15.416986465454102,
+    "logP_new": -32.20476150512695,
+    "gap": 16.78777503967285
+  },
+  {
+    "old": "Nat.xor_cancel_right",
+    "new": "Nat.xor_xor_cancel_right",
+    "logP_old": -28.363500595092773,
+    "logP_new": -37.96955490112305,
+    "gap": 9.606054306030273
+  },
+  {
+    "old": "Nat.xor_cancel_left",
+    "new": "Nat.xor_xor_cancel_left",
+    "logP_old": -26.311185836791992,
+    "logP_new": -36.087974548339844,
+    "gap": 9.776788711547852
+  },
+  {
+    "old": "Nat.xor_eq_zero",
+    "new": "Nat.xor_eq_zero_iff",
+    "logP_old": -23.369007110595703,
+    "logP_new": -24.984527587890625,
+    "gap": 1.6155204772949219
+  },
+  {
+    "old": "Nat.xor_ne_zero",
+    "new": "Nat.xor_ne_zero_iff",
+    "logP_old": -27.335689544677734,
+    "logP_new": -27.343889236450195,
+    "gap": 0.008199691772460938
+  },
+  {
+    "old": "Nat.primeFactorsList_chain",
+    "new": "Nat.isChain_cons_primeFactorsList",
+    "logP_old": -52.98585510253906,
+    "logP_new": -51.043033599853516,
+    "gap": -1.9428215026855469
+  },
+  {
+    "old": "Nat.primeFactorsList_chain_2",
+    "new": "Nat.isChain_two_cons_primeFactorsList",
+    "logP_old": -59.724178314208984,
+    "logP_new": -62.004249572753906,
+    "gap": 2.280071258544922
+  },
+  {
+    "old": "Nat.forall_lt_succ",
+    "new": "Nat.forall_lt_succ_right",
+    "logP_old": -24.37249755859375,
+    "logP_new": -37.726478576660156,
+    "gap": 13.353981018066406
+  },
+  {
+    "old": "Nat.exists_lt_succ",
+    "new": "Nat.exists_lt_succ_right",
+    "logP_old": -24.365978240966797,
+    "logP_new": -30.912755966186523,
+    "gap": 6.546777725219727
+  },
+  {
+    "old": "Nat.mul_right_eq_self_iff",
+    "new": "Nat.mul_eq_left",
+    "logP_old": -31.53522491455078,
+    "logP_new": -24.68852996826172,
+    "gap": -6.8466949462890625
+  },
+  {
+    "old": "Nat.mul_left_eq_self_iff",
+    "new": "Nat.mul_eq_right",
+    "logP_old": -30.987640380859375,
+    "logP_new": -23.58228302001953,
+    "gap": -7.405357360839844
+  },
+  {
+    "old": "Nat.eq_zero_of_double_le",
+    "new": "Nat.eq_zero_of_two_mul_le",
+    "logP_old": -33.635215759277344,
+    "logP_new": -28.910707473754883,
+    "gap": -4.724508285522461
+  },
+  {
+    "old": "Nat.eq_zero_of_le_half",
+    "new": "Nat.eq_zero_of_le_div_two",
+    "logP_old": -25.021133422851562,
+    "logP_new": -26.44817543029785,
+    "gap": 1.427042007446289
+  },
+  {
+    "old": "Nat.le_half_of_half_lt_sub",
+    "new": "Nat.le_div_two_of_div_two_lt_sub",
+    "logP_old": -39.70088577270508,
+    "logP_new": -49.853614807128906,
+    "gap": 10.152729034423828
+  },
+  {
+    "old": "Nat.half_le_of_sub_le_half",
+    "new": "Nat.div_two_le_of_sub_le_div_two",
+    "logP_old": -42.82762908935547,
+    "logP_new": -39.79085159301758,
+    "gap": -3.0367774963378906
+  },
+  {
+    "old": "Nat.not_mem_of_lt_sInf",
+    "new": "Nat.notMem_of_lt_sInf",
+    "logP_old": -40.728511810302734,
+    "logP_new": -46.72523498535156,
+    "gap": 5.996723175048828
+  },
+  {
+    "old": "Nat.pow_le_iff_le_log",
+    "new": "Nat.le_log_iff_pow_le",
+    "logP_old": -31.118167877197266,
+    "logP_new": -24.14685821533203,
+    "gap": -6.971309661865234
+  },
+  {
+    "old": "Nat.lt_pow_iff_log_lt",
+    "new": "Nat.log_lt_iff_lt_pow",
+    "logP_old": -33.968719482421875,
+    "logP_new": -25.70061492919922,
+    "gap": -8.268104553222656
+  },
+  {
+    "old": "Nat.le_pow_iff_clog_le",
+    "new": "Nat.clog_le_iff_le_pow",
+    "logP_old": -44.54607009887695,
+    "logP_new": -35.964942932128906,
+    "gap": -8.581127166748047
+  },
+  {
+    "old": "Nat.pow_lt_iff_lt_clog",
+    "new": "Nat.lt_clog_iff_pow_lt",
+    "logP_old": -47.743194580078125,
+    "logP_new": -43.577003479003906,
+    "gap": -4.166191101074219
+  },
+  {
+    "old": "Nat.ModEq.self_mul_add",
+    "new": "Nat.ModEq.modulus_mul_add",
+    "logP_old": -39.15403747558594,
+    "logP_new": -45.38892364501953,
+    "gap": 6.234886169433594
+  },
+  {
+    "old": "Nat.coe_int_ofDigits",
+    "new": "Nat.coe_ofDigits",
+    "logP_old": -34.987918853759766,
+    "logP_new": -26.15461540222168,
+    "gap": -8.833303451538086
+  },
+  {
+    "old": "Nat.factorialBinarySplitting_eq_factorial",
+    "new": "Nat.factorial_eq_factorialBinarySplitting",
+    "logP_old": -54.47633361816406,
+    "logP_new": -51.78807830810547,
+    "gap": -2.6882553100585938
+  },
+  {
+    "old": "Nat.factorization_eq_zero_of_non_prime",
+    "new": "Nat.factorization_eq_zero_of_not_prime",
+    "logP_old": -43.301429748535156,
+    "logP_new": -31.675519943237305,
+    "gap": -11.625909805297852
+  },
+  {
+    "old": "Nat.tensto_primeCounting",
+    "new": "Nat.tendsto_primeCounting",
+    "logP_old": -49.41110610961914,
+    "logP_new": -45.89698791503906,
+    "gap": -3.514118194580078
+  },
+  {
+    "old": "Nat.not_mem_primesBelow",
+    "new": "Nat.notMem_primesBelow",
+    "logP_old": -35.862632751464844,
+    "logP_new": -39.11634826660156,
+    "gap": 3.2537155151367188
+  },
+  {
+    "old": "Nat.smmoothNumbers_eq_factoredNumbers_primesBelow",
+    "new": "Nat.smoothNumbers_eq_factoredNumbers_primesBelow",
+    "logP_old": -99.06195068359375,
+    "logP_new": -83.40049743652344,
+    "gap": -15.661453247070312
+  }
+]
