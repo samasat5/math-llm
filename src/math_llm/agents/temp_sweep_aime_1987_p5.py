@@ -23,6 +23,25 @@ TEMPERATURES = [0.6, 0.8, 0.99]
 OUTPUT_FILE = Path("outputs/aime_1987_p5_temperature_sweep_Pythagoras-Prover-4B_k1.json")
 
 
+def resolve_local_snapshot(model_name: str) -> str:
+    """Point straight at the already-downloaded HF cache snapshot dir.
+
+    transformers' tokenizer loading (mistral-regex patch) calls the Hub API
+    unconditionally UNLESS it detects a local path - so even with
+    HF_HUB_OFFLINE=1 (which turns that call into a hard error instead of a
+    network hang) a bare repo id still crashes. Passing the local snapshot
+    directory short-circuits that check entirely, avoiding both the crash
+    and this environment's flaky HF proxy. The dir name keeps "pythagoras"
+    in it, so is_pythagoras_model() (a plain substring check) still matches.
+    """
+    cache_name = "models--" + model_name.replace("/", "--")
+    snapshots = Path.home() / ".cache" / "huggingface" / "hub" / cache_name / "snapshots"
+    snapshot_dirs = list(snapshots.iterdir())
+    if len(snapshot_dirs) != 1:
+        raise RuntimeError(f"Expected exactly one snapshot dir in {snapshots}, found {snapshot_dirs}")
+    return str(snapshot_dirs[0])
+
+
 def main():
     problems = load_data("minif2f-lean4", None, min_tier=1)
     problem = next(p for p in problems if p.id == PROBLEM_ID)
@@ -32,8 +51,11 @@ def main():
     print("[sweep] Starting Lean server...")
     lean_server.start()
 
+    local_model_path = resolve_local_snapshot(MODEL)
+    print(f"[sweep] Using local model snapshot: {local_model_path}")
+
     agent = simple_mod.SimpleAgent(
-        model_name=MODEL,
+        model_name=local_model_path,
         lean_server=lean_server,
         max_new_tokens=MAX_NEW_TOKENS,
         k=1,
