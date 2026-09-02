@@ -7,6 +7,7 @@ No iterative refinement - just prompt -> proof -> verify.
 
 import re
 import textwrap
+from collections import deque
 from dataclasses import dataclass
 from typing import Optional
 
@@ -244,6 +245,51 @@ def extract_proof(response: str) -> str:
     return '\n'.join(proof_lines) if proof_lines else response
 
 
+class LineRepetitionStoppingCriteria:
+    """Abort generation once the last 3 completed lines are identical.
+
+    Repetition loops (restating the same `have`/`#check` line, or the same
+    `sorry`-placeholder block, verbatim over and over - a known failure mode
+    at low temperature, but observed at 0.6+ too) otherwise run all the way
+    to max_new_tokens: several minutes burned per sample for a proof that
+    was never going anywhere. Streaming the output, hashing each newly
+    completed line, and comparing the last few catches this early without
+    needing to decode the full sequence on every step.
+    """
+
+    def __init__(self, tokenizer, prompt_len: int, window: int = 10, check_every: int = 16):
+        self.tokenizer = tokenizer
+        self.prompt_len = prompt_len
+        self.check_every = check_every
+        self._last_checked_len = 0
+        self._num_lines_seen = 0
+        self._line_hashes: deque = deque(maxlen=window)
+        self.aborted = False
+
+    def __call__(self, input_ids, scores, **kwargs) -> bool:
+        cur_len = input_ids.shape[1]
+        if cur_len - self._last_checked_len < self.check_every:
+            return False
+        self._last_checked_len = cur_len
+
+        text = self.tokenizer.decode(input_ids[0, self.prompt_len:], skip_special_tokens=True)
+        lines = [line.strip() for line in text.split("\n") if line.strip()]
+        # The last line may still be mid-generation - only hash lines that
+        # are actually complete (i.e. followed by a newline already).
+        complete_lines = lines if text.endswith("\n") else lines[:-1]
+        for line in complete_lines[self._num_lines_seen:]:
+            self._line_hashes.append(hash(line))
+        self._num_lines_seen = len(complete_lines)
+
+        if len(self._line_hashes) >= 3:
+            last_three = list(self._line_hashes)[-3:]
+            if last_three[0] == last_three[1] == last_three[2]:
+                self.aborted = True
+                print("  [agent] Aborting generation: 3 identical consecutive lines (repetition loop)")
+                return True
+        return False
+
+
 class SimpleAgent:
     """
     Simple single-shot proof agent.
@@ -379,7 +425,7 @@ class SimpleAgent:
             else:
                 gen_kwargs["temperature"] = self.temperature
 
-        from transformers import TextStreamer
+        from transformers import StoppingCriteriaList, TextStreamer
 
         streamer = TextStreamer(self._tokenizer, skip_prompt=True, skip_special_tokens=True)
 
@@ -391,7 +437,11 @@ class SimpleAgent:
         for i in range(num_samples):
             if num_samples > 1:
                 print(f"  [agent] Sample {i + 1}/{num_samples}...")
-            output = self._model.generate(**inputs, **gen_kwargs, streamer=streamer)
+            repetition_stop = LineRepetitionStoppingCriteria(self._tokenizer, input_len)
+            output = self._model.generate(
+                **inputs, **gen_kwargs, streamer=streamer,
+                stopping_criteria=StoppingCriteriaList([repetition_stop]),
+            )
             response = self._tokenizer.decode(output[0][input_len:], skip_special_tokens=True)
             proof = extract(response)
             print(f"\n  [agent] Sample {i + 1} raw response:\n{textwrap.indent(response, '    ')}")
