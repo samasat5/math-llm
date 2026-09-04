@@ -1,0 +1,349 @@
+[
+  {
+    "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "hn",
+        "kind": "dangling_local_reference",
+        "context": "have h₁ : 1 / n = 0 := by have h₁ : n ≥ 2 := hn have h₂ : 1 / n = 0 := by apply Nat.div_eq_of_lt <;> omega exa"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "m_num [Nat.factorial] <;> rfl have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith [Real.sqrt_nonneg 9] have h_main : (↑3! :"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "simp [pow_succ] <;> norm_num have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith [Real.sqrt_nonneg 9] have h_main : (↑3! :"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith have h_pow : (2 : ℝ)^3 = 8 := by norm_num"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith have h_factorial : (Nat.factorial 3 : ℝ) ="
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "m_num [Nat.factorial] <;> rfl have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith [Real.sqrt_nonneg 9] have h_main : ↑3! * ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "m_num [Nat.factorial] <;> rfl have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith have h_pow : (2 : ℝ)^3 = 8 := by norm_nu"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "[Nat.cast_ofNat] <;> norm_num have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith [Real.sqrt_nonneg 9] have h_main : ↑3! * ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/mathd_algebra_536",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "m_num [Nat.factorial] <;> rfl have h_sqrt : Real.sqrt 9 = 3 := by rw [Real.sqrt_eq_iff_sq_eq] <;> norm_num <;> linarith [Real.sqrt_nonneg 9] have h_main : (↑3! :"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".factorial] <;> decide have h_inductive_step : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! → (k + 1)^2 ≤ (k + 1)! := by intro k hk h_ind have h₁ : (k + 1)! = (k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".factorial] <;> decide have h_inductive_step : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! → (k + 1)^2 ≤ (k + 1)! := by intro k hk h_ind have h₁ : k ≥ 4 := hk"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": ", 4 ≤ n → n^2 ≤ n! := by intro n hn have h₁ : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! := by intro k hk induction' hk with k hk IH · -- Base case: k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".factorial] <;> decide have h_inductive_step : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! → (k + 1)^2 ≤ (k + 1)! := by intro k hk h_ind have h₁ : (k + 1)! = (k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": "irectly. 2. **Inductive Step**: - Assume that for some `k ≥ 4`, `k² ≤ k!`. - We need to show that `(k + 1)² ≤ (k + 1)!`. - Note that `(k + 1)"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": ".factorial] <;> decide have h_inductive_step : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! → (k + 1)^2 ≤ (k + 1)! := by intro k hk h_ind have h₁ : (k + 1)! = (k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "k!",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_main : ∀ (k : ℕ), 4 ≤ k → k^2 ≤ k! := by intro k hk induction' hk with k hk IH · -- Base case: k = 4"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_pord1p1on2powklt5on2",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "omega have h₉ : (2 : ℝ) ^ (m + 1) ≥ (2 : ℝ) ^ 2 := by exact pow_le_pow_right (by norm_num) (by exact_mod_cast h₈) exact h₉ have h₈ : (1 : ℝ)"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_pord1p1on2powklt5on2",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₈ : (2 : ℝ) ^ (n + 1) ≥ (2 : ℝ) ^ 2 := by exact pow_le_pow_right (by norm_num) (by exact_mod_cast h₇) norm_num at h₈ ⊢"
+      },
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "(1 : ℝ) / 2 ^ (n + 1) ≤ (1 : ℝ) / 4 := by apply (div_le_div_iff (by positivity) (by positivity)).mpr <;> norm_cast <;>"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/induction_pord1p1on2powklt5on2",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₅₂ : (2 : ℝ) ^ n.succ ≥ (2 : ℝ) ^ 2 := by exact pow_le_pow_right (by norm_num) (by exact_mod_cast h₅₁) exact_mod_cast h₅₂"
+      },
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "th have h₆₄ : (1 : ℝ) / 2 ^ n.succ ≤ 1 / 4 := by rw [div_le_div_iff (by positivity) (by positivity)] have h₆₅ : (2 : ℝ) ^ n.succ ≥"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/numbertheory_2pownm1prime_nprime",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "pow_le_pow_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₇ : d ≥ 2 := by omega have h₈ : 2 ^ d ≥ 2 ^ 2 := by exact pow_le_pow_right (by norm_num) h₇ have h₉ : 2 ^ d - 1 ≥ 2 ^ 2 - 1 := by have h₁₀"
+      },
+      {
+        "name": "pow_lt_pow_of_lt_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "2 ^ n - 1 := by have h₈ : d < n := hd₂ have h₉ : 2 ^ d < 2 ^ n := pow_lt_pow_of_lt_left h₈ (by norm_num) have h₁₀ : 2 ^ d - 1 < 2 ^ n - 1 := by have h₁₁"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/numbertheory_2pownm1prime_nprime",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "n",
+        "kind": "dangling_local_reference",
+        "context": "have h_main : Nat.Prime n := by by_contra h -- Assume n is not prime, then there e"
+      },
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "norm_num at hd₁ <;> omega have h₇ : 2^d ≥ 2^2 := by exact Nat.pow_le_pow_of_le_right (by norm_num) h₆ have h₈ : 2^d - 1 ≥ 3 := by have h₉ : 2^d ≥ 4 :"
+      },
+      {
+        "name": "Nat.pow_lt_pow_of_lt_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": ":= by have h₇ : d < n := hd₃ have h₈ : 2^d < 2^n := by apply Nat.pow_lt_pow_of_lt_right · norm_num · linarith have h₉ : 2^d - 1 < 2^n - 1 := by"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/numbertheory_2pownm1prime_nprime",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₉ : d ≥ 2 := by omega have h₁₀ : 2 ^ d ≥ 2 ^ 2 := by exact Nat.pow_le_pow_of_le_right (by norm_num) h₉ have h₁₁ : 2 ^ d - 1 ≥ 2 ^ 2 - 1 := by have h₁₂"
+      },
+      {
+        "name": "Nat.pow_lt_pow_of_lt_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₁₀ : d < n := hd₃ have h₁₁ : 2 ^ d < 2 ^ n := by apply Nat.pow_lt_pow_of_lt_right · norm_num · exact h₁₀ have h₁₂ : 2 ^ d - 1 < 2 ^ n - 1 :="
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/numbertheory_2pownm1prime_nprime",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₆ : d ≥ 2 := by omega have h₇ : 2 ^ d ≥ 2 ^ 2 := by exact Nat.pow_le_pow_of_le_right (by norm_num) h₆ have h₈ : 2 ^ d - 1 ≥ 3 := by have h₉ : 2 ^ d ≥"
+      },
+      {
+        "name": "Nat.pow_lt_pow_of_lt_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "y have h₇ : d < n := hd₃ have h₈ : 2 ^ d < 2 ^ n := by apply Nat.pow_lt_pow_of_lt_right · norm_num · exact h₇ have h₉ : 2 ^ d - 1 < 2 ^ n - 1 := b"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/numbertheory_2pownm1prime_nprime",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₁₃ : n ≥ 1 := by linarith have h₁₄ : 2^n ≥ 2^1 := Nat.pow_le_pow_of_le_right (by norm_num) h₁₃ linarith omega"
+      }
+    ]
+  }
+]

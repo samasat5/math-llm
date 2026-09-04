@@ -21,7 +21,7 @@ import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from math_llm.agents.simple import PYTHAGORAS_HEADER
-from math_llm.agents.temp_sweep_aime_1987_p5 import PARITY_GUIDED_PROMPT_TEMPLATE, resolve_local_snapshot
+from math_llm.agents.case_study.temp_sweep_aime_1987_p5 import PARITY_GUIDED_PROMPT_TEMPLATE, resolve_local_snapshot
 from math_llm.data import load_data
 
 MODEL = "Pythagoras-LM/Pythagoras-Prover-4B"

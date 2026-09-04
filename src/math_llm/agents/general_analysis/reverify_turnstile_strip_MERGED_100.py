@@ -14,7 +14,7 @@ model/GPU needed.
 import json
 from pathlib import Path
 
-from math_llm.agents.temp_sweep_aime_1987_p5 import strip_goal_turnstile
+from math_llm.agents.case_study.temp_sweep_aime_1987_p5 import strip_goal_turnstile
 from math_llm.data import load_data
 from math_llm.lean_server import LeanServer
 

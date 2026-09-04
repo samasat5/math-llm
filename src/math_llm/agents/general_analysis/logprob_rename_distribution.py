@@ -18,7 +18,7 @@ import torch
 import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from math_llm.agents.temp_sweep_aime_1987_p5 import resolve_local_snapshot
+from math_llm.agents.case_study.temp_sweep_aime_1987_p5 import resolve_local_snapshot
 
 MODEL = "Pythagoras-LM/Pythagoras-Prover-4B"
 PREFIX = "rw ["

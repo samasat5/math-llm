@@ -66,6 +66,58 @@ PARITY_GUIDED_PROMPT_TEMPLATE = GUIDED_PROMPT_TEMPLATE + """
 
 Mathlib parity API: Nat.even_or_odd n : Even n ∨ Odd n gives the case split directly — do not derive one parity from the negation of the other. To relate them use Nat.not_even_iff_odd : ¬Even n ↔ Odd n or Nat.not_odd_iff_even. There is no Nat.odd_iff_not_even. omega cannot see inside Even/Odd; rewrite with Nat.odd_iff (n % 2 = 1) or Nat.even_iff first. After applying an induction hypothesis at k + c, run push_cast before linarith."""
 
+# amc12_2001_p2-specific: shows the model a working (but verbose/nested)
+# proof as a reference and asks it to find a more efficient one, rather than
+# leaving it to derive a strategy from scratch.
+AMC12_2001_P2_EXAMPLE_PROOF = """have h₄ : 9 * a = a * b := by
+  have h₄₁ : 10 * a + b = a * b + a + b := by
+    linarith
+  have h₄₂ : 10 * a = a * b + a := by
+    omega
+  have h₄₃ : 9 * a = a * b := by
+    ring_nf at h₄₂ ⊢
+    <;> omega
+  exact h₄₃
+
+have h₅ : b = 9 := by
+  have h₅₁ : a > 0 := by linarith
+  have h₅₂ : b = 9 := by
+    have h₅₃ : 9 * a = a * b := h₄
+    have h₅₄ : a * b = 9 * a := by linarith
+    have h₅₅ : b = 9 := by
+      apply mul_left_cancel₀ (show (a : ℕ) ≠ 0 by linarith)
+      nlinarith
+    exact h₅₅
+  exact h₅₂
+
+exact h₅"""
+
+EXAMPLE_EFFICIENT_PROMPT_TEMPLATE = BASELINE_PROMPT_TEMPLATE + """
+
+The following proof already works for this theorem:
+
+```lean4
+""" + AMC12_2001_P2_EXAMPLE_PROOF + """
+```
+
+Find a more efficient proof - shorter, fewer intermediate `have` steps, less redundant re-deriving of the same fact."""
+
+# Short (3-line) hint using Nat.eq_of_mul_eq_mul_left, on top of the plain
+# BASELINE prompt (not the longer EXAMPLE_EFFICIENT one, and no "find
+# something better" framing this time - just a hint to guide toward this
+# specific approach).
+AMC12_2001_P2_HINT_PROOF = """have h₄ : 9 * a = a * b := by omega
+have h₆ : b = 9 :=
+  (Nat.eq_of_mul_eq_mul_left h₀.1 (by linarith : a * 9 = a * b)).symm"""
+
+HINT_SHORT_PROMPT_TEMPLATE = BASELINE_PROMPT_TEMPLATE + """
+
+Hint:
+
+```lean4
+""" + AMC12_2001_P2_HINT_PROOF + """
+```"""
+
 
 def strip_goal_turnstile(proof: str) -> str:
     """Drop a trailing `⊢` from `tac at h₁ h₂ ⊢` clauses.
@@ -82,6 +134,8 @@ def strip_goal_turnstile(proof: str) -> str:
 
 VARIANTS = {
     "baseline": {"prompt_template": BASELINE_PROMPT_TEMPLATE, "strip_turnstile": False},
+    "example_efficient_v1": {"prompt_template": EXAMPLE_EFFICIENT_PROMPT_TEMPLATE, "strip_turnstile": False},
+    "hint_short_v1": {"prompt_template": HINT_SHORT_PROMPT_TEMPLATE, "strip_turnstile": False},
     "strip_turnstile_v1": {"prompt_template": BASELINE_PROMPT_TEMPLATE, "strip_turnstile": True},
     # Same config as strip_turnstile_v1 - just a different key so a fresh
     # sample can be drawn without being skipped as already-done, since the
@@ -151,6 +205,18 @@ RUN_SPECS_BY_PROBLEM = {
         {"temperature": 0.6, "variant": "parity_guided_v1_retry4"},
         {"temperature": 0.6, "variant": "parity_guided_v1_retry5"},
         {"temperature": 0.6, "variant": "parity_guided_v1_retry6"},
+    ],
+    # baseline (no prompt guidance) to match the original MERGED_100
+    # benchmark's config, at temp 0.6 - this run also captures raw_response,
+    # which the original benchmark never persisted.
+    "amc12a_2003_p25": [
+        {"temperature": 0.6, "variant": "baseline"},
+        {"temperature": 0.8, "variant": "baseline"},
+    ],
+    "amc12_2001_p2": [
+        {"temperature": 0.6, "variant": "baseline"},
+        {"temperature": 0.6, "variant": "example_efficient_v1"},
+        {"temperature": 0.6, "variant": "hint_short_v1"},
     ],
 }
 DEFAULT_RUN_SPECS = [{"temperature": 0.6, "variant": "guided_v1"}]

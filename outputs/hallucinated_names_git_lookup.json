@@ -1,0 +1,98 @@
+[
+  {
+    "bad_name": "Complex.abs",
+    "count": 6,
+    "exists_now": "Mathlib/Algebra/Order/Group/Unbundled/Abs.lean:55",
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Real.sqrt_eq_iff_sq_eq",
+    "count": 6,
+    "exists_now": null,
+    "ever_existed_in_history": "1a9e5d6776 2023-03-08 (earliest of 1 matching commits)"
+  },
+  {
+    "bad_name": "div_lt_div_iff",
+    "count": 6,
+    "exists_now": "Mathlib/Algebra/Order/Group/Unbundled/Basic.lean:659",
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "add_right_neg",
+    "count": 5,
+    "exists_now": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "add_left_neg",
+    "count": 5,
+    "exists_now": null,
+    "ever_existed_in_history": "c7c8ac380e 2023-07-03 (earliest of 2 matching commits)"
+  },
+  {
+    "bad_name": "div_le_div_iff",
+    "count": 3,
+    "exists_now": "Mathlib/Algebra/Order/Group/Unbundled/Basic.lean:539",
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "abs_add",
+    "count": 2,
+    "exists_now": null,
+    "ever_existed_in_history": "d53ae1620a 2022-12-09 (earliest of 1 matching commits)"
+  },
+  {
+    "bad_name": "abs_add_le_abs_sum",
+    "count": 2,
+    "exists_now": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Finset.sum_le_sum_of_nonneg",
+    "count": 2,
+    "exists_now": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.odd_iff_not_even",
+    "count": 1,
+    "exists_now": null,
+    "ever_existed_in_history": "234131a396 2023-01-25 (earliest of 2 matching commits)"
+  },
+  {
+    "bad_name": "pow_le_pow_right",
+    "count": 1,
+    "exists_now": "Mathlib/Algebra/Order/GroupWithZero/Unbundled/Basic.lean:438",
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "abs_sub_le_abs_diff",
+    "count": 1,
+    "exists_now": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "ln",
+    "count": 1,
+    "exists_now": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.ceil_nonneg",
+    "count": 1,
+    "exists_now": "Mathlib/Algebra/Order/Floor/Defs.lean:258",
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "div_le_div_of_le_left",
+    "count": 1,
+    "exists_now": null,
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 1 matching commits)"
+  },
+  {
+    "bad_name": "div_lt_iff",
+    "count": 1,
+    "exists_now": "Mathlib/Algebra/Order/GroupWithZero/Unbundled/Basic.lean:1106",
+    "ever_existed_in_history": null
+  }
+]
