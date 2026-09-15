@@ -207,15 +207,31 @@ def extract_proof(response: str) -> str:
 
     # Remove code blocks if present
     if "```" in response:
-        # Try to extract content from code blocks
-        match = re.search(r'```(?:lean4?|proof)?\s*\n?(.*?)\n?```', response, re.DOTALL)
-        if match:
-            response = match.group(1).strip()
+        # Take the LAST fenced block, not the first - models that reason
+        # before answering (e.g. Goedel-Prover) often emit an early
+        # ```lean4 block that just restates the problem, with the real
+        # attempt appearing in a later block after working through it.
+        matches = list(re.finditer(r'```(?:lean4?|proof)?\s*\n?(.*?)\n?```', response, re.DOTALL))
+        if matches:
+            response = matches[-1].group(1).strip()
         else:
             # Fence never closed (generation cut off mid-block) - still
             # strip the leading marker, or it survives as a literal
             # backtick token that breaks Lean's parser outright.
             response = re.sub(r"^```(?:lean4?|proof)?\s*\n?", "", response).strip()
+
+        # The fenced block itself may be the whole theorem
+        # ("theorem ... := by\n  <tactics>"), not just the tactics - pull
+        # out what follows the theorem's OWN ':=', i.e. the FIRST one, so
+        # nested 'have ... := by' sub-proofs inside the body stay intact.
+        # Strip a leading 'by' plus its same-line spaces/tabs only (NOT the
+        # newline) so the first real tactic line keeps its indentation for
+        # the later dedent() to measure a correct common margin.
+        idx = response.find(":=")
+        if idx != -1:
+            tail = re.sub(r"^\s*by\b[ \t]*", "", response[idx + 2:], count=1)
+            if tail.strip():
+                response = tail
 
     # Remove common prefixes
     prefixes = [
@@ -230,19 +246,25 @@ def extract_proof(response: str) -> str:
         if response.lower().startswith(prefix.lower()):
             response = response[len(prefix):].strip()
 
-    # Take only first meaningful lines (avoid explanations)
+    # Keep proof lines up to any trailing explanation prose, preserving
+    # each line's original indentation - Lean 4 is whitespace-sensitive, so
+    # a nested 'have ... := by' body flattened to column 0 won't parse.
+    # dedent() then removes the block's common left margin without
+    # disturbing relative nesting.
     lines = response.split('\n')
     proof_lines = []
-    for line in lines:
-        line = line.strip()
+    for raw in lines:
+        line = raw.strip()
         if not line:
+            proof_lines.append(raw)
             continue
         # Stop at explanation lines
         if line.startswith(('#', 'Note:', 'This', 'The ', 'We ')):
             break
-        proof_lines.append(line)
+        proof_lines.append(raw)
 
-    return '\n'.join(proof_lines) if proof_lines else response
+    result = textwrap.dedent('\n'.join(proof_lines)).strip()
+    return result if result else response
 
 
 class LineRepetitionStoppingCriteria:
@@ -303,7 +325,7 @@ class SimpleAgent:
         model_name: str = "Goedel-LM/Goedel-Prover-V2-8B",
         lean_server: Optional[LeanServer] = None,
         max_new_tokens: int = 256,
-        temperature: float = 0.1,
+        temperature: float = 0.95,
         gpu: Optional[int] = None,
         k: int = 1,
         autoformalizer: Optional[Autoformalizer] = None,
