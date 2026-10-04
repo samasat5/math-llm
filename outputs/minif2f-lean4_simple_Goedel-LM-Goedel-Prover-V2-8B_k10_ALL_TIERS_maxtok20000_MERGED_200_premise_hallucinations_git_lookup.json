@@ -1,0 +1,156 @@
+[
+  {
+    "bad_name": "div_lt_div_iff",
+    "count": 139,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/Group/Unbundled/Basic.lean:659",
+    "ever_existed_in_history": "439961d9bf 2022-12-06 (earliest of 22 matching commit(s))"
+  },
+  {
+    "bad_name": "div_lt_iff",
+    "count": 119,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1972Q5.lean:53",
+    "ever_existed_in_history": "c993c9367f 2021-05-10 (earliest of 136 matching commit(s))"
+  },
+  {
+    "bad_name": "lt_div_iff",
+    "count": 117,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/Archimedean/Basic.lean:415",
+    "ever_existed_in_history": "439961d9bf 2022-12-06 (earliest of 112 matching commit(s))"
+  },
+  {
+    "bad_name": "Real.sqrt_eq_iff_sq_eq",
+    "count": 103,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "1a9e5d6776 2023-03-08 (earliest of 6 matching commit(s))"
+  },
+  {
+    "bad_name": "Complex.abs",
+    "count": 68,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Analysis/Complex/Circle.lean:34",
+    "ever_existed_in_history": "a79a9dc647 2023-03-10 (earliest of 93 matching commit(s))"
+  },
+  {
+    "bad_name": "k!",
+    "count": 29,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo2019Q4.lean:17",
+    "ever_existed_in_history": "62c2af3600 2022-03-10 (earliest of 32 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.pow_le_pow_of_le_right",
+    "count": 27,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 15 matching commit(s))"
+  },
+  {
+    "bad_name": "le_div_iff",
+    "count": 11,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1972Q5.lean:61",
+    "ever_existed_in_history": "c993c9367f 2021-05-10 (earliest of 249 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.odd_iff_not_even",
+    "count": 9,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "234131a396 2023-01-25 (earliest of 28 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.pow_lt_pow_of_lt_right",
+    "count": 9,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 8 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_div_of_le_left",
+    "count": 8,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 22 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_div_iff",
+    "count": 6,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1998Q2.lean:212",
+    "ever_existed_in_history": "439961d9bf 2022-12-06 (earliest of 36 matching commit(s))"
+  },
+  {
+    "bad_name": "add_left_neg",
+    "count": 4,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Category/Ring/Colimits.lean:309",
+    "ever_existed_in_history": "adb0f6e083 2021-05-14 (earliest of 131 matching commit(s))"
+  },
+  {
+    "bad_name": "add_right_neg",
+    "count": 4,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/CategoryTheory/Triangulated/Opposite/Basic.lean:129",
+    "ever_existed_in_history": "adb0f6e083 2021-05-14 (earliest of 64 matching commit(s))"
+  },
+  {
+    "bad_name": "div_lt_div_of_lt_left",
+    "count": 4,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 7 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.pow_lt_pow_of_lt_left",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 7 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.pow_le_pow_of_le_left",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 19 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_iff",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1986Q5.lean:59",
+    "ever_existed_in_history": "80eed25047 2022-11-30 (earliest of 182 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_one_of_le",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/Field/Basic.lean:351",
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 34 matching commit(s))"
+  },
+  {
+    "bad_name": "pow_le_pow_right",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Homology/LocalCohomology.lean:130",
+    "ever_existed_in_history": "d61c95e165 2023-12-18 (earliest of 58 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.sqrt_sq",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "exists_root_of_nonconstant",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  }
+]

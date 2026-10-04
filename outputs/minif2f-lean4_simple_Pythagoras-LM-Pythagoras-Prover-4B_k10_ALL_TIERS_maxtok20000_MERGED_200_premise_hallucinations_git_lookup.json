@@ -1,0 +1,443 @@
+[
+  {
+    "bad_name": "Complex.abs",
+    "count": 94,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Analysis/Complex/Circle.lean:34",
+    "ever_existed_in_history": "a79a9dc647 2023-03-10 (earliest of 93 matching commit(s))"
+  },
+  {
+    "bad_name": "div_lt_div_iff",
+    "count": 59,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/Group/Unbundled/Basic.lean:659",
+    "ever_existed_in_history": "439961d9bf 2022-12-06 (earliest of 22 matching commit(s))"
+  },
+  {
+    "bad_name": "Real.sqrt_eq_iff_sq_eq",
+    "count": 46,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "1a9e5d6776 2023-03-08 (earliest of 6 matching commit(s))"
+  },
+  {
+    "bad_name": "k!",
+    "count": 41,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo2019Q4.lean:17",
+    "ever_existed_in_history": "62c2af3600 2022-03-10 (earliest of 32 matching commit(s))"
+  },
+  {
+    "bad_name": "abs_add",
+    "count": 32,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/NumberTheory/Modular.lean:405",
+    "ever_existed_in_history": "45f4c474a0 2022-11-14 (earliest of 54 matching commit(s))"
+  },
+  {
+    "bad_name": "pow_le_pow_right",
+    "count": 26,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Homology/LocalCohomology.lean:130",
+    "ever_existed_in_history": "d61c95e165 2023-12-18 (earliest of 58 matching commit(s))"
+  },
+  {
+    "bad_name": "add_left_neg",
+    "count": 24,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Category/Ring/Colimits.lean:309",
+    "ever_existed_in_history": "adb0f6e083 2021-05-14 (earliest of 131 matching commit(s))"
+  },
+  {
+    "bad_name": "add_right_neg",
+    "count": 24,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/CategoryTheory/Triangulated/Opposite/Basic.lean:129",
+    "ever_existed_in_history": "adb0f6e083 2021-05-14 (earliest of 64 matching commit(s))"
+  },
+  {
+    "bad_name": "ln",
+    "count": 18,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Analysis/Complex/CauchyIntegral.lean:111",
+    "ever_existed_in_history": "81e736ed58 2021-05-10 (earliest of 195 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_div_iff",
+    "count": 12,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1998Q2.lean:212",
+    "ever_existed_in_history": "439961d9bf 2022-12-06 (earliest of 36 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.pow_le_pow_of_le_right",
+    "count": 11,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 15 matching commit(s))"
+  },
+  {
+    "bad_name": "div_lt_iff",
+    "count": 6,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1972Q5.lean:53",
+    "ever_existed_in_history": "c993c9367f 2021-05-10 (earliest of 136 matching commit(s))"
+  },
+  {
+    "bad_name": "le_div_iff",
+    "count": 5,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1972Q5.lean:61",
+    "ever_existed_in_history": "c993c9367f 2021-05-10 (earliest of 249 matching commit(s))"
+  },
+  {
+    "bad_name": "ing",
+    "count": 5,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Category/ModuleCat/Presheaf.lean:358",
+    "ever_existed_in_history": "b45b7b608b 2021-05-09 (earliest of 15190 matching commit(s))"
+  },
+  {
+    "bad_name": "ZMod.nat_cast_self",
+    "count": 4,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "98f36162ca 2023-03-18 (earliest of 8 matching commit(s))"
+  },
+  {
+    "bad_name": "k.succ",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo2013Q1.lean:30",
+    "ever_existed_in_history": "0b6f3c278a 2022-12-10 (earliest of 77 matching commit(s))"
+  },
+  {
+    "bad_name": "abs_add_le_abs_sum",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.mod_mem_digits",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Complex.sq_abs",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "a79a9dc647 2023-03-10 (earliest of 7 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.ceil_nonneg",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.floor_nonneg.mpr",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.le_floor.mpr",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.pow_lt_pow_of_lt_right",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "f30d8e52eb 2022-12-16 (earliest of 8 matching commit(s))"
+  },
+  {
+    "bad_name": "u_nonneg",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Analysis/Calculus/BumpFunction/FiniteDimension.lean:252",
+    "ever_existed_in_history": "03bb20be7e 2023-06-23 (earliest of 4 matching commit(s))"
+  },
+  {
+    "bad_name": "x_nonneg",
+    "count": 3,
+    "resolves_now": false,
+    "grep_hint": "Counterexamples/TopologistsSineCurve.lean:66",
+    "ever_existed_in_history": "1a9e5d6776 2023-03-08 (earliest of 23 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.odd_iff_not_even",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "234131a396 2023-01-25 (earliest of 28 matching commit(s))"
+  },
+  {
+    "bad_name": "card",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": "Archive/Imo/Imo1987Q1.lean:17",
+    "ever_existed_in_history": "e99f68f536 2021-07-12 (earliest of 1804 matching commit(s))"
+  },
+  {
+    "bad_name": "Set.mem_image_set",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Finset.sum_le_sum_of_nonneg",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.dvd_sub'",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "573c745b2e 2022-12-12 (earliest of 6 matching commit(s))"
+  },
+  {
+    "bad_name": "Finset.card_le_of_subset",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "4c08b36f2c 2023-01-16 (earliest of 16 matching commit(s))"
+  },
+  {
+    "bad_name": "NNReal.sqrt_eq_zero_of_nonpos",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Filter.Tendsto.comp_atTop_atTop",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "exact",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": "Archive/Arithcc.lean:240",
+    "ever_existed_in_history": "b45b7b608b 2021-05-09 (earliest of 11116 matching commit(s))"
+  },
+  {
+    "bad_name": "NNReal.sqrt_eq_iff_sq_eq",
+    "count": 2,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "1a9e5d6776 2023-03-08 (earliest of 2 matching commit(s))"
+  },
+  {
+    "bad_name": "dvd_neg_right",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "nat.rec_on",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "3fe9b5924b 2022-12-23 (earliest of 3 matching commit(s))"
+  },
+  {
+    "bad_name": "fintype.card",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "8b8d89a793 2023-01-16 (earliest of 17 matching commit(s))"
+  },
+  {
+    "bad_name": "Finset.sum_to_list",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "2f8a3aa95b 2023-01-18 (earliest of 2 matching commit(s))"
+  },
+  {
+    "bad_name": "image_def",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Data/PFun.lean:348",
+    "ever_existed_in_history": "682500f484 2022-12-22 (earliest of 6 matching commit(s))"
+  },
+  {
+    "bad_name": "mul_nonneg_of_nonneg_left",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "mul_nonneg_of_nonneg_right",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "abs_sub_le_abs_diff",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Int.inductionOn",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/Group/Unbundled/Int.lean:19",
+    "ever_existed_in_history": "960dc0ee05 2022-10-27 (earliest of 17 matching commit(s))"
+  },
+  {
+    "bad_name": "f94",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "8044f03df2 2023-01-03 (earliest of 64 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.div_emod_of_lt",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Finset.unfold",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "pow_le_pow_of_le_left",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "c993c9367f 2021-05-10 (earliest of 71 matching commit(s))"
+  },
+  {
+    "bad_name": "pow_lt_one",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/Algebra/Order/GroupWithZero/Unbundled/Basic.lean:412",
+    "ever_existed_in_history": "39fe9f89b0 2022-12-15 (earliest of 28 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_div_of_le_left",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 22 matching commit(s))"
+  },
+  {
+    "bad_name": "i!",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": "Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleNumber.lean:18",
+    "ever_existed_in_history": "6bd09132c5 2023-06-03 (earliest of 2 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.gcd_pos_right",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.gcd_pos_left",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Nat.lcm_zero",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "8aa6d64b1a 2022-12-21 (earliest of 9 matching commit(s))"
+  },
+  {
+    "bad_name": "div_le_div_of_le_of_nonneg",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "172b8503d7 2022-12-19 (earliest of 15 matching commit(s))"
+  },
+  {
+    "bad_name": "simpa",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": "Archive/Arithcc.lean:316",
+    "ever_existed_in_history": "5212f0caa8 2021-07-09 (earliest of 6032 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.dvd_pow",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "c838d28fb4 2024-02-02 (earliest of 1 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.dvd_of_dvd_pow",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "pow_lt_pow_of_lt_left",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "39fe9f89b0 2022-12-15 (earliest of 19 matching commit(s))"
+  },
+  {
+    "bad_name": "ZMod.eq_iff_modEq",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": "98f36162ca 2023-03-18 (earliest of 10 matching commit(s))"
+  },
+  {
+    "bad_name": "Nat.Prime.dvd_a_pow_sub_a",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "hNNReal.sqrt.tendsto_atTop",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  },
+  {
+    "bad_name": "Filter.Tendsto.comp_atTop_atTop.mp",
+    "count": 1,
+    "resolves_now": false,
+    "grep_hint": null,
+    "ever_existed_in_history": null
+  }
+]

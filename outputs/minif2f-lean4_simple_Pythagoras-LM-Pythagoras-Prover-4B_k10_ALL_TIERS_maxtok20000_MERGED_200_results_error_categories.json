@@ -1,0 +1,250 @@
+{
+  "results_file": "outputs/minif2f-lean4_simple_Pythagoras-LM-Pythagoras-Prover-4B_k10_ALL_TIERS_maxtok20000_MERGED_200_results.json",
+  "n_total_attempts": 1176,
+  "n_complete_attempts": 120,
+  "n_noncomplete_attempts": 1056,
+  "counts": {
+    "no_goals_to_solve": 58,
+    "unknown_premise": 147,
+    "failed_to_synthesize": 44,
+    "unsolved_goals": 183,
+    "function_expected": 3,
+    "timeout": 72,
+    "invalid_scope_or_redecl": 43,
+    "syntax_error": 164,
+    "tactic_failed": 48,
+    "type_mismatch": 60,
+    "unknown_local_hypothesis": 17,
+    "sorry_placeholder": 147,
+    "recursion_depth": 18,
+    "unknown_tactic": 9,
+    "other": 4,
+    "compiled_but_incomplete_no_sorry": 39
+  },
+  "examples": {
+    "no_goals_to_solve": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\ncase h2.h\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh : 16 < x ^ 2\nh\u2081\u2082 : x ^ 2 \u2265 17\nh\u2081\u2084 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) - (30 * x ^ 2 + 517) = 0\nh\u2081\u2083 : y ^ 2 + y ^ 2 * x ^ 2 * 3 = 517 + x ^ 2 * 30\na\u271d : 516 < -1 + y ^ 2 + (y ^ 2 * x ^ 2 * 3 - x ^"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\ncase h\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh : 10 < x\nh\u2081\u2082 : x \u2265 11\nh\u2081\u2083 : y ^ 2 \u2265 0\nh\u2081\u2084 : x ^ 2 \u2265 121\na\u271d : y ^ 2 * (1 + 3 * x ^ 2) < 121 * (1 + 3 * x ^ 2)\n\u22a2 False\nfailed | linarith failed to find a contradiction\ncase h\nx y : \u2124\nh\u2080 : y ^ 2"
+      }
+    ],
+    "unknown_premise": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "Unknown identifier `dvd_neg_right` | Type mismatch: After simplification, term\n  h\u2089\n has type\n  y ^ 2 - 10 \u2223 10 - y ^ 2 + 507\nbut is expected to have type\n  y ^ 2 - 10 \u2223 507 | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No g"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "Unknown identifier `s` | unsolved goals\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2081 : (3 * x ^ 2 + 1) * y ^ 2 = 30 * x ^ 2 + 517\nh\u2082 : x \u2260 0\nh\u2083\u2081 : (3 * x ^ 2 + 1) * y ^ 2 = 30 * x ^ 2 + 517\nh\u2083\u2082 h\u2083\u2084 h\u2083\u2086 : 3 * x ^ 2 + 1 \u2223 30 * x ^ 2 + 517\n\u22a2 517 + x ^ 2 * 30 = 527 + x ^ 2 * 30 | No go"
+      }
+    ],
+    "failed_to_synthesize": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "failed to synthesize\n  HPow \u2124 \u2115 (Sort ?u.4143)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h1\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\n\u22a2 y ^ 2\n\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "unexpected end of input; expected ')', '\u2191', '\u21a5' or '\u21d1' | failed to synthesize\n  OfNat ?m.5148 2\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information\n\nHint: Additional diagnostic information may b"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.3874)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2085\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Com"
+      }
+    ],
+    "unsolved_goals": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\ncase h\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh : 2 < x\nh\u2082 : x \u2265 3\na\u271d : 20 \u2264 y ^ 2\n\u22a2 False\nfailed | linarith failed to find a contradiction\ncase h\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2081 : x \u2264 2\nh : x < -2\nh\u2083 : x \u2264 -"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Insufficient number of targets for `@le_induction` | unsolved goals\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2227 Odd n \u2192 f n = f (n - 2) + 2\nh_main : \u2200 (n : \u2115), 1 \u2264 n \u2192 f n = \u2191n + 1\n\u22a2 f 2017 = 2018 | unexpected token; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "unexpected token 'by'; expected ':=' or '|' | unsolved goals\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2227 Odd n \u2192 f n = f (n - 2) + 2\n\u22a2 f 1 + 1 = 3\n\ncase a\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115"
+      }
+    ],
+    "function_expected": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "Function expected at\n  2\nbut this term has type\n  ?m.143\n\nNote: Expected a function because this term is being applied to the argument\n  (1 + 3 * x ^ 2) | unsolved goals\ncase h1\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\n\u22a2 y ^ sorry = 30 * x ^ 2 + 517\n\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1997_p11",
+        "error": "Function expected at\n  Finset.sum_range fun k => cos ((\u2191k + 1) * \u03c0 / 180)\nbut this term has type\n  \u2211 i \u2208 Finset.range ?m.97, (fun k => cos ((\u2191k + 1) * \u03c0 / 180)) i = \u2211 i, (fun k => cos ((\u2191k + 1) * \u03c0 / 180)) \u2191i\n\nNote: Expected a function because this term is being applied to the argument\n  1 | Functio"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1964_p1_1",
+        "error": "unexpected token ':='; expected '[MOD', '[PMOD', '[SMOD' or '[ZMOD' | failed to synthesize\n  AddCommGroup \u2115\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | Function expected at\n  1\nbut this term has type\n  ?m.41\n\nNote: Expected a function "
+      }
+    ],
+    "timeout": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "mod_cast has type\n  y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nbut is expected to have type\n  y ^ 2 + 3 * x ^ 2 * y ^ 2 = 30 * x ^ 2 + 517 | mod_cast has type\n  y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nbut is expected to have type\n  y ^ 2 + 3 * x ^ 2 * y ^ 2 = 30 * x ^ 2 + 517 | (determini"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "linarith failed to find a contradiction\ncase h1.h\nf : \u2115 \u2192 \u2115 \u2192 \u2115\nh\u2080 : \u2200 (y : \u2115), f 0 y = y + 1\nh\u2081 : \u2200 (x : \u2115), f (x + 1) 0 = f x 1\nh\u2082 : \u2200 (x y : \u2115), f (x + 1) (y + 1) = f x (f (x + 1) y)\nh_f0 : \u2200 (y : \u2115), f 0 y = y + 1\nh_f1_0 : f 1 0 = 2\nh_f1_1 : f 1 1 = 3\nh3 : f 1 2 = f 0 (f 1 1)\nh5 : f 1 1 = 3\nh6 :"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 2 1\nin the target expression\n  f 2 2 = f 1 5\n\nf : \u2115 \u2192 \u2115 \u2192 \u2115\nh\u2080 : \u2200 (y : \u2115), f 0 y = y + 1\nh\u2081 : \u2200 (x : \u2115), f (x + 1) 0 = f x 1\nh\u2082 : \u2200 (x y : \u2115), f (x + 1) (y + 1) = f x (f (x + 1) y)\nh\u2081' : f 1 0 = f 0 1\nh\u2082' : f 2 0 = f 1 1\nh\u2083' : f"
+      }
+    ],
+    "invalid_scope_or_redecl": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "unsolved goals\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\n\u22a2 3 * (x ^ 2 * y ^ 2) = 588 | `aime_1987_p5` has already been declared"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2001_p9",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nf : \u211d \u2192 \u211d\nh\u2080 : \u2200 x > 0, \u2200 y > 0, f (x * y) = f x / y\nh\u2081 : f 500 = 3\n\u22a2 f 600 = 5 / 2 | `amc12_2001_p9` has already been declared"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "unexpected token '\\'; expected '{' or tactic | unsolved goals\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2227 Odd n \u2192 f n = f (n - 2) + 2\n\u22a2 f 2017 = 2018 | Invalid `end`: There is no current scope to end\n\nNote: Scopes are introduced using `namespac"
+      }
+    ],
+    "syntax_error": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      }
+    ],
+    "tactic_failed": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 1\nin the target expression\n  f 2 = 3\n\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2227 Odd n \u2192 f n = f (n - 2) + 2\n\u22a2 f 2 = 3 | Tactic `rewrite` failed: Did not find an occurrence"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "linarith failed to find a contradiction\ncase h1.h\nf : \u2115 \u2192 \u2115 \u2192 \u2115\nh\u2080 : \u2200 (y : \u2115), f 0 y = y + 1\nh\u2081 : \u2200 (x : \u2115), f (x + 1) 0 = f x 1\nh\u2082 : \u2200 (x y : \u2115), f (x + 1) (y + 1) = f x (f (x + 1) y)\ny : \u2115\nh\u2085\u2081 : f 4 0 = f 3 1\nh\u2085\u2082 : f 3 1 = f 2 (f 3 0)\nh\u2085\u2085 : f 2 0 = f 1 1\nh\u2085\u2086 : f 1 1 = f 0 (f 1 0)\nh\u2085\u2087 : f 1 0 = f "
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p25",
+        "error": "linarith failed to find a contradiction\ncase h.h1.h\na b : \u211d\nf : \u211d \u2192 \u211d\nh\u2080 : 0 < b\nh\u2081 : \u2200 (x : \u211d), f x = \u221a(a * x ^ 2 + b * x)\nh\u2082 : {x | 0 \u2264 f x} = f '' {x | 0 \u2264 f x}\nh : \u00aca = 0\na\u271d : (a - 0) * (a - -4) < (a - 0) * 0\n\u22a2 False\nfailed"
+      }
+    ],
+    "type_mismatch": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Type mismatch\n  ih (k + 1) ?m.381 ?m.382\nhas type\n  f (k + 1) = \u2191(k + 1) + 1\nbut is expected to have type\n  f (k + 1) = \u2191k + 1 + 1 | Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  Even ?m.405\nin the target expression\n  Odd (k + 2)\n\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": "ring_nf made no progress at h\u2083\u2081 | ring_nf made no progress at h\u2083\u2082 | Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided | Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `Eq.refl` does not have explicit fi"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": "Type mismatch\n  h\u2080 (x / 3)\nhas type\n  f (x / 3 / 3) = (x / 3) ^ 2 + x / 3 + 1\nbut is expected to have type\n  f (x / 3) = x * x + x + 1 | Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  x * x + x + 1\nin the target expression\n  f y = 9 * y * y + 3 * y + 1\n\nf : \u2102 \u2192 \u2102\nh\u2080 : \u2200 (x : \u2102)"
+      }
+    ],
+    "unknown_local_hypothesis": [
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  f 0 ?y\nin the target expression\n  f 1 0 = 2\n\nf : \u2115 \u2192 \u2115 \u2192 \u2115\nh\u2080 : \u2200 (y : \u2115), f 0 y = y + 1\nh\u2081 : \u2200 (x : \u2115), f (x + 1) 0 = f x 1\nh\u2082 : \u2200 (x y : \u2115), f (x + 1) (y + 1) = f x (f (x + 1) y)\n\u22a2 f 1 0 = 2 | Tactic `rewrite` failed: Did not fin"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p25",
+        "error": "Unknown identifier `h\u2081\u2082`"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1984_p1",
+        "error": "unexpected token 'in'; expected ',' | unsolved goals\ncase zero\nu : \u2115 \u2192 \u211a\nh\u2080 : \u2200 (n : \u2115), u (n + 1) = u n + 1\nh\u2081 : \u2211 k \u2208 Finset.range 98, u k.succ = 137\nn : \u2115\n\u22a2 u 1 = u 0 | Unknown identifier `h\u2082\u2081` | unsolved goals\nu : \u2115 \u2192 \u211a\nh\u2081 : \u2211 k \u2208 Finset.range 98, u k.succ = 137\nk : \u2115\nh\u2083\u2086 : u (5 + k) = 1 + u (4 "
+      }
+    ],
+    "sorry_placeholder": [
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": ""
+      }
+    ],
+    "recursion_depth": [
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": "unexpected end of input; expected ']' | Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  y \u2208 f \u207b\u00b9' {7}\nin the target expression\n  y \u2208 (f \u207b\u00b9' {7}).toFinset \u2194 y = (1 - Complex.I * \u2191\u221a3) / 3 \u2228 y = (1 + Complex.I * \u2191\u221a3) / 3\n\ncase h\nf : \u2102 \u2192 \u2102\nh\u2080 : \u2200 (x : \u2102), f (x / 3) = x ^ 2 + x + 1\nh"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected end of input | linarith failed to find a contradiction\ncase h1.h\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\na\u271d : n % 4 < 1\n\u22a2 False\nfailed | unsolved goals\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\nh2 : n "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1997_p11",
+        "error": "Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information | Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option"
+      }
+    ],
+    "unknown_tactic": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unknown tactic | linarith failed to find a contradiction\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\n\u22a2 False\nfailed | Alternative `intro` has not been provided"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unknown tactic | linarith failed to find a contradiction\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\n\u22a2 False\nfailed | Alternative `intro` has not been provided"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1984_p5",
+        "error": "unknown tactic | unsolved goals\na b : \u2115\nh\u2080 : logb 8 \u2191a + logb 4 (\u2191b ^ 2) = 5\nh\u2081 : logb 8 \u2191b + logb 4 (\u2191a ^ 2) = 7\n\u22a2 logb 4 (\u2191b ^ 2) = 2 * logb 2 \u2191b | unsolved goals\na b : \u2115\nh\u2080 : logb 8 \u2191a + logb 4 (\u2191b ^ 2) = 5\nh\u2081 : logb 8 \u2191b + logb 4 (\u2191a ^ 2) = 7\nh\u2082 : logb 4 (\u2191b ^ 2) = 2 * logb 2 \u2191b\n\u22a2 logb 4 (\u2191a ^ 2"
+      }
+    ],
+    "other": [
+      {
+        "problem_id": "minif2f-lean4/aime_1994_p3",
+        "error": "REPL process ended"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p13",
+        "error": "typeclass instance problem is stuck, it is often due to metavariables\n  PosMulMono ?m.289"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2002_p1",
+        "error": "Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided | Insufficient number of fields for `\u27e8...\u27e9` constructor: Constructor `Eq.refl` does not have explicit fields, but 2 were provided | Invalid projection: Projections are not "
+      }
+    ],
+    "compiled_but_incomplete_no_sorry": [
+      {
+        "problem_id": "minif2f-lean4/aime_1999_p11",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1963_p5",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p21",
+        "error": ""
+      }
+    ]
+  }
+}

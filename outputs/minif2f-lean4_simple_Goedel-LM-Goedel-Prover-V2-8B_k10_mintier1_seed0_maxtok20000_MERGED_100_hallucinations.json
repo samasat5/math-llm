@@ -1,0 +1,625 @@
+[
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p5",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₅",
+        "kind": "dangling_local_reference",
+        "context": "use y ^ 2 - 10 nlinarith have h₁₄ : x = 2 ∨ x = -2 := by have h₁₅ : (3 * x ^ 2 + 1 : ℤ) = 1 ∨ (3 * x ^ 2 + 1 : ℤ) = 3 ∨ (3 * x ^ 2 + 1 : ℤ)"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "· -- Case: k + 2 is odd have h₂ : Odd (k + 2) := by rw [Nat.odd_iff_not_even] exact h exact Or.inr ⟨by omega, h₂⟩ cases h₁' with"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "- Case: k + 2 is odd have h₇ : Odd (k + 2) := by rw [Nat.odd_iff_not_even] intro h rw [even_iff_two_dvd] at h om"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "h k · -- Case k = 0 (n = 1) norm_num at hk ⊢ <;> simp_all [Nat.odd_iff_not_even, Nat.even_iff, Nat.mod_eq_of_lt] <;> norm_num at * <;> linarit"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": ": ¬Even (k + 2) := h have h₄ : Odd (k + 2) := by rw [Nat.odd_iff_not_even] exact h₃ exact h₄ have h₃ : f (k + 2) = f ((k"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2017_p7",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "impossible because n is odd and 0 is not odd exfalso simp_all [Nat.odd_iff_not_even, Nat.even_iff] <;> omega | 1 => -- Base case: n = 1"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2011_p18",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "add_left_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "al 0 (x - y) with h₂ h₂ <;> simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_zero, zero_add, sub_eq_add_neg, neg_add_rev, neg_n"
+      },
+      {
+        "name": "add_right_neg",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ith h₂ h₂ <;> simp_all only [abs_of_nonneg, abs_of_nonpos, add_left_neg, add_right_neg, add_zero, zero_add, sub_eq_add_neg, neg_add_rev, neg_neg, neg_zero] <"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1960_p2",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "rm_num have h₁₁ : Real.sqrt (27 / 2) = 3 * Real.sqrt 6 / 2 := by rw [Real.sqrt_eq_iff_sq_eq (by positivity) (by positivity)] ring_nf <;> norm_num <;>"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1965_p2",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁₁",
+        "kind": "dangling_local_reference",
+        "context": "y by_contra hx -- Assume x ≠ 0 and derive a contradiction have h₁₁ : 0 < a 0 := by linarith have h₁₂ : a 1 < 0 := by linarith have h₁"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_main : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by have h₂ : a ^ 3 = 8 := by rw [sub_e"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "| inr h₃₇ => exact Or.inr (Or.inr h₃₇) exact h₃₂ have h₄ : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by rcases h₂ with (rfl | rfl | rfl) <;> rc"
+      },
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "mp [Complex.ext_iff, pow_two, pow_three, Complex.ext_iff, Complex.I_mul_I, Real.sqrt_eq_iff_sq_eq, mul_comm, mul_assoc, mul_left_comm] at h₂₁ ⊢ constructor <;>"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": ""
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 4,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": ""
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": ""
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "(show 0 ≤ 3 by norm_num)] }) exact h₃₃ exact h₃₂ have h₄ : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by have h₄₁ : a = 2 ∨ a = (-1 : ℂ) + Compl"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_main : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by have h₂ : a^3 = 8 := by rw [sub_eq_"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "| inr h₈ => exact Or.inr (Or.inr h₈) exact h₄ have h_main : Complex.abs (a - b) ≤ 2 * Real.sqrt 21 := by rcases h_a_roots with (rfl | rfl | rfl)"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₂ : Complex.abs a = 2 := by have h₂₁ : a ^ 3 = 8 := by rw [sub_eq_zero] at h₀ ex"
+      },
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "-- Case b = 4 simp [Complex.abs, Complex.normSq, pow_two, pow_three, Real.sqrt_eq_iff_sq_eq, mul_comm] <;> ring_nf <;> norm_num <;> simp_all [Complex.ext_"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2020_p15",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Complex.abs",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h_a_abs : Complex.abs a = 2 := by have h₂ : a ^ 3 = 8 := by rw [sub_eq_zero] at h₀ lin"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 3,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "structor · -- Prove that k = 97 satisfies the inequalities norm_num [div_lt_div_iff, div_lt_iff, lt_div_iff] <;> ring_nf at * <;> norm_num"
+      },
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "Prove that k = 97 satisfies the inequalities norm_num [div_lt_div_iff, div_lt_iff, lt_div_iff] <;> ring_nf at * <;> norm_num <;> lin"
+      },
+      {
+        "name": "lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ctor · -- Prove that k = 97 satisfies the inequalities norm_num [div_lt_div_iff, div_lt_iff, lt_div_iff] <;> ring_nf at * <;> norm_num"
+      },
+      {
+        "name": "div_le_div_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₇ : (112 : ℝ) / (112 + k) ≤ (112 : ℝ) / 224 := by apply div_le_div_of_le_left (by positivity) (by positivity) <;> linarith have h₈ : (112"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "/ (112 + k) ≥ 7 / 13 := by rw [ge_iff_le] rw [le_div_iff (by positivity)] nlinarith exact h₁₂ l"
+      },
+      {
+        "name": "div_le_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₁₂ : (112 : ℝ) / (112 + k) ≤ 8 / 15 := by rw [div_le_iff (by positivity)] nlinarith exact h₁₂ l"
+      },
+      {
+        "name": "lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₂₅ : 0 < (n' : ℝ) + ⌊(7 : ℝ) / 8 * n'⌋₊ := by positivity rw [lt_div_iff (by positivity)] nlinarith exact h₂₃ h"
+      },
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₃₁ : 0 < (n' : ℝ) + ⌊(7 : ℝ) / 8 * n'⌋₊ := by positivity rw [div_lt_iff (by positivity)] nlinarith exact h₂₉ h"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "· -- Prove the first inequality: 8/15 < 112 / (112 + 97) norm_num [div_lt_div_iff] <;> norm_num <;> linarith · -- Prove the second ine"
+      },
+      {
+        "name": "div_le_div_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₉ : (112 : ℝ) / (112 + k) ≤ (112 : ℝ) / 210 := by apply div_le_div_of_le_left (by positivity) (by positivity) <;> norm_num at h₈ ⊢ <;> linarit"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₀ : (112 : ℝ) / (112 + k) ≤ (112 : ℝ) / (112 + 98) := by apply div_le_div_of_le_left (by positivity) (by positivity) linarith have h₁₁ :"
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "sitivity field_simp [h₂₁.ne', h₂₂.ne'] rw [div_lt_div_iff (by positivity) (by positivity)] nlinarith [h₁₆, h₁₇, h₁₄]"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1987_p8",
+    "attempt_index": 10,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "constructor · -- Prove 8/15 < 112 / (112 + 97) norm_num [div_lt_div_iff] <;> norm_num <;> ring_nf <;> norm_num <;>"
+      },
+      {
+        "name": "div_le_div_of_le_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "₄ : (112 : ℝ) / (112 + k) ≤ (112 : ℝ) / (112 + 98) := by apply div_le_div_of_le_left (by positivity) (by positivity) <;> linarith have h₂"
+      },
+      {
+        "name": "lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "constructor · -- Prove 8/15 < 112 / (112 + 97) norm_num [div_lt_div_iff] <;> norm_num <;> ring_nf <;> norm_num <;>"
+      },
+      {
+        "name": "div_lt_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": ": (n' : ℝ) / (n' + ⌈(6 * n' : ℝ) / 7⌉₊) < 7 / 13 := by rw [div_lt_iff (by positivity)] have h₃₆ : (n' : ℝ) * 13 > 0 := by positi"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1974_p5",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_lt_div_of_lt_left",
+        "kind": "invented_lemma_or_tactic",
+        "context": "inarith have h₁₂ : a / (a + b + d) > a / (a + b + c + d) := by apply div_lt_div_of_lt_left (by positivity) (by positivity) <;> nlinarith have h₁₃ : b / (a + b"
+      },
+      {
+        "name": "div_lt_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₁₃ : a / (a + b + d) < (a + c) / (a + b + c + d) := by apply (div_lt_div_iff (by positivity) (by positivity)).mpr nlinarith [mul_pos h₄ h₅, mul_pos"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p8",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "se the fact that x^2 = 2 and x > 0 to find x apply Eq.symm rw [Real.sqrt_eq_iff_sq_eq] <;> nlinarith [Real.sq_sqrt (show 0 ≤ 2 by norm_num)] exact h₇ exac"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p8",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "sqrt 2 := by have h₅ : (Real.sqrt 2 : ℝ) ^ 2 = 2 := by norm_num [Real.sqrt_eq_iff_sq_eq] have h₆ : (Real.sqrt 2 : ℝ) ^ 3 = (Real.sqrt 2 : ℝ) ^ 2 * Real.sqrt 2"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_2006_p6",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ove the equality norm_num [Real.sqrt_eq_iff_sq_eq, mul_assoc, mul_comm, mul_left_comm, pow_three]"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1984_p6",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₁₄₉ : 2 ^ (m - 1) ≥ 2 ^ 1 := by exact Nat.pow_le_pow_of_le_right (by norm_num) h₁₄₈ exact h₁₄₉ have h₁₅₀ : 2"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1984_p6",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₇₈ : Odd a := h₁.1 rw [h₇₇] at h₇₈ norm_num [Nat.odd_iff_not_even, Nat.even_iff] at h₇₈ <;> omega exact h₇₃ have h₈ : a < 2 ^"
+      },
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": "exact h₁₃₄ have h₁₄₀ : 2 ^ (k - 1) ≥ 2 ^ 1 := by exact Nat.pow_le_pow_of_le_right (by norm_num) h₁₃₀ exact h₁₄₀ have h₁₃₀ : 2 ^ (k - 1) ≥ 2 :="
+      },
+      {
+        "name": "h₁₁₂",
+        "kind": "dangling_local_reference",
+        "context": "have h₁₁ : b < 2 ^ (m - 1) := by have h₁₁₁ : b < 2 ^ m := h₁₀ have h₁₁₂ : b < 2 ^ (m - 1) := by by_contra h₁₁₃ have h₁₁₄ : b ≥ 2 ^ (m"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1984_p6",
+    "attempt_index": 8,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.odd_iff_not_even",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₇₈ : Odd a := h₁.1 rw [h₇₇] at h₇₈ norm_num [Nat.odd_iff_not_even, Nat.even_iff] at h₇₈ <;> omega exact h₇₃ have h₈ : k ≥ 2 :="
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12b_2003_p6",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ave h₇ : 2 / r = 2 / Real.sqrt 3 := by rw [h₆] <;> field_simp [Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> nlinarith [Real.sqrt_nonneg 3, Real.sq_sqrt (show 0 ≤ 3 b"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/aime_1995_p7",
+    "attempt_index": 5,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_one_of_le",
+        "kind": "invented_lemma_or_tactic",
+        "context": "xact_mod_cast h₁₅ have h₁₆ : (m : ℝ) / n ≤ 1 := by apply div_le_one_of_le · exact_mod_cast h₁₅ · exact_mod_cast (by omega)"
+      },
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "act_mod_cast h₆ have h₁₆ : (m : ℝ) / n ≥ 28 / n := by apply (div_le_div_iff (by positivity) (by positivity)).mpr nlinarith exact h₁₆"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12b_2021_p18",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "ul, Complex.ofReal_neg, Complex.ofReal_one, Complex.ofReal_zero, Real.sqrt_eq_iff_sq_eq] <;> ring_nf <;> norm_num <;> nlinarith [Real.sq_sqrt (s"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p15",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.pow_le_pow_of_le_right",
+        "kind": "invented_lemma_or_tactic",
+        "context": ": 2 ^ 2008 ≥ 4 := by have h₅₁ : 2 ^ 2008 ≥ 2 ^ 2 := by apply Nat.pow_le_pow_of_le_right norm_num norm_num have h₅₂ : 2 ^ 2 = 4 := by norm_nu"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1988_p6",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Nat.sqrt_sq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "((a^2 + b^2) / (a * b + 1)) ^ 2 = (a^2 + b^2) / (a * b + 1) := by rw [Nat.sqrt_sq (by -- Prove that (a^2 + b^2) / (a * b + 1) is a perfect square"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2008_p25",
+    "attempt_index": 9,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "Real.sqrt_eq_iff_sq_eq",
+        "kind": "invented_lemma_or_tactic",
+        "context": "have h₅₂₃ := h₀ 10 have h₅₂₄ := h₁ 10 norm_num [h₀, h₁, Real.sqrt_eq_iff_sq_eq, sq, mul_comm, mul_assoc, mul_left_comm] at h₅₃ h₅₄ h₅₅ h₅₆ h₅₇ h₅₈ h₅₉ h₅"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1987_p6",
+    "attempt_index": 6,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "h₁",
+        "kind": "dangling_local_reference",
+        "context": "have h₂ : Nat.Prime p := by have h₂₁ : Nat.Prime (f 0) := h₁ 0 (by -- Prove that 0 ≤ Nat.floor (Real.sqrt (p / 3)) have h₂₂ : ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/amc12a_2021_p12",
+    "attempt_index": 1,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "exists_root_of_nonconstant",
+        "kind": "invented_lemma_or_tactic",
+        "context": "he fact that f is a non-constant polynomial to find a root apply exists_root_of_nonconstant -- Prove that f is non-constant intro h have"
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 2,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": ": (1 : ℝ) / k ^ 2 ≥ 1 / k := by rw [ge_iff_le] rw [div_le_div_iff] <;> nlinarith exact h₁₅ linarith exact h₈ have h_sum : ("
+      }
+    ]
+  },
+  {
+    "problem_id": "minif2f-lean4/imo_1978_p5",
+    "attempt_index": 7,
+    "source": "prover",
+    "status": "FAIL",
+    "hallucinations": [
+      {
+        "name": "div_le_div_iff",
+        "kind": "invented_lemma_or_tactic",
+        "context": "1` to prove the inequality rw [ge_iff_le] rw [div_le_div_iff] <;> nlinarith exact h₂₀ exact h₁₇ exact h₁₃ exact"
+      }
+    ]
+  }
+]
