@@ -1,0 +1,170 @@
+{
+  "results_file": "outputs/minif2f-lean4_simple_Goedel-LM-Goedel-Prover-V2-8B_k10_tier0_maxtok20000_results.json",
+  "n_total_attempts": 282,
+  "n_complete_attempts": 82,
+  "n_noncomplete_attempts": 200,
+  "counts": {
+    "syntax_error": 20,
+    "unknown_premise": 79,
+    "failed_to_synthesize": 21,
+    "unsolved_goals": 29,
+    "recursion_depth": 10,
+    "invalid_scope_or_redecl": 2,
+    "timeout": 2,
+    "sorry_placeholder": 5,
+    "tactic_failed": 10,
+    "no_goals_to_solve": 19,
+    "function_expected": 1,
+    "type_mismatch": 2
+  },
+  "examples": {
+    "syntax_error": [
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_484",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_484",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_484",
+        "error": "unexpected token 'have'; expected command"
+      }
+    ],
+    "unknown_premise": [
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_536",
+        "error": "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_536",
+        "error": "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_536",
+        "error": "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+      }
+    ],
+    "failed_to_synthesize": [
+      {
+        "problem_id": "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.327)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h_main\n\u22a2 sorry\n\nh_main : sorry\n\u22a2 \u2211 k \u2208 Finset.Icc 2 10000, 1 / \u221a\u2191k < 198"
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.654)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2081\n\u22a2 sorry\n\nh\u2081 : sorry\n\u22a2 \u2211 k \u2208 Finset.Icc 2 10000, 1 / \u221a\u2191k < 198 | unsolved goals\n"
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.695)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2081\n\u22a2 (n : \u2115) \u2192 2 \u2264 n \u2192 sorry\n\nh\u2081 : (n : \u2115) \u2192 2 \u2264 n \u2192 sorry\n\u22a2 \u2211 k \u2208 Finset.Icc 2 10"
+      }
+    ],
+    "unsolved_goals": [
+      {
+        "problem_id": "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\n\u22a2 \u2211 k \u2208 Finset.Icc 2 10000, 1 / \u221a\u2191k < 198"
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_sum1onsqrt2to1onsqrt10000lt198",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\n\u22a2 \u2211 k \u2208 Finset.Icc 2 10000, 1 / \u221a\u2191k < 198"
+      },
+      {
+        "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+        "error": "unsolved goals\ncase refl\nn! n\u271d : \u2115\nh\u2080 : 4 \u2264 n\u271d\nn : \u2115\n\u22a2 16 \u2264 n! | unsolved goals\ncase step.succ.succ.succ.succ\nn! n\u271d\u00b9 : \u2115\nh\u2080 : 4 \u2264 n\u271d\u00b9\nn\u271d n : \u2115\nIH : (n + 1 + 1 + 1 + 1) ^ 2 \u2264 n!\n\u22a2 (n + 4 + 1) ^ 2 \u2264 n!"
+      }
+    ],
+    "recursion_depth": [
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_175",
+        "error": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_236",
+        "error": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_236",
+        "error": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+      }
+    ],
+    "invalid_scope_or_redecl": [
+      {
+        "problem_id": "minif2f-lean4/induction_ineq_nsqlefactn",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nn! n : \u2115\nh\u2080 : 4 \u2264 n\n\u22a2 n ^ 2 \u2264 n! | Failed to infer type of binder `holds` | Failed to infer type of binder `statement` | Failed to infer type of binder `the` | Failed to infer type of binder `assumes` | unexpected token 'for'; expected co"
+      },
+      {
+        "problem_id": "minif2f-lean4/induction_pord1p1on2powklt5on2",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nn : \u2115\nh\u2080 : 0 < n\n\u22a2 \u220f k \u2208 Finset.Icc 1 n, (1 + 1 / 2 ^ k) < 5 / 2 | unexpected token '.'; expected command | `hypothesis` has already been declared | unexpected token '.'; expected command | `hypothesis` has already been declared | unexpec"
+      }
+    ],
+    "timeout": [
+      {
+        "problem_id": "minif2f-lean4/numbertheory_x5neqy2p4",
+        "error": "(deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | (deterministic) timeout at `whnf`, m"
+      },
+      {
+        "problem_id": "minif2f-lean4/induction_pprime_pdvdapowpma",
+        "error": "(deterministic) timeout at `\u00abtactic execution\u00bb`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | (deterministic) timeout a"
+      }
+    ],
+    "sorry_placeholder": [
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": ""
+      }
+    ],
+    "tactic_failed": [
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": "omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants."
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": "simp_all made no progress"
+      },
+      {
+        "problem_id": "minif2f-lean4/algebra_ineq_nto1onlt2m1on",
+        "error": "omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants."
+      }
+    ],
+    "no_goals_to_solve": [
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_32",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_32",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_numbertheory_32",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      }
+    ],
+    "function_expected": [
+      {
+        "problem_id": "minif2f-lean4/induction_pprime_pdvdapowpma",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\np a : \u2115\nh\u2080 : 0 < a\nh\u2081 : Nat.Prime p\n\u22a2 p \u2223 a ^ p - a | unexpected token ','; expected ':' | unexpected token '`'; expected ':=', 'where' or '|' | Function expected at\n  it\nbut this term has type\n  ?m.1\n\nNote: Expected a function because th"
+      }
+    ],
+    "type_mismatch": [
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_31",
+        "error": "Application type mismatch: The argument\n  h\u2085\u2081\nhas type\n  Continuous fun y => NNReal.sqrt (x + y)\nbut is expected to have type\n  Filter.Tendsto ?m.542 ?m.544 Filter.atTop\nin the application\n  Filter.Tendsto.comp h\u2085\u2080 h\u2085\u2081 | Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reac"
+      },
+      {
+        "problem_id": "minif2f-lean4/mathd_algebra_31",
+        "error": "Application type mismatch: The argument\n  Filter.Tendsto u Filter.atTop (\ud835\udcdd 9)\nhas type\n  Prop\nbut is expected to have type\n  NNReal\nin the application\n  \ud835\udcdd (Filter.Tendsto u Filter.atTop (\ud835\udcdd 9)) | Application type mismatch: The argument\n  Filter.Tendsto u Filter.atTop (\ud835\udcdd 9)\nhas type\n  Prop\nbut is expe"
+      }
+    ]
+  }
+}

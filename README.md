@@ -1,77 +1,38 @@
-# Lean Proof Benchmark
+# math-llm: dissecting Lean provers
 
-Benchmark for LLM agents on Lean 4 theorem proving.
+
+One-shot and few-shots inference theorem generation by Pythagoras prover 4B and Godel prover 8B.
+
 
 ## Setup
 
 ```bash
 # Prerequisites: Python 3.10+, Poetry, Elan (Lean version manager)
-
-# Install
 make install
-
-# Setup Lean server with Mathlib (~2GB, 10-20 min)
-make lean-server
+make lean-server   # Lean + Mathlib + REPL (~2GB, 10-20 min)
 ```
 
-## Usage
+## Running a benchmark
 
 ```bash
-# Quick test (both agents on dummy data)
-make test
-
-# Specific benchmarks: <dataset>-<agent>
-make dummy-simple       # Simple agent on dummy
-make dummy-tool         # Tool agent on dummy
-make minif2f-simple     # Simple agent on minif2f-lean4 (10 samples)
-make minif2f-tool       # Tool agent on minif2f-lean4 (10 samples)
-
-# Custom runs
-python -m math_llm <dataset> <agent> [--samples N] [--model MODEL]
+python -m math_llm <dataset> simple [--model M] [--k K] [--tier T | --min-tier T] \
+    [--seed S] [--samples N] [--max-tokens N] [--batch-size B]
 ```
 
-## Agents
+The report runs used `--k 10 --max-tokens 20000`, with `--tier 0` (Tier 0) or
+`--min-tier 1 --seed 0 --samples 100` (Tier 1). See `scripts/run_tier0_simple.sh`.
 
-- **Simple**: Single-shot proof generation
-- **Tool**: Iterative proof with Lean feedback (generates tactics step by step)
+## Where each result comes from
 
-## Datasets
+| Report | Code | Data (`outputs/`) |
+|---|---|---|
+| Table 4.1, pass@10 | `src/math_llm/cli.py`, `agents/simple.py` | Pythagoras: `*Pythagoras*_k10_tier0_*_results.json` + `remaining/` (Tier 0), `*Pythagoras*_MERGED_100_results.json` (Tier 1). Goedel: `*Goedel*_k10_tier0_*_results.json`, `*Goedel*_MERGED_100_results.json` |
+| Tier 1 merges | `scripts/merge_mintier1_100.py` (Goedel) | partial runs `*_mintier1_seed0_*_results.json`, `*_partial31_backup.json`, `*Pythagoras*_mintier1_seed0_*_autoformalizer_results.json` |
+| Fig. 4.1, failure taxonomy | `scripts/categorize_errors.py` | `*_error_categories.json`, `*_error_histogram.png`, `*_MERGED_100_failures_*.json`, `*_incomplete_non_sorry.json` |
+| §2.4, Table B.1, Fig. B.1 (unknown identifiers) | `LeanServer.identifier_exists` | `failure_taxonomy_and_hallucination_analysis.json`, `hallucinated_names_lean_verification.json`, `*_MERGED_100_hallucinations.json` |
+| Fig. B.2 (`sorry` proofs) | | `*_MERGED_100_sorry_cheats.json` |
+| App. B.4.1, hints on `aime_1987_p5` | `agents/case_study/` (`temp_sweep`, `prefix_line_sweep`, `prefix_conditioned`) | `aime_1987_p5_temperature_sweep_*.json` (prompt guidance), `aime_1987_p5_prefix_line_sweep_*` |
+| App. B.4.2–4.3, `mathd_numbertheory_188` | `scripts/*_challenge_mathd_numbertheory_188.py` | `mathd_numbertheory_188_*_challenge_*.json` |
+| App. B.1, RL-only training | `src/math_llm/training/` (GRPO) | |
 
-- **dummy**: 10 simple test problems
-- **minif2f-lean4**: ~488 competition math problems (IMO, AMC, AIME)
-
-## Example Output
-
-```
-$ make dummy-simple
-
-============================================================
-Lean Proof Benchmark
-============================================================
-Dataset: dummy
-Agent: simple
-Model: Qwen/Qwen2.5-7B-Instruct
-============================================================
-
-[1/10] dummy/add_one
-  Statement: theorem add_one : 1 + 1 = 2 := by sorry...
-  Result: COMPLETE (35.62s)
-  Proof: rfl...
-
-[2/10] dummy/mul_comm
-  Statement: theorem mul_comm_example : 2 * 3 = 3 * 2 := by sorry...
-  Result: COMPLETE (1.63s)
-  Proof: ring...
-
-...
-
-============================================================
-RESULTS
-============================================================
-Total problems: 10
-Successful: 6 (60.0%)
-Total time: 171.09s
-============================================================
-```
-
-Results saved to `outputs/<dataset>_<agent>_results.json`
+Run logs (git-ignored) are in `logs/`.

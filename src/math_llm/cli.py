@@ -6,9 +6,7 @@ Usage:
 
 Examples:
     python -m math_llm dummy simple
-    python -m math_llm dummy tool
     python -m math_llm minif2f-lean4 simple --samples 10
-    python -m math_llm minif2f-lean4 tool --samples 10
 """
 
 import argparse
@@ -20,7 +18,7 @@ from typing import Optional
 
 from math_llm.data import load_data, list_datasets
 from math_llm.lean_server import LeanServer
-from math_llm.agents import SimpleAgent, ToolAgent, Autoformalizer
+from math_llm.agents import SimpleAgent, Autoformalizer
 from math_llm.training.config import TrainingConfig
 
 def run_benchmark(
@@ -36,6 +34,7 @@ def run_benchmark(
     min_tier: Optional[int] = None,
     seed: Optional[int] = None,
     max_new_tokens: Optional[int] = None,
+    batch_size: int = 4,
     autoformalizer_model: Optional[str] = None,
 ) -> dict:
     """
@@ -43,7 +42,7 @@ def run_benchmark(
 
     Args:
         dataset: Dataset name ('dummy' or 'minif2f-lean4')
-        agent_type: Agent type ('simple' or 'tool')
+        agent_type: Agent type ('simple')
         n_samples: Number of samples (None = all)
         model_name: Model to use
         output_dir: Directory for output files
@@ -69,6 +68,7 @@ def run_benchmark(
     print(f"Tier: {tier if tier is not None else (f'>={min_tier}' if min_tier is not None else 'all')}")
     print(f"Pass@k: {k}")
     print(f"Max new tokens: {max_new_tokens or 'agent default'}")
+    print(f"Batch size: {batch_size}")
     print(f"Autoformalizer: {autoformalizer_model or 'disabled'}")
     print(f"{'='*60}\n")
 
@@ -87,11 +87,10 @@ def run_benchmark(
         agent_kwargs["max_new_tokens"] = max_new_tokens
 
     if agent_type == "simple":
+        agent_kwargs["batch_size"] = batch_size
         if autoformalizer_model:
             agent_kwargs["autoformalizer"] = Autoformalizer(model_name=autoformalizer_model, gpu=gpu)
         agent = SimpleAgent(**agent_kwargs)
-    elif agent_type == "tool":
-        agent = ToolAgent(**agent_kwargs)
     # elif agent_type == "grpo":
     #     agent = Policy(
     #         model_name=TrainingConfig.model_name,
@@ -99,7 +98,7 @@ def run_benchmark(
     #         gpu=gpu,
     #     )
     else:
-        raise ValueError(f"Unknown agent type: {agent_type}. Use 'simple' or 'tool'")
+        raise ValueError(f"Unknown agent type: {agent_type}. Use 'simple'")
 
     # Output path (computed upfront so we can save incrementally as we go)
     output_path = Path(output_dir)
@@ -219,9 +218,7 @@ def main():
         epilog="""
 Examples:
   python -m math_llm dummy simple           # Test simple agent on dummy data
-  python -m math_llm dummy tool             # Test tool agent on dummy data
   python -m math_llm minif2f-lean4 simple --samples 10
-  python -m math_llm minif2f-lean4 tool --samples 10
         """,
     )
 
@@ -232,7 +229,7 @@ Examples:
     )
     parser.add_argument(
         "agent",
-        choices=["simple", "tool", "grpo"],
+        choices=["simple"],
         help="Agent type to use",
     )
     parser.add_argument(
@@ -311,6 +308,12 @@ Examples:
         help="Max new tokens to generate per sample (default: agent default)",
     )
     parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=4,
+        help="Batch size for batched decoding during proof generation (default: 4)",
+    )
+    parser.add_argument(
         "--autoformalizer-model",
         type=str,
         default=None,
@@ -321,7 +324,6 @@ Examples:
             "Example: Qwen/Qwen2.5-Coder-7B-Instruct"
         ),
     )
-
     args = parser.parse_args()
 
     run_benchmark(
@@ -337,6 +339,7 @@ Examples:
         min_tier=args.min_tier,
         seed=args.seed,
         max_new_tokens=args.max_tokens,
+        batch_size=args.batch_size,
         autoformalizer_model=args.autoformalizer_model,
     )
 

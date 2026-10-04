@@ -1,9 +1,22 @@
+# Archived material not used in the internship report (kept locally only)
+archive/
+
+# Raw stdout logs for kept/successful experiments - the JSON outputs under
+# outputs/ are the actual data of record; these are reproducibility artifacts
+# worth keeping locally but not worth pushing. Distinct from archive/logs/,
+# which holds logs for failed/discarded/superseded attempts.
+logs/
+
+# Personal internship report PDF - reference document, not repo content.
+internshipreport_sorbonne_format*.pdf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
 
 
+.claude/
 # outputs/
 
 # C extensions
@@ -189,7 +202,8 @@ cython_debug/
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #  and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
+.claude/
 
 # Ruff stuff:
 .ruff_cache/

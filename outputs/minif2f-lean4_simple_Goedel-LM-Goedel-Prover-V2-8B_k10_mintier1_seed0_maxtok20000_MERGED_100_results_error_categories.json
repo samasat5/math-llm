@@ -1,0 +1,220 @@
+{
+  "results_file": "outputs/minif2f-lean4_simple_Goedel-LM-Goedel-Prover-V2-8B_k10_mintier1_seed0_maxtok20000_MERGED_100_results.json",
+  "n_total_attempts": 718,
+  "n_complete_attempts": 35,
+  "n_noncomplete_attempts": 683,
+  "counts": {
+    "no_goals_to_solve": 44,
+    "invalid_scope_or_redecl": 13,
+    "unsolved_goals": 171,
+    "timeout": 57,
+    "unknown_local_hypothesis": 3,
+    "syntax_error": 124,
+    "tactic_failed": 64,
+    "unknown_premise": 38,
+    "sorry_placeholder": 37,
+    "recursion_depth": 28,
+    "type_mismatch": 12,
+    "failed_to_synthesize": 55,
+    "function_expected": 30,
+    "unknown_tactic": 7
+  },
+  "examples": {
+    "no_goals_to_solve": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\nx y : \u2124\nh\u2080 h\u2081 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2082 : x ^ 2 \u2265 0\nh\u2083 : y ^ 2 \u2265 0\nh : 169 < x ^ 2\nh\u2085 : x ^ 2 \u2265 170\nh\u2086 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2087 : y ^ 2 \u2265 0\nh\u2088 : x ^ 2 \u2265 170\nh\u2089 : 3 * (x ^ 2 * y ^ 2) \u2265 3 * (170 * y ^ 2)\n\u22a2 Fal"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\ncase h\nx y : \u2124\nh\u2080 h\u2081 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2082 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh : 10 < x\nh\u2084 : x \u2265 11\nh\u2085 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh\u2086 : y ^ 2 \u2265 0\nh\u2087 : x ^ 2 \u2265 121\nh\u2088 : y ^ 2 * (1 + 3 * x ^ 2) \u2265 y ^ 2 * "
+      }
+    ],
+    "invalid_scope_or_redecl": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nx y : \u2124\nh\u2080 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\n\u22a2 3 * (x ^ 2 * y ^ 2) = 588 | unexpected token '\\'; expected '_', 'let', identifier or term | unexpected token '\\'; expected ':' | invalid 'include', variable `negative` has not "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1988_p3",
+        "error": "unexpected token '#'; expected command | unknown constant 'that' | unexpected token; expected command | invalid 'include', variable `the` has not been declared in the current scope | unexpected token; expected command | invalid 'include', variable `any` has not been declared in the current scope | u"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1988_p3",
+        "error": "unexpected token '#'; expected command | unexpected token ','; expected ':=', 'where' or '|' | unexpected token ','; expected identifier | unexpected token ')'; expected ':' | invalid 'include', variable `these` has not been declared in the current scope | unexpected token '.'; expected command | in"
+      }
+    ],
+    "unsolved_goals": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\nx y : \u2124\nh\u2080 h\u2081 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2082 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh : 4 < x\nh\u2084 : x \u2265 5\nh\u2085 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh\u2086 : y ^ 2 \u2265 0\nh\u2087 : 1 + 3 * x ^ 2 > 0\nh\u2088 : y ^ 2 \u2264 30 * x ^ 2 + 517\nh\u2089 : y ^ 2 *"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\nx y : \u2124\nh\u2080 h\u2081 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2082 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh : 10 < x\nh\u2084 : x \u2265 11\nh\u2085 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh\u2086 : y ^ 2 \u2265 0\nh\u2087 : 1 + 3 * x ^ 2 > 0\nh\u2088 : y ^ 2 * (1 + 3 * x ^ 2) \u2265 0\n\u22a2 False"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "unsolved goals\ncase step.succ.zero\nf : \u2115 \u2192 \u211d\nn : \u2115\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2192 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2192 Odd n \u2192 f n = f (n - 2) + 2\nIH : f 1 = 2\n\u22a2 f 3 = 2 * 2"
+      }
+    ],
+    "timeout": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "(deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | (deterministic) timeout at `\u00abtactic "
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "linarith failed to find a contradiction\nx y : \u2124\nh\u2080 h\u2081 : y ^ 2 + 3 * (x ^ 2 * y ^ 2) = 30 * x ^ 2 + 517\nh\u2082 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh : 20 < x\nh\u2084 : x \u2265 21\nh\u2085 : y ^ 2 * (1 + 3 * x ^ 2) = 30 * x ^ 2 + 517\nh\u2086 : y ^ 2 \u2265 0\nh\u2087 : 1 + 3 * x ^ 2 > 0\nh\u2088 h\u2089 : y ^ 2 \u2264 30 * x ^ 2 + 517\nh\u2081\u2080 : y"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information | Tactic `simp` failed with a nested error:\n(deterministic) timeout at `whnf`, maximum number of hea"
+      }
+    ],
+    "unknown_local_hypothesis": [
+      {
+        "problem_id": "minif2f-lean4/aime_1987_p5",
+        "error": "No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to be solved | No goals to "
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1965_p2",
+        "error": "linarith failed to find a contradiction\nx y z : \u211d\na : \u2115 \u2192 \u211d\nh\u2080 : 0 < a 0 \u2227 0 < a 4 \u2227 0 < a 8\nh\u2081 : a 1 < 0 \u2227 a 2 < 0\nh\u2082 : a 3 < 0 \u2227 a 5 < 0\nh\u2083 : a 6 < 0 \u2227 a 7 < 0\nh\u2084 : 0 < a 0 + a 1 + a 2\nh\u2085 : 0 < a 3 + a 4 + a 5\nh\u2086 : 0 < a 6 + a 7 + a 8\nh\u2087 : a 0 * x + a 1 * y + a 2 * z = 0\nh\u2088 : a 3 * x + a 4 * y + a"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1987_p6",
+        "error": "Unknown identifier `h\u2081` | Invalid rewrite argument: Expected an equality or iff proof or definition name, but `h\u2080 ?k ?a\u271d` is a proof of\n  Nat.Prime (f ?k) | Invalid rewrite argument: Expected an equality or iff proof or definition name, but `h\u2080 ?k ?a\u271d` is a proof of\n  Nat.Prime (f ?k) | Unknown iden"
+      }
+    ],
+    "syntax_error": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2003_p24",
+        "error": "unexpected token 'have'; expected command"
+      }
+    ],
+    "tactic_failed": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "linarith failed to find a contradiction\ncase inr.h1.h\nf : \u2115 \u2192 \u211d\nn\u271d n : \u2115\nh\u2085 : n % 2 = 1\nih : \u2200 m < 2 + n, 1 \u2264 m \u2192 f m = 1 + \u2191m\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2192 n % 2 = 1 \u2192 f n = 2 + f (n - 2)\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2192 n % 2 = 0 \u2192 f n = 1 + f (n - 1)\nh\u2080 : True\na\u271d : 2 + f n < 3 + \u2191n\n\u22a2 False\nfailed"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  a \u2265 0\nwhere\n a := \u2191n"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "linarith failed to find a contradiction\ncase h2.h\nf : \u2115 \u2192 \u2115 \u2192 \u2115\nh\u2080 : \u2200 (y : \u2115), f 0 y = y + 1\nh\u2081 : \u2200 (x : \u2115), f (x + 1) 0 = f x 1\nh\u2082 : \u2200 (x y : \u2115), f (x + 1) (y + 1) = f x (f (x + 1) y)\nh\u2084 : f 1 1 = 3\nh\u2085\u2081 : f 2 1 = f 1 (f 2 0)\nh\u2085\u2082 : f 2 0 = 3\nh\u2085\u2085 : f 1 3 = f 0 (f 1 2)\nh\u2085\u2086 : f 1 2 = 4\nh\u2085\u2088 : f 0 4 = 5"
+      }
+    ],
+    "unknown_premise": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Unknown constant `Nat.odd_iff_not_even` | omega could not prove the goal:\nNo usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants. | Type mism"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "Type mismatch: After simplification, term\n  h\u2083\n has type\n  f (k + 1) = \u2191k + 1 + 1\nbut is expected to have type\n  f (k + 1) = \u2191k + 2 | Unknown constant `Nat.odd_iff_not_even` | Type mismatch: After simplification, term\n  h\u2084\n has type\n  0 < k \u2192 f k = \u2191k + 1\nbut is expected to have type\n  f k = \u2191k + 1 "
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2017_p7",
+        "error": "unsolved goals\ncase intro\nf : \u2115 \u2192 \u211d\nh\u2080 : f 1 = 2\nh\u2081 : \u2200 (n : \u2115), 1 < n \u2227 Even n \u2192 f n = f (n - 1) + 1\nh\u2082 : \u2200 (n : \u2115), 1 < n \u2227 Odd n \u2192 f n = f (n - 2) + 2\nn k : \u2115\nhk : n = 2 * k + 1\n\u22a2 f n = \u2191n + 1 | No goals to be solved | Unknown constant `Nat.odd_iff_not_even`"
+      }
+    ],
+    "sorry_placeholder": [
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": ""
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": ""
+      }
+    ],
+    "recursion_depth": [
+      {
+        "problem_id": "minif2f-lean4/imo_1981_p6",
+        "error": "Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information | Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p4",
+        "error": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2020_p4",
+        "error": "maximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+      }
+    ],
+    "type_mismatch": [
+      {
+        "problem_id": "minif2f-lean4/amc12_2000_p15",
+        "error": "Type mismatch: After simplification, term\n  h\u2083\n has type\n  f y = 7\nbut is expected to have type\n  f (3 * (y / 3)) = 7 | unsolved goals\nf : \u2102 \u2192 \u2102\nh\u2081 : Fintype \u2191(f \u207b\u00b9' {7})\ny : \u2102\nh\u2084 : (f y).re = 7 \u2227 (f y).im = 0\nh\u2080 : \u2200 (x : \u2102), (f (x * 3\u207b\u00b9)).re = 1 + x.re + (x.re * x.re - x.im * x.im) \u2227 (f (x * 3\u207b\u00b9))."
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12b_2020_p6",
+        "error": "linarith failed to find a contradiction\ncase h1.h\nn! : \u211d\nn : \u2115\nh\u2080 : 9 \u2264 n\nh\u2082 : (n + 2)! = (n + 2) * (n + 1)!\nh\u2083 : (n + 1)! = (n + 1) * n !\nh\u2085 : (\u2191n + 2) * \u2191(n + 1)! - \u2191(n + 1)! = (\u2191n + 1) * \u2191(n + 1)!\nh\u2088 : (n + 1)! = (n + 1) * n !\na\u271d : \u2191(n * n ! + n !) < \u2191n ! * (\u2191n + 1)\n\u22a2 False\nfailed | Type mismatch"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1991_p9",
+        "error": "Type mismatch: After simplification, term\n  hq\n has type\n  \u2191q = sin x\nbut is expected to have type\n  sin x = \u2191q | unsolved goals\nx : \u211d\nm : \u211a\nh\u2080 : 1 / cos x + tan x = 22 / 7\nh\u2081 : 1 / sin x + 1 / tan x = \u2191m\nh_cos_ne_zero : cos x \u2260 0\nh_sin_ne_zero : sin x \u2260 0\nh\u2082 : 1 + sin x = 22 / 7 * cos x\nq : \u211a\nh\u2083 : "
+      }
+    ],
+    "failed_to_synthesize": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.3857)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2085\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Com"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.3887)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2085\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Com"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token 'in'; expected ',' | failed to synthesize\n  AddCommMonoid (Sort ?u.1634)\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command. | unsolved goals\ncase h\u2084\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Com"
+      }
+    ],
+    "function_expected": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\n\u22a2 n = 97 | unexpected token '`'; expected ':=', 'where' or '|' | Function expected at\n  If\nbut this term has type\n  ?m.1\n\nNote: Expected a function becau"
+      },
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\n\u22a2 n = 97 | unexpected token '`'; expected ':=', 'where' or '|' | failed to synthesize\n  Neg (Sort ?u.809)\n\nHint: Additional diagnostic information may be"
+      },
+      {
+        "problem_id": "minif2f-lean4/aime_1997_p11",
+        "error": "unexpected token '#'; expected '{' or tactic | unsolved goals\nx : \u211d\nh\u2080 : x = (\u2211 n \u2208 Finset.Icc 1 44, cos (\u2191n * \u03c0 / 180)) / \u2211 n \u2208 Finset.Icc 1 44, sin (\u2191n * \u03c0 / 180)\n\u22a2 \u230a100 * x\u230b = 241 | unexpected token; expected ':' | unexpected token ','; expected ':' | expected token | Function expected at\n  `cos\n"
+      }
+    ],
+    "unknown_tactic": [
+      {
+        "problem_id": "minif2f-lean4/amc12a_2009_p15",
+        "error": "unknown tactic | unsolved goals\nn : \u2115\nh\u2080 : 0 < n\nh\u2081 : \u2211 k \u2208 Finset.Icc 1 n, \u2191k * Complex.I ^ k = 48 + 49 * Complex.I\n\u22a2 n = 97"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1993_p5",
+        "error": "unknown tactic | unsolved goals\n\u22a2 \u2203 f, f 1 = 2 \u2227 \u2200 (n : \u2115), f (f n) = f n + n \u2227 \u2200 (n : \u2115), f n < f (n + 1)"
+      },
+      {
+        "problem_id": "minif2f-lean4/imo_1969_p2",
+        "error": "unknown tactic | unsolved goals\nm n : \u211d\nk : \u2115\na : \u2115 \u2192 \u211d\ny : \u211d \u2192 \u211d\nh\u2080 : 0 < k\nh\u2081 : \u2200 (x : \u211d), y x = \u2211 i \u2208 Finset.range k, cos (a i + x) / 2 ^ i\nh\u2082 : y m = 0\nh\u2083 : y n = 0\n\u22a2 \u2203 t, m - n = \u2191t * \u03c0"
+      }
+    ]
+  }
+}
